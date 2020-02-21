@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="Practise like you never won, perform like you never lost!">
 <meta name="theme-color" content="#000">
-<title>关于 | xiaoh的博客</title>
+<title>洛谷 P1494/ACWing 251 小Z的袜子 题解 | xiaoh的博客</title>
 <link rel="shortcut icon" href="https://xiaoh105.github.io/favicon.ico?v=1582267654765">
 <link rel="stylesheet" href="https://xiaoh105.github.io/styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="关于" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="洛谷 P1494/ACWing 251 小Z的袜子 题解" />
+    <meta name="keywords" content="莫队,分块,数据结构" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -186,10 +186,25 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-<li><a href="#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81">👨‍💻 博主是谁</a></li>
-<li><a href="#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD">⛹ 兴趣爱好</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80">📬 联系我呀</a></li>
+<li>
+<ul>
+<li><a href="#%E6%B4%9B%E8%B0%B7-p1494">洛谷 P1494</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F">题意</a>
+<ul>
+<li><a href="#%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AA%E6%9C%89n%E4%B8%AA%E6%95%B01n5e4%E7%9A%84%E5%BA%8F%E5%88%97c1cin-%E6%9C%89m%E4%B8%AA%E8%AF%A2%E9%97%AE1m5e4%E6%AF%8F%E6%AC%A1%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AA%E5%8C%BA%E9%97%B4lr%E6%B1%82%E7%BB%99%E5%8C%BA%E9%97%B4%E4%B8%AD%E4%BB%BB%E5%8F%96%E4%B8%A4%E4%B8%AA%E6%89%80%E5%9C%A8%E4%BD%8D%E7%BD%AE%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%8F%96%E5%88%B0%E5%AF%B9%E5%BA%94ci%E7%9A%84%E5%80%BC%E7%9B%B8%E7%AD%89%E7%9A%84%E6%A6%82%E7%8E%87%E7%94%A8%E6%9C%80%E7%AE%80%E6%95%B4%E6%95%B0%E6%AF%94%E8%BE%93%E5%87%BA-%E6%B3%A8%E4%B8%8D%E5%BC%BA%E5%88%B6%E5%9C%A8%E7%BA%BF">给定一个有n个数(1&lt;=n&lt;=5e4)的序列C(1&lt;=ci&lt;=n)。有m个询问（1&lt;=m&lt;=5e4），每次给定一个区间[l,r]，求给区间中任取两个所在位置不同的数取到对应ci的值相等的概率，用最简整数比输出。<strong>注：不强制在线</strong></a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3">题解</a>
+<ul>
+<li><a href="#%E6%9C%AC%E9%A2%98%E6%98%AF%E8%8E%AB%E9%98%9F%E7%9A%84%E6%A8%A1%E6%9D%BF%E9%A2%98-%E9%82%A3%E4%B9%88%E8%8E%AB%E9%98%9F%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2%E8%8E%AB%E9%98%9F%E6%98%AF%E6%88%91%E4%BB%AC%E5%9B%BD%E5%AE%B6%E9%98%9F%E9%98%9F%E7%88%B7%E7%9A%84%E8%8E%AB%E6%B6%9B%E6%8F%90%E5%87%BA%E7%9A%84%E5%9F%BA%E4%BA%8E%E5%88%86%E5%9D%97%E7%9A%84%E6%AF%92%E7%98%A4%E7%AE%97%E6%B3%95-%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E4%B8%BA%E5%AF%B9%E8%AF%A2%E9%97%AE%E8%BF%9B%E8%A1%8C%E5%88%86%E5%9D%97-%E5%85%88%E5%B0%86%E6%89%80%E6%9C%89%E8%AF%A2%E9%97%AE%E6%8C%89%E7%85%A7l%E7%AB%AF%E7%82%B9%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%BA%8F%E5%86%8D%E5%9C%A8%E6%AF%8F%E4%B8%AA%E5%9D%97%E4%B8%AD%E6%8C%89%E7%85%A7r%E7%AB%AF%E7%82%B9%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%BA%8F-%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%AA%E5%9D%97%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%95%B0%E6%88%91%E4%BB%AC%E7%94%A8%E6%9A%B4%E5%8A%9B%E6%B1%82%E5%87%BA%E5%AE%83%E7%9A%84%E5%80%BC%E5%85%B6%E4%BD%99%E7%9A%84%E6%A0%B9%E6%8D%AE%E5%8E%9F%E6%9C%89%E7%9A%84%E7%9A%84%E8%8C%83%E5%9B%B4%E4%B8%BA%E5%9F%BA%E7%A1%80%E8%BF%9B%E8%A1%8C%E6%89%A9%E5%B1%95%E5%8D%B3%E5%8F%AF-%E4%BB%A5%E4%B8%8D%E5%B8%A6%E4%BF%AE%E7%9A%84%E8%8E%AB%E9%98%9F%E4%B8%BA%E4%BE%8B%E6%88%91%E4%BB%AC%E4%BB%A5n%E4%B8%BA%E5%9D%97%E7%9A%84%E5%A4%A7%E5%B0%8F%E9%82%A3%E4%B9%88%E5%AE%83%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%98%AFonn%E7%9A%84-%E6%9C%AC%E9%A2%98%E5%B0%B1%E6%98%AF%E8%A3%B8%E7%9A%84%E8%8E%AB%E9%98%9F%E6%9D%BF%E5%AD%90-%E7%9B%B4%E6%8E%A5%E5%BC%80%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%86%85%E6%AF%8F%E4%B8%80%E4%B8%AAci%E7%9A%84%E4%B8%AA%E6%95%B0%E7%84%B6%E5%90%8E%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E4%B8%80%E4%B8%8B%E5%B0%B1%E5%AE%8C%E4%BA%8B%E5%95%A6">本题是莫队的模板题。那么莫队是什么呢？莫队是我们国家队队爷的莫涛提出的基于分块的毒瘤算法。具体实现方法为：对询问进行分块。先将所有询问按照l端点从小到大排序，再在每个块中按照r端点从小到大排序。对于每个块的第一个数，我们用暴力求出它的值，其余的根据原有的的范围为基础进行扩展即可。以不带修的莫队为例，我们以√n为块的大小，那么它的复杂度是O(n√n）的。本题就是裸的莫队板子。直接开一个数组维护区间内每一个ci的个数，然后排列组合一下就完事啦！</a></li>
+</ul>
+</li>
+<li><a href="#code">Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -442,8 +457,8 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaoh105.github.io/post/about/">
-      关于
+    <a class="post-title-link" href="https://xiaoh105.github.io/post/luo-gu-p1494acwing-251-xiao-z-de-wa-zi-ti-jie/">
+      洛谷 P1494/ACWing 251 小Z的袜子 题解
     </a>
   </h1>
   <div class="post-meta">
@@ -451,30 +466,195 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-01-25</span>
+      <span>2020-01-02</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://xiaoh105.github.io/tag/Captain-Mo/">
+              <span>莫队</span>
+            </a>、
+          
+        
+          
+            <a href="https://xiaoh105.github.io/tag/Block/">
+              <span>分块</span>
+            </a>、
+          
+        
+          
+            <a href="https://xiaoh105.github.io/tag/Data-Structure/">
+              <span>数据结构</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>5分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>31<span class="pc-show">字数</span></span>
+      <span>838<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+                <h3 id="洛谷-p1494"><a href="https://www.luogu.com.cn/problem/P1494">洛谷 P1494</a>/<a href="https://www.acwing.com/problem/content/253/">ACWing 251</a> 小Z的袜子 题解</h3>
+<h4 id="题意">题意</h4>
+<h5 id="给定一个有n个数1n5e4的序列c1cin-有m个询问1m5e4每次给定一个区间lr求给区间中任取两个所在位置不同的数取到对应ci的值相等的概率用最简整数比输出-注不强制在线">给定一个有n个数(1&lt;=n&lt;=5e4)的序列C(1&lt;=ci&lt;=n)。有m个询问（1&lt;=m&lt;=5e4），每次给定一个区间[l,r]，求给区间中任取两个所在位置不同的数取到对应ci的值相等的概率，用最简整数比输出。<strong>注：不强制在线</strong></h5>
+<h4 id="题解">题解</h4>
+<h5 id="本题是莫队的模板题-那么莫队是什么呢莫队是我们国家队队爷的莫涛提出的基于分块的毒瘤算法-具体实现方法为对询问进行分块-先将所有询问按照l端点从小到大排序再在每个块中按照r端点从小到大排序-对于每个块的第一个数我们用暴力求出它的值其余的根据原有的的范围为基础进行扩展即可-以不带修的莫队为例我们以n为块的大小那么它的复杂度是onn的-本题就是裸的莫队板子-直接开一个数组维护区间内每一个ci的个数然后排列组合一下就完事啦">本题是莫队的模板题。那么莫队是什么呢？莫队是我们国家队队爷的莫涛提出的基于分块的毒瘤算法。具体实现方法为：对询问进行分块。先将所有询问按照l端点从小到大排序，再在每个块中按照r端点从小到大排序。对于每个块的第一个数，我们用暴力求出它的值，其余的根据原有的的范围为基础进行扩展即可。以不带修的莫队为例，我们以√n为块的大小，那么它的复杂度是O(n√n）的。本题就是裸的莫队板子。直接开一个数组维护区间内每一个ci的个数，然后排列组合一下就完事啦！</h5>
+<h4 id="code">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+inline int read()
+{
+	int ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+int n,m;
+int a[50010];
+struct node{
+	int l,r;
+	int id;
+}f[50010];
+bool cmp1(node p,node q)
+{
+	if(p.l!=q.l) return p.l&lt;q.l;
+	else return p.r&lt;q.r;
+}
+bool cmp2(node p,node q)
+{
+	return p.r&lt;q.r;
+}
+struct node2{
+	long long p,q;
+}ans[50010];
+int t;
+int tot;
+int lp,rp;
+long long cnt=0;
+long long tmp[50010];
+void cal1(int l,int r)
+{
+	cnt=0;
+	memset(tmp,0,sizeof(tmp));
+	for(int i=l;i&lt;=r;i++)
+	{
+		int x=a[i];
+		cnt-=tmp[x]*(tmp[x]-1)/2;
+		tmp[x]++;
+		cnt+=tmp[x]*(tmp[x]-1)/2;
+	}
+	lp=l,rp=r;
+}
+void cal2(int l,int r)
+{
+	if(lp&gt;l)
+	{
+		for(int i=l;i&lt;lp;i++)
+		{
+			int x=a[i];
+			cnt-=tmp[x]*(tmp[x]-1)/2;
+			tmp[x]++;
+			cnt+=tmp[x]*(tmp[x]-1)/2;
+		}
+		lp=l;
+	}
+	if(lp&lt;l)
+	{
+		for(int i=lp;i&lt;l;i++)
+		{
+			int x=a[i];
+			cnt-=tmp[x]*(tmp[x]-1)/2;
+			tmp[x]--;
+			cnt+=tmp[x]*(tmp[x]-1)/2;
+		}
+		lp=l;
+	}
+	if(rp&lt;r)
+	{
+		for(int i=rp+1;i&lt;=r;i++)
+		{
+			int x=a[i];
+			cnt-=tmp[x]*(tmp[x]-1)/2;
+			tmp[x]++;
+			cnt+=tmp[x]*(tmp[x]-1)/2;
+			rp++;
+		}
+		rp=r;
+	}
+}
+long long gcd(long long a,long long b)
+{
+	return (b==0)? a:gcd(b,a%b);
+}
+int main()
+{
+	n=read(),m=read();
+	for(int i=1;i&lt;=n;i++) a[i]=read();
+	for(int i=1;i&lt;=m;i++) f[i].l=read(),f[i].r=read(),f[i].id=i;
+	sort(f+1,f+m+1,cmp1);
+	t=sqrt(n);
+	tot=n/t;
+	if(t*tot&lt;n) tot++;
+	for(int i=1;i&lt;=tot;i++)
+	{
+		int l=(i-1)*t+1,r=min(i*t,n);
+		sort(f+l,f+r+1,cmp2);
+		start:
+		if(f[l].l==f[l].r)
+		{
+			ans[f[l].id].p=0;
+			ans[f[l].id].q=1;
+			l++;
+			goto start;
+		}
+		else
+		{
+			cal1(f[l].l,f[l].r);
+			long long num=(long long)(f[l].r-f[l].l+1);
+			ans[f[l].id].p=cnt,ans[f[l].id].q=(num-1)*num/2;
+		}
+		for(int j=l+1;j&lt;=r;j++)
+		{
+			if(f[j].l==f[j].r)
+			{
+				ans[f[j].id].p=0;
+				ans[f[j].id].q=1;
+			}
+			else
+			{
+				cal2(f[j].l,f[j].r);
+				long long num=(long long)(f[j].r-f[j].l+1);
+				ans[f[j].id].p=cnt,ans[f[j].id].q=(num-1)*num/2;
+			}
+		}
+	}
+	for(int i=1;i&lt;=m;i++)
+	{
+		long long x=gcd(ans[i].p,ans[i].q);
+		printf(&quot;%lld/%lld\n&quot;,ans[i].p/x,ans[i].q/x); 
+	}
+	return 0;
+}
+</code></pre>
 
               </div>
               <div class="post-footer">
@@ -485,7 +665,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://xiaoh105.github.io/post/about/" title="关于">关于</a>
+      <a href="https://xiaoh105.github.io/post/luo-gu-p1494acwing-251-xiao-z-de-wa-zi-ti-jie/" title="洛谷 P1494/ACWing 251 小Z的袜子 题解">洛谷 P1494/ACWing 251 小Z的袜子 题解</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -494,12 +674,26 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
+      <a href="https://xiaoh105.github.io/tag/Captain-Mo/"># 莫队</a>
+    
+      <a href="https://xiaoh105.github.io/tag/Block/"># 分块</a>
+    
+      <a href="https://xiaoh105.github.io/tag/Data-Structure/"># 数据结构</a>
+    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="洛谷 P2495/BZOJ 2286 消耗战题解" href="https://xiaoh105.github.io/post/luo-gu-p2495bzoj-2286-xiao-hao-zhan-ti-jie/">洛谷 P2495/BZOJ 2286 消耗战题解</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="洛谷 P2495/BZOJ 2286 消耗战题解" href="https://xiaoh105.github.io/post/luo-gu-p2495bzoj-2286-xiao-hao-zhan-ti-jie/">上一篇</a>
+      
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="ABC149 Summary" href="https://xiaoh105.github.io/post/abc149-summary/">ABC149 Summary</a>
+        <a class="nav-mobile-next" title="ABC149 Summary" href="https://xiaoh105.github.io/post/abc149-summary/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>

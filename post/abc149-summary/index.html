@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="Gridea静态个人博客">
+<meta name="description" content="Practise like you never won, perform like you never lost!">
+<meta name="theme-color" content="#000">
+<title>ABC149 Summary | xiaoh的博客</title>
+<link rel="shortcut icon" href="https://xiaoh105.github.io/favicon.ico?v=1582267654765">
+<link rel="stylesheet" href="https://xiaoh105.github.io/styles/main.css">
+
+<link rel="stylesheet" href="/media/css/gemini.css">
+
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+<link href="/media/hljs/styles/androidstudio.css" rel="stylesheet">  
+
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+    <meta name="description" content="ABC149 Summary" />
+    <meta name="keywords" content="参赛总结" />
+  </head>
+  <body>
+    <div class="head-top-line"></div>
+    <div class="header-box">
+      
+<div class=" gemini">
+  <header class="header bg-color ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>xiaoh的博客</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">Practise like you never won, perform like you never lost!</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            <li class="nav-item ">
+              
+                <a href="/">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+                <a href="/archives">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+                <a href="/tags">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+                <a href="/post/about">
+                  <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+          <li class="nav-item">
+            <a>
+              <i class="fa fa-search"></i> 搜索
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+    </div>
+    <div class="main-continer">
+      
+      <div class="section-layout gemini ">
+        <div class="section-layout-wrapper">
+          
+
+<div class="sidebar">
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          <div class="post-side-meta" id="post_side_meta">
+            
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="https://xiaoh105.github.io/images/avatar.png"/>
+    <p class="site-author-name">xiaoh的博客</p>
+    <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
+      </div>
+    
+  
+  
+
+
+</div>
+          </div>
+          <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+            <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#abc149-summary2019-12-29-1900-2040">ABC149 Summary(2019-12-29 19:00-20:40)</a>
+<ul>
+<li><a href="#2019-12-30-xiaoh">2019-12-30 xiaoh</a></li>
+<li><a href="#a-strings">A-Strings</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F">题意</a>
+<ul>
+<li><a href="#%E7%BB%99%E5%AE%9A%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2st1st100%E5%B0%86t%E5%92%8Cs%E6%8C%89%E9%A1%BA%E5%BA%8F%E6%8E%A5%E5%9C%A8%E4%B8%80%E8%B5%B7%E8%BE%93%E5%87%BA%E4%B8%8D%E8%BE%93%E5%87%BA%E7%A9%BA%E6%A0%BC">给定两个字符串s,t（1&lt;=|s|,|t|&lt;=100），将t和s按顺序接在一起输出（不输出空格）</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3">题解</a>
+<ul>
+<li><a href="#%E6%98%BE%E7%84%B6%E6%8E%A5%E5%9C%A8%E4%B8%80%E8%B5%B7%E9%83%BD%E6%98%AF%E5%94%AC%E4%BA%BA%E7%9A%84qaq%E7%9B%B4%E6%8E%A5%E8%BE%93%E5%87%BA%E5%B0%B1%E8%A1%8C%E5%95%A6%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6o1">显然，接在一起都是唬人的QAQ直接输出就行啦！时间复杂度O（1）</a></li>
+</ul>
+</li>
+<li><a href="#code">Code</a></li>
+</ul>
+</li>
+<li><a href="#b-greedy-takahashi">B-Greedy Takahashi</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F-2">题意</a>
+<ul>
+<li><a href="#%E6%9C%89%E4%B8%A4%E4%B8%AA%E4%BA%BAtakahashi%E5%92%8Caoki%E5%90%84%E6%9C%89ab1ab1e12%E5%9D%97%E9%A5%BC%E5%B9%B2-%E8%BF%9B%E8%A1%8C%E4%BB%A5%E4%B8%8Bn1ab1e12%E8%BD%AE%E6%93%8D%E4%BD%9C%E8%8B%A5takahashi%E6%9C%89%E8%87%B3%E5%B0%91%E4%B8%80%E5%9D%97%E9%A5%BC%E5%B9%B2%E5%88%99%E4%BB%96%E5%90%83%E6%8E%89%E4%B8%80%E5%9D%97%E9%A5%BC%E5%B9%B2%E5%90%A6%E5%88%99%E8%8B%A5aoki%E6%9C%89%E8%87%B3%E5%B0%91%E4%B8%80%E5%9D%97%E9%A5%BC%E5%B9%B2%E5%88%99%E4%BB%96%E5%90%83%E6%8E%89%E4%B8%80%E5%9D%97%E9%A5%BC%E5%B9%B2-%E6%B1%82n%E8%BD%AE%E6%93%8D%E4%BD%9C%E5%90%8E%E4%B8%A4%E4%BA%BA%E5%90%84%E8%87%AA%E7%9A%84%E9%A5%BC%E5%B9%B2%E6%95%B0">有两个人Takahashi和Aoki，各有a,b(1&lt;=a,b&lt;=1e12)块饼干。进行以下n(1&lt;=a,b&lt;=1e12)轮操作：若Takahashi有至少一块饼干，则他吃掉一块饼干；否则若Aoki有至少一块饼干，则他吃掉一块饼干。求n轮操作后两人各自的饼干数</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-2">题解</a>
+<ul>
+<li><a href="#%E7%9B%B4%E6%8E%A5%E6%9A%B4%E5%8A%9B%E5%9C%B0%E6%95%B0%E6%8C%89%E9%A2%98%E6%84%8F%E6%A8%A1%E6%8B%9F%E5%8D%B3%E5%8F%AF-%E4%BD%86%E6%98%AF%E8%A6%81%E6%B3%A8%E6%84%8Flong-long-%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6o1">直接暴力地数，按题意模拟即可。但是要注意long long。时间复杂度O(1)</a></li>
+</ul>
+</li>
+<li><a href="#code-2">Code</a></li>
+</ul>
+</li>
+<li><a href="#c-next-prime">C-Next Prime</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F-3">题意</a>
+<ul>
+<li><a href="#%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AA%E6%95%B4%E6%95%B0n2n1e5%E6%B1%82%E4%B8%8D%E5%B0%8F%E4%BA%8En%E7%9A%84%E6%9C%80%E5%B0%8F%E8%B4%A8%E6%95%B0">给定一个整数n（2&lt;=n&lt;=1e5），求<strong>不小于n</strong>的最小质数。</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-3">题解</a>
+<ul>
+<li><a href="#%E6%88%91%E6%95%A2%E6%89%93%E8%B5%8C%E6%9C%89%E4%BA%BA%E5%86%99%E4%BA%86%E5%9F%83%E6%B0%8F%E7%AD%9B%E5%BE%88%E6%98%BE%E7%84%B6%E6%A0%B9%E6%8D%AE%E7%B4%A0%E6%95%B0%E5%AF%86%E5%BA%A6%E6%88%91%E4%BB%AC%E5%8F%AF%E7%9F%A5%E4%BB%8En%E5%BC%80%E5%A7%8B%E6%9A%B4%E5%8A%9B%E4%B8%80%E4%B8%AA%E4%B8%80%E4%B8%AAon%E7%9A%84%E6%A3%80%E9%AA%8C%E5%B0%B1%E5%A5%BD%E5%95%A6%E7%94%B1%E4%BA%8E%E7%B4%A0%E6%95%B0%E5%AF%86%E5%BA%A6%E7%BA%A6%E4%B8%BAninn%E6%89%80%E4%BB%A5%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%BA%A6%E4%B8%BAonninn%E5%A4%A7%E6%A6%82%E6%98%AF3e6%E7%9A%84%E7%BA%A7%E5%88%AB%E6%97%B6%E9%97%B4%E7%BB%B0%E7%BB%B0%E6%9C%89%E4%BD%99"><s>我敢打赌有人写了埃氏筛</s>很显然，根据素数密度，我们可知从n开始暴力一个一个O(√n)的检验就好啦！由于素数密度约为n/In(n)，所以复杂度约为O（n×√n/In(n)）,大概是3e6的级别，时间绰绰有余</a></li>
+</ul>
+</li>
+<li><a href="#code-3">Code</a></li>
+</ul>
+</li>
+<li><a href="#d-prediction-and-restriction">D-Prediction and restriction</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F-4">题意</a>
+<ul>
+<li><a href="#%E6%9C%89n%E7%9B%98%E5%89%AA%E5%88%80%E7%9F%B3%E5%A4%B4%E5%B8%832n1e5%E4%BD%A0%E7%8E%B0%E5%9C%A8%E7%9F%A5%E9%81%93%E4%BA%86%E5%AF%B9%E6%89%8B%E7%9A%84%E5%87%BA%E6%8B%B3%E9%A1%BA%E5%BA%8F%E8%80%8C%E4%B8%94%E4%BD%A0%E7%9F%A5%E9%81%93%E4%BD%A0%E5%87%BA%E7%9F%B3%E5%A4%B4%E6%97%B6%E8%B5%A2%E5%AF%B9%E6%96%B9%E5%8D%B3%E6%AD%A4%E6%97%B6%E5%AF%B9%E6%89%8B%E5%87%BA%E4%BA%86%E5%89%AA%E5%88%80%E4%B8%8B%E5%90%8C%E8%8E%B7%E5%BE%97r%E5%88%86%E5%87%BA%E5%89%AA%E5%88%80%E8%B5%A2s%E5%88%86%E5%87%BA%E5%B8%83%E8%B5%A2p%E5%88%861rsp1e4-%E4%BD%86%E6%98%AF%E6%9C%89%E4%B8%80%E4%B8%AA%E9%99%90%E5%88%B6%E6%9D%A1%E4%BB%B6%E5%B0%B1%E6%98%AF%E5%AF%B9%E4%BA%8E%E6%89%80%E6%9C%89%E7%9A%84i1n-k%E4%BD%A0%E7%AC%ACi%E5%B1%80%E5%87%BA%E7%9A%84%E6%89%8B%E5%8A%BF%E4%B8%8D%E8%83%BD%E5%92%8C%E7%AC%ACik%E5%B1%80%E7%9A%84%E7%9B%B8%E5%90%8C1kn-1-%E6%B1%82%E4%BD%A0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%BE%97%E5%88%86">有n盘剪刀石头布（2&lt;=n&lt;=1e5），你现在知道了对手的出拳顺序，而且你知道你<strong>出石头时赢对方</strong>（即此时对手出了剪刀，下同）获得R分，出剪刀赢S分，出布赢P分(1&lt;=r,s,p&lt;=1e4)。但是有一个限制条件，就是对于所有的i∈[1,n-k]，你第i局出的手势不能和第i+k局的相同（1&lt;=k&lt;=n-1）。求你的最大得分。</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-4">题解</a>
+<ul>
+<li><a href="#%E8%BF%99%E9%81%93%E9%A2%98%E5%BE%88%E5%AE%B9%E6%98%93%E9%A3%9E%E5%88%B0dp%E9%87%8C%E5%8E%BB-%E5%AE%9E%E9%99%85%E4%B8%8A%E5%91%A2%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E7%94%A8%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%B4%AA%E5%BF%83%E6%9D%A5%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E5%AF%B9%E4%BA%8E%E4%B8%80%E4%B8%AA%E6%AD%A5%E9%AA%A4i%E8%8B%A5%E7%AC%ACi-k%E6%AD%A5%E5%89%8D%E6%8F%90%E6%98%AF%E5%AD%98%E5%9C%A8%E7%9A%84%E8%AF%9D%E5%AF%B9%E6%89%8B%E5%87%BA%E7%9A%84%E6%98%AF%E4%B8%8E%E6%9C%AC%E5%B1%80%E5%87%BA%E7%9A%84%E5%AE%8C%E5%85%A8%E7%9B%B8%E5%90%8C%E9%82%A3%E4%B9%88%E9%9A%8F%E4%BE%BF%E5%87%BA%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E7%90%86%E8%A7%A3%E4%B8%BA%E6%A0%B9%E6%8D%AE%E5%90%8E%E9%9D%A2%E7%9A%84%E9%9C%80%E6%B1%82%E5%87%BA%E8%8B%A5%E7%9B%AE%E5%89%8D%E6%97%A0%E6%B3%95%E5%87%BA%E5%B8%83%E8%80%8C%E7%AC%ACik%E6%AD%A5%E5%87%BA%E7%9F%B3%E5%A4%B4%E8%83%BD%E8%B5%A2%E5%AF%B9%E6%96%B9%E9%82%A3%E4%B9%88%E6%9C%AC%E6%AD%A5%E5%B0%B1%E5%87%BA%E5%89%AA%E5%88%80%E5%85%B6%E4%BD%99%E5%90%8C%E7%90%86%E8%AF%81%E6%98%8E%E5%BE%88%E6%98%BE%E7%84%B6%E5%B0%B1%E4%B8%8D%E8%B4%B9%E7%AC%94%E5%A2%A8%E8%AF%81%E4%BA%86-%E5%90%A6%E5%88%99%E5%87%BA%E8%83%BD%E8%B5%A2%E5%AF%B9%E6%89%8B%E7%9A%84%E6%89%8B%E5%8A%BF%E5%B0%B1%E5%A5%BD%E5%95%A6-%E5%85%B6%E5%AE%9E%E4%B8%A5%E6%A0%BC%E8%AF%81%E6%98%8E%E9%9D%9E%E5%B8%B8%E9%9D%9E%E5%B8%B8%E9%9A%BE%E4%BD%86%E6%98%AF%E5%BB%BA%E8%AE%AE%E8%AF%81%E6%98%8E%E8%BF%98%E6%98%AF%E5%BE%88%E7%AE%80%E5%8D%95%E7%9A%84-%E8%8B%A5%E7%AC%ACt%E6%AD%A5-%E7%AC%ACtk%E6%AD%A5-%E7%AC%ACt2k%E6%AD%A5%E7%AC%ACtxk%E6%AD%A5%E5%AF%B9%E6%89%8B%E5%87%BA%E7%9A%84%E5%AE%8C%E5%85%A8%E7%9B%B8%E5%90%8C%E4%B8%94%E7%AC%ACt%E6%AD%A5%E4%B8%8E%E7%AC%ACt-k%E6%AD%A5%E5%87%BA%E7%9A%84%E4%B8%8D%E5%90%8C%E5%89%8D%E6%8F%90%E6%98%AFt-k%E5%AD%98%E5%9C%A8%E6%98%BE%E7%84%B6%E8%8E%B7%E5%BE%97%E7%9A%84%E5%88%86%E5%8F%AA%E8%83%BD%E5%85%A8%E5%8F%96%E5%A5%87%E6%95%B0%E9%A1%B9%E6%88%96%E5%85%A8%E5%8F%96%E5%81%B6%E6%95%B0%E9%A1%B9%E9%82%A3%E4%B9%88%E5%AF%B9%E4%BA%8E%E6%89%80%E6%9C%89%E7%9A%84x%E5%B1%9E%E4%BA%8E%E5%81%B6%E6%95%B0%E6%97%B6%E4%B8%8D%E7%AE%A1%E5%85%A8%E5%8F%96%E5%A5%87%E6%95%B0%E6%88%96%E5%81%B6%E6%95%B0%E7%AD%94%E6%A1%88%E9%83%BD%E7%9B%B8%E5%90%8C-%E8%8B%A5x%E4%B8%BA%E5%A5%87%E6%95%B0%E5%88%99%E5%85%A8%E5%8F%96%E5%A5%87%E6%95%B0%E9%A1%B9%E4%BC%9A%E6%AF%94%E5%85%A8%E5%8F%96%E5%81%B6%E6%95%B0%E9%A1%B9%E7%AD%94%E6%A1%88%E5%A4%A7-%E6%89%80%E4%BB%A5%E5%85%A8%E5%8F%96%E5%A5%87%E6%95%B0%E9%A1%B9%E7%9A%84%E8%A7%A3%E4%B8%8D%E4%BC%9A%E6%AF%94%E5%85%A8%E5%8F%96%E5%81%B6%E6%95%B0%E9%A1%B9%E6%9B%B4%E5%8A%A3-%E6%8C%89%E7%85%A7%E9%A1%BA%E5%BA%8F%E9%81%8D%E5%8E%86%E5%AF%B9%E4%BA%8E%E8%BF%99%E7%A7%8D%E6%83%85%E5%86%B5%E6%88%91%E4%BB%AC%E4%B8%80%E5%AE%9A%E4%BC%9A%E9%83%BD%E5%8F%96%E5%A5%87%E6%95%B0%E9%A1%B9%E5%8D%B3%E8%B4%AA%E5%BF%83%E6%AD%A3%E7%A1%AE%E8%80%8C%E8%8B%A5%E6%B2%A1%E6%9C%89%E4%B8%8A%E8%BF%B0%E7%9A%84%E6%83%85%E5%86%B5%E5%88%99%E8%B4%AA%E5%BF%83%E4%BE%9D%E6%97%A7%E6%88%90%E7%AB%8B-%E6%89%80%E4%BB%A5%E7%BB%BC%E4%B8%8A%E6%89%80%E8%BF%B0%E8%B4%AA%E5%BF%83%E6%AD%A3%E7%A1%AE%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6on">这道题很容易飞到DP里去。实际上呢，我们可以用一个简单的贪心来解决问题：对于一个步骤i，若第i-k步（前提是存在的话）对手出的是与本局出的完全相同，那么随便出一个（可以理解为根据后面的需求出，若目前无法出布，而第i+k步出石头能赢对方，那么本步就出剪刀，其余同理，证明很显然，就不费笔墨证了）。否则出能赢对手的手势就好啦。其实严格证明非常非常难，但是建议证明还是很简单的。若第t步、第t+k步、第t+2k步，……，第t+xk步对手出的完全相同，且第t步与第t-k步出的不同（前提是t-k存在），显然，获得的分只能全取奇数项或全取偶数项，那么对于所有的x属于偶数时，不管全取奇数或偶数，答案都相同。若x为奇数，则全取奇数项会比全取偶数项答案大。所以全取奇数项的解不会比全取偶数项更劣。按照顺序遍历，对于这种情况我们一定会都取奇数项，即贪心正确而若没有上述的情况，则贪心依旧成立。所以综上所述，贪心正确！时间复杂度O（n）</a></li>
+</ul>
+</li>
+<li><a href="#code-4">Code</a></li>
+</ul>
+</li>
+<li><a href="#e-handshake">E-handshake</a>
+<ul>
+<li><a href="#%E9%A2%98%E6%84%8F-5">题意</a>
+<ul>
+<li><a href="#%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AA%E6%9C%89n%E4%B8%AA%E6%95%B0%E7%9A%84%E5%BA%8F%E5%88%97a1n1e51ai1e5%E9%80%89%E5%8F%96%E4%B8%A4%E4%B8%AA%E5%9D%90%E6%A0%87p%E5%92%8Cq%E9%82%A3%E4%B9%88%E6%9C%89%E5%BA%8F%E6%95%B0%E5%AF%B9pq%E5%85%B1%E6%9C%89n2%E4%B8%AA-%E4%B8%8D%E5%A6%A8%E4%BB%A4fpqapaq%E9%82%A3%E4%B9%88fpq%E5%85%B1%E6%9C%89n2%E4%B8%AA-%E6%B1%82%E5%85%B6%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84m%E4%B8%AA%E7%9A%84%E5%92%8C1mn2">给定一个有n个数的序列A（1&lt;=n&lt;=1e5,1&lt;=ai&lt;=1e5），选取两个坐标p和q，那么<strong>有序</strong>数对(p,q)共有n^2个。不妨令f(p,q)=a[p]+a[q]，那么f(p,q)共有n^2个。求其中最大的m个的和（1&lt;=m&lt;=n^2）</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-5">题解</a>
+<ul>
+<li><a href="#%E6%9C%AC%E9%A2%98%E4%B8%8E%E4%BD%A0%E8%B0%B7%E7%9A%84%E4%B8%80%E9%81%93%E6%AF%92%E7%98%A4p1631-%E5%BA%8F%E5%88%97%E5%90%88%E5%B9%B6%E7%A5%9E%E4%BC%BC-%E4%BA%8E%E6%98%AF%E6%88%91%E5%9C%A8%E8%BF%99%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%AE%97%E6%B3%95%E9%87%8C%E6%95%B4%E6%95%B4%E5%BE%98%E5%BE%8A%E4%BA%8630min%E6%89%8D%E5%8F%91%E7%8E%B0%E8%BF%99%E7%8E%A9%E6%84%8F%E4%B8%8D%E8%83%BD%E7%94%A8%E5%A5%BD%E5%95%A6%E5%BC%80%E5%A7%8B%E6%AD%A3%E9%A2%98-%E9%A6%96%E5%85%88%E6%88%91%E4%BB%AC%E4%BA%8C%E5%88%86%E5%89%8Dm%E5%A4%A7%E7%9A%84%E6%95%B0%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84%E9%82%A3%E4%B8%80%E4%B8%AA-%E9%82%A3%E4%B9%88%E6%98%BE%E7%84%B6%E5%AF%B9%E4%BA%8E%E4%B8%80%E4%B8%AA%E4%BA%8C%E5%88%86%E5%80%BCmid%E8%8B%A5%E6%89%80%E6%9C%89%E6%95%B0%E4%B8%AD%E8%8B%A5mid%E7%9A%84%E6%95%B0m%E5%88%99mid%E5%B0%8F%E4%BA%86lmid%E5%8F%8D%E4%B9%8B%E4%BA%A6%E7%84%B6-%E9%82%A3%E4%B9%88%E5%B0%B1%E8%A6%81%E8%80%83%E8%99%91%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%9C%B0%E6%B1%82%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%E9%87%8F-%E6%88%91%E4%BB%AC%E8%80%83%E8%99%91%E5%B0%86%E6%95%B4%E4%B8%AA%E5%BA%8F%E5%88%97%E6%8E%92%E5%BA%8F-%E9%82%A3%E4%B9%88%E5%AF%B9%E4%BA%8E%E4%B8%80%E4%B8%AAai%E5%BF%85%E5%AD%98%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%9D%90%E6%A0%87j%E4%BD%BF%E5%BE%97aj%E7%9A%84%E6%89%80%E6%9C%89%E6%95%B0%E5%8A%A0%E4%B8%8Aai%E9%83%BDmid%E5%9B%A0%E4%B8%BA%E6%8E%92%E8%BF%87%E5%BA%8F%E4%BA%86%E5%98%9B%E6%89%80%E4%BB%A5%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8lower_bound%E8%BF%9B%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%B0%B1%E5%8F%AF%E4%BB%A5%E4%BA%8C%E5%88%86%E5%87%BA%E8%BF%99%E4%B8%AA%E5%80%BC%E4%B8%8D%E5%A6%A8%E8%AE%BE%E5%85%B6%E4%B8%BAminn-%E9%82%A3%E4%B9%88%E6%9C%89%E4%BA%BA%E5%8F%AF%E8%83%BD%E5%9F%BA%E4%BA%8E%E8%A6%81%E9%97%AE%E4%BA%86%E6%88%91%E8%A6%81%E8%BF%99%E4%B8%AA%E5%80%BC%E6%9C%89%E4%B8%AA%E9%AC%BC%E7%9A%84%E7%94%A8%E5%A4%84%E5%AE%9E%E9%99%85%E4%B8%8A%E5%9C%A8%E6%88%91%E4%BB%AC%E4%BA%8C%E5%88%86%E7%9A%84%E6%97%B6%E5%80%99%E6%88%91%E4%BB%AC%E5%B0%B1%E5%B7%B2%E7%BB%8F%E6%83%B3%E5%88%B0%E5%88%A9%E7%94%A8minn%E6%B1%82%E5%87%BA%E7%BB%BC%E5%90%88%E7%9A%84%E6%96%B9%E6%B3%95%E4%BA%86-%E9%A6%96%E5%85%88%E8%AE%B0s%E4%B8%BAa%E7%9A%84%E5%89%8D%E7%BC%80%E5%92%8C-%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%AAai%E9%82%A3%E4%B9%88%E4%B8%80%E5%AE%9A%E5%AD%98%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%9D%90%E6%A0%87j%E4%BD%BF%E5%BE%97aij%E5%8F%8A%E5%85%B6%E5%8F%B3%E8%BE%B9%E7%9A%84%E6%AF%8F%E4%B8%AA%E6%95%B0%E9%83%BD%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8Eminn%E8%80%8C%E5%B7%A6%E8%BE%B9%E7%9A%84%E9%83%BD%E5%B0%8F%E4%BA%8Eminn-%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E5%8F%AA%E8%A6%81%E5%86%8D%E8%B7%91%E4%B8%80%E9%81%8D%E8%AE%A1%E7%AE%97%E5%8D%B3%E5%8F%AF-%E4%BD%86%E6%98%AF%E8%BF%99%E4%B8%AA%E7%AE%97%E6%B3%95%E6%9C%89%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%B0%8F%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8D%E5%A6%A8%E8%80%83%E8%99%91%E4%BB%A5%E4%B8%8B4%E4%B8%AA%E5%92%8C3211m3-%E6%AD%A4%E6%97%B6%E6%88%91%E4%BB%AC%E7%9A%84%E7%A8%8B%E5%BA%8F%E4%BC%9A%E8%BF%94%E5%9B%9E32117%E8%80%8C%E7%9C%9F%E5%AE%9E%E7%9A%84%E7%AD%94%E6%A1%883216-%E5%AF%B9%E4%BA%8E%E8%BF%99%E7%A7%8D%E6%83%85%E5%86%B5%E6%88%91%E4%BB%AC%E5%8F%AA%E9%9C%80%E8%A6%81%E6%8A%8Aminn%E7%9A%84%E6%95%B0%E5%86%8D%E7%AE%97%E4%B8%80%E9%81%8D%E7%84%B6%E5%90%8E%E7%94%B1%E4%BA%8E%E5%A4%9A%E5%87%BA%E6%9D%A5%E7%9A%84%E6%95%B0%E4%B8%80%E5%AE%9A%E9%83%BD%E6%98%AFminn%E5%86%8D%E5%87%8F%E5%8E%BB%E5%B0%B1%E5%A5%BD%E5%95%A6">本题与你谷的一道毒瘤P1631 序列合并神似。于是，我在这个错误的算法里整整徘徊了30+min才发现这玩意不能用……好啦，开始正题。首先，我们二分前m大的数中最小的那一个。那么显然对于一个二分值mid，若所有数中若&gt;=mid的数&gt;=m，则mid小了，l=mid，反之亦然。那么就要考虑如何快速地求出这个数量。我们考虑将整个序列排序。那么对于一个a[i]，必存在一个坐标j，使得&gt;=a[j]的所有数加上a[i]都&gt;=mid（因为排过序了嘛），所以考虑使用lower_bound进行计算，就可以二分出这个值，不妨设其为minn。那么有人可能基于要问了：我要这个值有个鬼的用处？实际上，在我们二分的时候，我们就已经想到利用minn求出综合的方法了。首先，记s为a的前缀和。对于每个a[i]，那么一定存在一个坐标j使得a[i]+j及其右边的每个数都大于等于minn，而左边的都小于minn。所以我们只要再跑一遍计算即可。但是这个算法有一个小小的问题，不妨考虑以下4个和：3,2,1,1，m=3。此时，我们的程序会返回3+2+1+1=7，而真实的答案=3+2+1=6。对于这种情况，我们只需要把&gt;=minn的数再算一遍，然后由于多出来的数一定都是minn，再减去就好啦！</a></li>
+</ul>
+</li>
+<li><a href="#code-5">Code</a></li>
+</ul>
+</li>
+<li><a href="#f-surrounded-nodes">F-Surrounded nodes</a><br>
+*
+<ul>
+<li><a href="#%E7%94%B1%E4%BA%8Ee%E9%A2%98%E5%8D%A1%E5%A4%AA%E4%B9%85%E5%AF%BC%E8%87%B4%E6%97%A0%E6%9A%87%E5%86%99%E4%BA%86%E5%B8%8C%E6%9C%9B%E6%9C%AA%E6%9D%A5%E7%9A%84%E6%88%91%E8%83%BD%E6%8A%8A%E8%BF%99%E9%87%8C%E8%A1%A5%E4%B8%8A%E5%90%A7qaq">由于E题卡太久导致无暇写了……希望未来的我能把这里补上吧QAQ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    lList.push(elem);
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+addTocNumber(tocContent, '');
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+          </div>
+        
+      </div>
+    </div>
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+
+  if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+    let hasFix = false;
+    let scrollEl = document.querySelector('.main-continer');
+    let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+    window.addEventListener('scroll', function(e) {
+    if (document.scrollingElement.scrollTop >= limitTop) {
+      if (!hasFix) {
+        sidebar.classList.add('sidebar-fixed');
+        hasFix = true;
+      }
+    } else {
+      if (hasFix) {
+        sidebar.classList.remove('sidebar-fixed');
+        hasFix = false;
+      }
+    }
+  });
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <div class="article-box">
+    <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://xiaoh105.github.io/post/abc149-summary/">
+      ABC149 Summary
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2019-12-30</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://xiaoh105.github.io/tag/Summary/">
+              <span>参赛总结</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>10分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>2090<span class="pc-show">字数</span></span>
+    </span>
+  </div>
+</header>
+</div>
+              <div class="post-body next-md-body" id="post_body">
+                <h2 id="abc149-summary2019-12-29-1900-2040"><a href="https://atcoder.jp/contests/abc149">ABC149 Summary(2019-12-29 19:00-20:40)</a></h2>
+<h3 id="2019-12-30-xiaoh">2019-12-30 xiaoh</h3>
+<h3 id="a-strings"><a href="https://atcoder.jp/contests/abc149/tasks/abc149_a">A-Strings</a></h3>
+<h4 id="题意">题意</h4>
+<h5 id="给定两个字符串st1st100将t和s按顺序接在一起输出不输出空格">给定两个字符串s,t（1&lt;=|s|,|t|&lt;=100），将t和s按顺序接在一起输出（不输出空格）</h5>
+<h4 id="题解">题解</h4>
+<h5 id="显然接在一起都是唬人的qaq直接输出就行啦时间复杂度o1">显然，接在一起都是唬人的QAQ直接输出就行啦！时间复杂度O（1）</h5>
+<h4 id="code">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+inline int read()
+{
+	int ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+int main()
+{
+	string a,b;
+	cin&gt;&gt;a&gt;&gt;b;
+	cout&lt;&lt;b&lt;&lt;a&lt;&lt;endl; 
+	return 0;
+}
+
+</code></pre>
+<h3 id="b-greedy-takahashi"><a href="https://atcoder.jp/contests/abc149/tasks/abc149_b">B-Greedy Takahashi</a></h3>
+<h4 id="题意-2">题意</h4>
+<h5 id="有两个人takahashi和aoki各有ab1ab1e12块饼干-进行以下n1ab1e12轮操作若takahashi有至少一块饼干则他吃掉一块饼干否则若aoki有至少一块饼干则他吃掉一块饼干-求n轮操作后两人各自的饼干数">有两个人Takahashi和Aoki，各有a,b(1&lt;=a,b&lt;=1e12)块饼干。进行以下n(1&lt;=a,b&lt;=1e12)轮操作：若Takahashi有至少一块饼干，则他吃掉一块饼干；否则若Aoki有至少一块饼干，则他吃掉一块饼干。求n轮操作后两人各自的饼干数</h5>
+<h4 id="题解-2">题解</h4>
+<h5 id="直接暴力地数按题意模拟即可-但是要注意long-long-时间复杂度o1">直接暴力地数，按题意模拟即可。但是要注意long long。时间复杂度O(1)</h5>
+<h4 id="code-2">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+inline int read()
+{
+	int ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+long long n,a,b;
+int main()
+{
+	cin&gt;&gt;a&gt;&gt;b&gt;&gt;n;
+	if(a&gt;=n) cout&lt;&lt;a-n&lt;&lt;&quot; &quot;&lt;&lt;b&lt;&lt;endl;
+	else cout&lt;&lt;0&lt;&lt;&quot; &quot;&lt;&lt;max((long long)0,b-n+a)&lt;&lt;endl;
+	return 0;
+}
+
+</code></pre>
+<h3 id="c-next-prime"><a href="https://atcoder.jp/contests/abc149/tasks/abc149_c">C-Next Prime</a></h3>
+<h4 id="题意-3">题意</h4>
+<h5 id="给定一个整数n2n1e5求不小于n的最小质数">给定一个整数n（2&lt;=n&lt;=1e5），求<strong>不小于n</strong>的最小质数。</h5>
+<h4 id="题解-3">题解</h4>
+<h5 id="我敢打赌有人写了埃氏筛很显然根据素数密度我们可知从n开始暴力一个一个on的检验就好啦由于素数密度约为ninn所以复杂度约为onninn大概是3e6的级别时间绰绰有余"><s>我敢打赌有人写了埃氏筛</s>很显然，根据素数密度，我们可知从n开始暴力一个一个O(√n)的检验就好啦！由于素数密度约为n/In(n)，所以复杂度约为O（n×√n/In(n)）,大概是3e6的级别，时间绰绰有余</h5>
+<h4 id="code-3">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+inline int read()
+{
+	int ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+int n;
+bool check(int x)
+{
+	for(int i=2;i*i&lt;=x;i++)
+	if(x%i==0) return 0;
+	return 1;
+}
+int main()
+{
+	cin&gt;&gt;n;
+	for(;;n++)
+	if(check(n))
+	{
+		cout&lt;&lt;n&lt;&lt;endl;
+		return 0;
+	}
+	return 0;
+}
+</code></pre>
+<h3 id="d-prediction-and-restriction"><a href="https://atcoder.jp/contests/abc149/tasks/abc149_d">D-Prediction and restriction</a></h3>
+<h4 id="题意-4">题意</h4>
+<h5 id="有n盘剪刀石头布2n1e5你现在知道了对手的出拳顺序而且你知道你出石头时赢对方即此时对手出了剪刀下同获得r分出剪刀赢s分出布赢p分1rsp1e4-但是有一个限制条件就是对于所有的i1n-k你第i局出的手势不能和第ik局的相同1kn-1-求你的最大得分">有n盘剪刀石头布（2&lt;=n&lt;=1e5），你现在知道了对手的出拳顺序，而且你知道你<strong>出石头时赢对方</strong>（即此时对手出了剪刀，下同）获得R分，出剪刀赢S分，出布赢P分(1&lt;=r,s,p&lt;=1e4)。但是有一个限制条件，就是对于所有的i∈[1,n-k]，你第i局出的手势不能和第i+k局的相同（1&lt;=k&lt;=n-1）。求你的最大得分。</h5>
+<h4 id="题解-4">题解</h4>
+<h5 id="这道题很容易飞到dp里去-实际上呢我们可以用一个简单的贪心来解决问题对于一个步骤i若第i-k步前提是存在的话对手出的是与本局出的完全相同那么随便出一个可以理解为根据后面的需求出若目前无法出布而第ik步出石头能赢对方那么本步就出剪刀其余同理证明很显然就不费笔墨证了-否则出能赢对手的手势就好啦-其实严格证明非常非常难但是建议证明还是很简单的-若第t步-第tk步-第t2k步第txk步对手出的完全相同且第t步与第t-k步出的不同前提是t-k存在显然获得的分只能全取奇数项或全取偶数项那么对于所有的x属于偶数时不管全取奇数或偶数答案都相同-若x为奇数则全取奇数项会比全取偶数项答案大-所以全取奇数项的解不会比全取偶数项更劣-按照顺序遍历对于这种情况我们一定会都取奇数项即贪心正确而若没有上述的情况则贪心依旧成立-所以综上所述贪心正确时间复杂度on">这道题很容易飞到DP里去。实际上呢，我们可以用一个简单的贪心来解决问题：对于一个步骤i，若第i-k步（前提是存在的话）对手出的是与本局出的完全相同，那么随便出一个（可以理解为根据后面的需求出，若目前无法出布，而第i+k步出石头能赢对方，那么本步就出剪刀，其余同理，证明很显然，就不费笔墨证了）。否则出能赢对手的手势就好啦。其实严格证明非常非常难，但是建议证明还是很简单的。若第t步、第t+k步、第t+2k步，……，第t+xk步对手出的完全相同，且第t步与第t-k步出的不同（前提是t-k存在），显然，获得的分只能全取奇数项或全取偶数项，那么对于所有的x属于偶数时，不管全取奇数或偶数，答案都相同。若x为奇数，则全取奇数项会比全取偶数项答案大。所以全取奇数项的解不会比全取偶数项更劣。按照顺序遍历，对于这种情况我们一定会都取奇数项，即贪心正确而若没有上述的情况，则贪心依旧成立。所以综上所述，贪心正确！时间复杂度O（n）</h5>
+<h4 id="code-4">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+inline int read()
+{
+	int ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+int n,k;
+int r,s,p;
+char ch[100010];
+int a[100010];
+int f[100010];
+int ans=0;
+inline int cal(int i)
+{
+	if(a[i]==1) return r;
+	else if(a[i]==2) return s;
+	else return p;
+}
+int main()
+{
+	scanf(&quot;%d %d&quot;,&amp;n,&amp;k);
+	scanf(&quot;%d%d%d&quot;,&amp;r,&amp;s,&amp;p);
+	scanf(&quot;%s&quot;,ch+1);
+	for(int i=1;i&lt;=n;i++)
+	if(ch[i]=='r') a[i]=3;
+	else if(ch[i]=='s') a[i]=1;
+	else a[i]=2;
+	for(int i=1;i&lt;=n;i++)
+	if(i-k&lt;=0) f[i]=a[i],ans+=cal(i);
+	else if(f[i-k]==a[i]) f[i]=0;
+	else f[i]=a[i],ans+=cal(i);
+	cout&lt;&lt;ans&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+<h3 id="e-handshake"><a href="https://atcoder.jp/contests/abc149/tasks/abc149_e">E-handshake</a></h3>
+<h4 id="题意-5">题意</h4>
+<h5 id="给定一个有n个数的序列a1n1e51ai1e5选取两个坐标p和q那么有序数对pq共有n2个-不妨令fpqapaq那么fpq共有n2个-求其中最大的m个的和1mn2">给定一个有n个数的序列A（1&lt;=n&lt;=1e5,1&lt;=ai&lt;=1e5），选取两个坐标p和q，那么<strong>有序</strong>数对(p,q)共有n<sup>2个。不妨令f(p,q)=a[p]+a[q]，那么f(p,q)共有n</sup>2个。求其中最大的m个的和（1&lt;=m&lt;=n^2）</h5>
+<h4 id="题解-5">题解</h4>
+<h5 id="本题与你谷的一道毒瘤p1631-序列合并神似-于是我在这个错误的算法里整整徘徊了30min才发现这玩意不能用好啦开始正题-首先我们二分前m大的数中最小的那一个-那么显然对于一个二分值mid若所有数中若mid的数m则mid小了lmid反之亦然-那么就要考虑如何快速地求出这个数量-我们考虑将整个序列排序-那么对于一个ai必存在一个坐标j使得aj的所有数加上ai都mid因为排过序了嘛所以考虑使用lower_bound进行计算就可以二分出这个值不妨设其为minn-那么有人可能基于要问了我要这个值有个鬼的用处实际上在我们二分的时候我们就已经想到利用minn求出综合的方法了-首先记s为a的前缀和-对于每个ai那么一定存在一个坐标j使得aij及其右边的每个数都大于等于minn而左边的都小于minn-所以我们只要再跑一遍计算即可-但是这个算法有一个小小的问题不妨考虑以下4个和3211m3-此时我们的程序会返回32117而真实的答案3216-对于这种情况我们只需要把minn的数再算一遍然后由于多出来的数一定都是minn再减去就好啦">本题与你谷的一道毒瘤<a href="https://www.luogu.com.cn/problem/P1631">P1631 序列合并</a>神似。于是，我在这个错误的算法里整整徘徊了30+min才发现这玩意不能用……好啦，开始正题。首先，我们二分前m大的数中最小的那一个。那么显然对于一个二分值mid，若所有数中若&gt;=mid的数&gt;=m，则mid小了，l=mid，反之亦然。那么就要考虑如何快速地求出这个数量。我们考虑将整个序列排序。那么对于一个a[i]，必存在一个坐标j，使得&gt;=a[j]的所有数加上a[i]都&gt;=mid（因为排过序了嘛），所以考虑使用lower_bound进行计算，就可以二分出这个值，不妨设其为minn。那么有人可能基于要问了：我要这个值有个鬼的用处？实际上，在我们二分的时候，我们就已经想到利用minn求出综合的方法了。首先，记s为a的前缀和。对于每个a[i]，那么一定存在一个坐标j使得a[i]+j及其右边的每个数都大于等于minn，而左边的都小于minn。所以我们只要再跑一遍计算即可。但是这个算法有一个小小的问题，不妨考虑以下4个和：3,2,1,1，m=3。此时，我们的程序会返回3+2+1+1=7，而真实的答案=3+2+1=6。对于这种情况，我们只需要把&gt;=minn的数再算一遍，然后由于多出来的数一定都是minn，再减去就好啦！</h5>
+<h4 id="code-5">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+inline long long read()
+{
+	long long ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+inline long long read_l()
+{
+	long long ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+long long n;
+long long m;
+long long a[100010];
+long long s[100010];
+long long ans=0;
+bool check(long long x)
+{
+	long long tot=0;
+	for(long long i=1;i&lt;=n;i++) tot+=lower_bound(a+1,a+n+1,x-a[i])-a-1;
+	if(n*n-tot&lt;m) return 1;
+	else return 0;
+}
+int main()
+{
+	n=read(),m=read_l();
+	for(long long i=1;i&lt;=n;i++) a[i]=read_l();
+	sort(a+1,a+n+1);
+	for(long long i=1;i&lt;=n;i++) s[i]=s[i-1]+a[i];
+	long long l=1,r=999999999;
+	while(l+1&lt;r)
+	{
+		long long mid=(l+r)&gt;&gt;1;
+		if(check(mid)) r=mid;
+		else l=mid;
+	}
+	for(long long i=1;i&lt;=n;i++) 
+	{
+		long long x=lower_bound(a+1,a+n+1,l-a[i])-a;
+		ans+=s[n]-s[x-1];
+		ans+=a[i]*(n-x+1);
+	}
+	long long tot=0;
+	for(long long i=1;i&lt;=n;i++) tot+=lower_bound(a+1,a+n+1,l-a[i])-a-1;
+	if(n*n-tot&gt;m) ans-=(n*n-tot-m)*l;
+	cout&lt;&lt;ans&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+<h3 id="f-surrounded-nodes"><a href="https://atcoder.jp/contests/abc149/tasks/abc149_f">F-Surrounded nodes</a></h3>
+<h5 id="由于e题卡太久导致无暇写了希望未来的我能把这里补上吧qaq">由于E题卡太久导致无暇写了……希望未来的我能把这里补上吧QAQ</h5>
+
+              </div>
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      xiaoh的博客
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://xiaoh105.github.io/post/abc149-summary/" title="ABC149 Summary">ABC149 Summary</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://xiaoh105.github.io/tag/Summary/"># 参赛总结</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="洛谷 P1494/ACWing 251 小Z的袜子 题解" href="https://xiaoh105.github.io/post/luo-gu-p1494acwing-251-xiao-z-de-wa-zi-ti-jie/">洛谷 P1494/ACWing 251 小Z的袜子 题解</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="洛谷 P1494/ACWing 251 小Z的袜子 题解" href="https://xiaoh105.github.io/post/luo-gu-p1494acwing-251-xiao-z-de-wa-zi-ti-jie/">上一篇</a>
+      
+    </div>
+    <div class="nav-next">
+      
+    </div>
+  </div>
+</div>
+              
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+</script>
+                
+                
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      © 2019-2020 <i class="fa fa-heart"></i> HsxyHao
+    </div>
+    <div class="poweredby">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+  </footer>
+  
+  
+  <div class="gemini back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+  back2TopText = document.querySelector('#back_to_top_text'),
+  drawerBox = document.querySelector('#drawer_box'),
+  rightSideBar = document.querySelector('.sidebar'),
+  viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+   
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function(e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+  
+  window.addEventListener('scroll', function(e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+  
+  let hasCacu = false;
+  window.onresize = function() {
+    if (window.width > 991) {
+      calcuHeight();
+    } else {
+      hasCacu = false;
+    }
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+  
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function() {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, transitionDir,{ });
+          }
+        })
+        window.Velocity(viewport, openProp,{
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp ,{
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+
+</script>
+    </div>
+  </body>
+  <script src="/media/js/motion.js"></script>
+</html>
