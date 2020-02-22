@@ -1933,26 +1933,26 @@ body {
       color: #555;
       border-bottom: 1px solid #555;
     }a:hover {
-      color: #222;
+      color: #339af0;
     }
     
     .archive-timeline-box .tag-node:hover::before {
-      background-color: #222;
+      background-color: #339af0;
     }
     
     .markdownIt-TOC a:hover {
-      color: #222;
-      border-bottom-color: #222;
+      color: #339af0;
+      border-bottom-color: #339af0;
     }
 
     .next-md-body a:hover, .friends-box a:hover {
-      color: #222;
-      border-bottom-color: #222;
+      color: #339af0;
+      border-bottom-color: #339af0;
     }
       .nav-item a {
-        color:  #555;
+        color:  #339af0;
       }.nav-item a:hover {
-        color: #222;
+        color: #339af0;
       }.nav-item-active {
       background: #f9f9f9;
     }
@@ -1964,8 +1964,8 @@ body {
       color: #339af0;
       border-bottom-color: #339af0;
     }.markdownIt-TOC a:hover {
-      color: #212529;
-      border-bottom-color: #212529;
+      color: #339af0;
+      border-bottom-color: #339af0;
     }.active-current > a {
       color: #fc6423 !important;
       border-bottom-color: #fc6423 !important;
@@ -1995,10 +1995,10 @@ body {
       background: #339af0;
     }
     .main-title {
-      color: #FFF;
+      color: #339af0;
     }
     .mist .site-title i {
-      background: #FFF;
+      background: #339af0;
     }.box-scale > #landlord {
       transform: scale(1);
     }.box-shadow-wrapper {
