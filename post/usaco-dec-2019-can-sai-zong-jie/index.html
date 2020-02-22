@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="Gridea静态个人博客">
+<meta name="description" content="Practise like you never won, perform like you never lost!">
+<meta name="theme-color" content="#339af0">
+<title>USACO DEC 2019 参赛总结 | xiaoh的博客</title>
+<link rel="shortcut icon" href="https://xiaoh105.github.io/favicon.ico?v=1582361538581">
+<link rel="stylesheet" href="https://xiaoh105.github.io/styles/main.css">
+
+<link rel="stylesheet" href="/media/css/gemini.css">
+
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+<link href="/media/hljs/styles/androidstudio.css" rel="stylesheet">  
+
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+    <meta name="description" content="USACO DEC 2019 参赛总结" />
+    <meta name="keywords" content="参赛总结" />
+  </head>
+  <body>
+    <div class="head-top-line"></div>
+    <div class="header-box">
+      
+<div class=" gemini">
+  <header class="header bg-color ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>xiaoh的博客</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">Practise like you never won, perform like you never lost!</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            <li class="nav-item ">
+              
+                <a href="/">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+                <a href="/archives">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+                <a href="/tags">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+                <a href="/post/about">
+                  <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+          <li class="nav-item">
+            <a>
+              <i class="fa fa-search"></i> 搜索
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+    </div>
+    <div class="main-continer">
+      
+      <div class="section-layout gemini ">
+        <div class="section-layout-wrapper">
+          
+
+<div class="sidebar">
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          <div class="post-side-meta" id="post_side_meta">
+            
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="https://xiaoh105.github.io/images/avatar.png"/>
+    <p class="site-author-name">xiaoh的博客</p>
+    <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">15</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">20</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">20</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
+      </div>
+    
+  
+  
+
+
+</div>
+          </div>
+          <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+            <div class="toc-box right-motion">
+  <div class="toc-wrapper  auto" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#usaco-dec-2019-%E5%8F%82%E8%B5%9B%E6%80%BB%E7%BB%932019-12-13~2019-12-16">USACO DEC 2019 参赛总结（2019-12-13~2019-12-16）</a>
+<ul>
+<li><a href="#2019-12-19-xiaoh">2019-12-19 xiaoh</a></li>
+<li><a href="#%E9%87%91%E7%BB%84gold">金组Gold</a></li>
+<li><a href="#a-milk-pumping">A-Milk Pumping</a></li>
+<li><a href="#%E9%A2%98%E6%84%8F">题意</a>
+<ul>
+<li><a href="#%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AAn%E4%B8%AA%E7%82%B9m%E6%9D%A1%E8%BE%B9%E7%9A%84%E6%97%A0%E5%90%91%E5%9B%BE%E6%AF%8F%E4%B8%80%E6%9D%A1%E8%BE%B9%E9%83%BD%E6%9C%89%E4%B8%80%E4%B8%AA%E6%9C%80%E5%A4%A7%E6%B5%81%E9%87%8Ff%E5%92%8C%E4%B8%80%E4%B8%AA%E4%BB%B7%E6%A0%BCc1nm10001cf1000%E6%89%BE%E4%B8%80%E6%9D%A1%E4%BB%8E1%E5%88%B0n%E7%9A%84%E8%B7%AF%E5%BE%84%E4%BF%9D%E8%AF%81%E5%AD%98%E5%9C%A8%E6%B1%82%E6%9C%80%E5%A4%A7%E5%8C%96minf%CF%83c%E7%9A%84%E8%B7%AF%E5%BE%84%E5%B0%86%E8%BF%99%E4%B8%AA%E5%80%BC1e6%E5%8F%96%E4%B8%8B%E6%95%B4%E5%90%8E%E8%BE%93%E5%87%BA">给定一个n个点，m条边的无向图，每一条边都有一个最大流量f和一个价格c（1&lt;=n,m&lt;=1000，1&lt;=c,f&lt;=1000）,找一条从1到n的路径（保证存在），求最大化Min{f}/Σ{c}的路径，将这个值×1e6取下整后输出</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3">题解</a>
+<ul>
+<li><a href="#%E9%A6%96%E5%85%88%E5%BE%88%E6%98%8E%E6%98%BE%E5%BD%93%E6%B5%81%E9%87%8F%E6%9C%80%E5%B0%8F%E5%80%BC%E5%9B%BA%E5%AE%9A%E6%97%B6%E6%88%91%E4%BB%AC%E5%8F%AA%E8%A6%81%E6%B1%82%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E6%9C%80%E5%B0%8F%E7%9A%84%CF%83c%E5%8D%B3%E5%8F%AF-%E6%89%80%E4%BB%A5%E8%80%83%E8%99%91%E6%9E%9A%E4%B8%BE%E6%AF%8F%E4%B8%80%E4%B8%AAminf%E7%84%B6%E5%90%8E%E5%B0%86%E6%89%80%E6%9C%89%E6%B5%81%E9%87%8Ff%E7%9A%84%E8%BE%B9%E5%BB%BA%E5%9B%BE%E8%B7%91dijkstra%E5%8D%B3%E5%8F%AF%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6omaxfnmlgnm%E5%A4%A7%E7%BA%A6%E5%9C%A81e7%E5%A4%9A%E4%B8%80%E7%82%B9%E7%9A%84%E6%A0%B7%E5%AD%90%E5%8F%AF%E4%BB%A5%E8%BF%87%E6%95%B2%E6%9D%BF%E5%AD%90%E5%8D%B3%E5%8F%AF">首先，很明显，当流量最小值固定时，我们只要求满足条件的最小的Σ{c}即可。所以考虑枚举每一个Min{f}，然后将所有流量&gt;=f的边建图，跑Dijkstra即可，时间复杂度O(maxf×(n+m)lg(n+m))，大约在1e7多一点的样子，可以过，敲板子即可。</a></li>
+</ul>
+</li>
+<li><a href="#code">Code</a></li>
+<li><a href="#b-milk-visits">B-Milk Visits</a></li>
+<li><a href="#%E9%A2%98%E6%84%8F-2">题意</a>
+<ul>
+<li><a href="#%E7%BB%99%E5%AE%9A%E4%B8%80%E6%A3%B5%E6%9C%89n%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E6%A0%911n1e5%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E4%B8%8A%E9%83%BD%E6%9C%89%E7%89%B9%E5%AE%9A%E7%A7%8D%E7%B1%BB%E7%9A%84%E7%89%9B%E7%A7%8D%E7%B1%BB%E5%9C%A81n%E9%97%B4%E6%9C%89m%E4%B8%AA%E8%AF%A2%E9%97%AE%E6%AF%8F%E6%AC%A1%E7%BB%99%E4%B8%80%E4%B8%AAaibi%E8%A1%A8%E7%A4%BA%E6%A0%91%E4%B8%8A%E7%9A%84%E4%B8%80%E6%9D%A1%E5%9C%A8aibi%E9%97%B4%E7%9A%84%E8%B7%AF%E5%BE%84%E9%97%AE%E8%B7%AF%E5%BE%84%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%87%B3%E5%B0%91%E4%B8%80%E5%A4%B4%E7%A7%8D%E7%B1%BB%E4%B8%BAci%E7%9A%84%E7%89%9B">给定一棵有n个节点的树(1&lt;=n&lt;=1e5)，每个节点上都有特定种类的牛（种类在[1,n]间），有m个询问，每次给一个ai,bi表示树上的一条在ai,bi间的路径，问路径中是否存在至少一头种类为ci的牛</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-2">题解</a>
+<ul>
+<li><a href="#%E7%AC%94%E8%80%85%E5%88%9A%E7%9C%8B%E5%88%B0%E9%A2%98%E7%9A%84%E6%97%B6%E5%80%99%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%8D%E5%BA%94%E6%98%AF%E7%94%A8lca%E7%BB%B4%E6%8A%A4%E5%95%8A%E7%94%A8lca%E6%9A%B4%E5%8A%9B%E7%BB%B4%E6%8A%A4%E6%AF%8F%E4%B8%80%E7%A7%8D%E7%89%9B%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%87%B3%E4%BA%8E%E7%BB%B4%E6%8A%A4%E7%9A%84%E5%85%B7%E4%BD%93%E6%96%B9%E5%BC%8F%E5%8F%AA%E8%83%BD%E6%98%AFbitset%E4%B9%8B%E7%B1%BB%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%AF%E5%B0%B1%E7%AE%97%E6%98%AF%E4%BD%BF%E7%94%A8bitset%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E5%A4%A7%E8%87%B4%E7%9A%84%E8%AE%A1%E7%AE%97%E4%B8%80%E4%B8%8B%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A61e5lg1e51e532%E5%A4%A7%E6%A6%82%E6%98%AF20%E4%B8%AAg%E6%A0%B9%E6%9C%AC%E4%B8%8D%E8%A1%8C%E6%89%80%E4%BB%A5%E5%8F%AA%E8%83%BD%E6%8D%A2%E6%80%9D%E8%B7%AF%E4%BA%86">笔者刚看到题的时候，第一个反应是用LCA维护啊！用LCA暴力维护每一种牛是否存在，至于维护的具体方式只能是bitset之类的数据结构，可就算是使用bitset，我们可以大致的计算一下空间复杂度:1e5×lg1e5×1e5/32，大概是20个G，根本不行！所以只能换思路了。</a></li>
+<li><a href="#%E7%94%B1%E4%BA%8E%E9%A2%98%E7%9B%AE%E6%B2%A1%E6%9C%89%E5%BC%BA%E5%88%B6%E8%A6%81%E6%B1%82%E8%AF%A2%E9%97%AE%E5%9C%A8%E7%BA%BF%E5%9B%A0%E6%AD%A4%E5%8F%AF%E4%BB%A5%E8%80%83%E8%99%91%E5%B0%86%E8%AF%A2%E9%97%AE%E7%A6%BB%E7%BA%BF%E5%A4%84%E7%90%86-%E9%A6%96%E5%85%88%E8%A7%82%E5%AF%9F%E8%AF%A2%E9%97%AE%E7%9A%84%E7%89%B9%E7%82%B9%E5%8F%91%E7%8E%B0%E6%AF%8F%E4%B8%AA%E8%AF%A2%E9%97%AE%E5%8F%AA%E6%B6%89%E5%8F%8A%E4%B8%80%E7%A7%8D%E7%89%9B%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E8%80%83%E8%99%91%E5%85%88%E5%81%87%E8%AE%BE%E6%95%B4%E6%A3%B5%E6%A0%91%E6%98%AF%E7%A9%BA%E7%9A%84%E7%84%B6%E5%90%8E%E5%BE%80%E9%87%8C%E5%8A%A0%E5%85%A5%E7%A7%8D%E7%B1%BB%E4%B8%BAi%E7%9A%84%E7%89%9B%E5%A4%84%E7%90%86%E5%AF%B9%E5%BA%94%E6%9F%A5%E8%AF%A2%E5%86%8D%E6%8A%8A%E8%BF%99%E4%BA%9B%E7%89%9B%E5%88%A0%E6%8E%89-%E8%BF%99%E6%A0%B7%E6%AF%8F%E6%AC%A1%E5%8F%AA%E9%9C%80%E8%A6%81%E5%9C%A8%E8%8A%82%E7%82%B9%E4%B8%8A%E7%BB%B4%E6%8A%A4%E4%B8%80%E4%B8%AAbool%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%BD%93%E5%89%8D%E4%BD%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%9C%89%E4%B8%80%E5%A4%B4%E5%BD%93%E5%89%8D%E6%AD%A3%E5%9C%A8%E5%A4%84%E7%90%86%E7%9A%84%E7%A7%8D%E7%B1%BB%E7%9A%84%E7%89%9B%E5%8D%B3%E5%8F%AF%E8%80%8C%E4%B8%8D%E5%BF%85%E5%8D%95%E7%8B%AC%E7%BB%B4%E6%8A%A4%E6%AF%8F%E4%B8%80%E7%A7%8D%E7%89%9B%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E5%BE%88%E5%A4%A7%E7%9A%84%E7%AE%80%E5%8C%96%E4%BA%86%E9%97%AE%E9%A2%98-%E4%BD%86%E6%98%AF%E8%BF%99%E4%B8%AA%E5%81%9A%E6%B3%95%E6%9C%89%E4%B8%80%E4%B8%AA%E5%BE%88%E5%A4%A7%E7%9A%84%E7%BC%BA%E9%99%B7%E4%BD%A0%E9%9C%80%E8%A6%81%E7%94%A8%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%BF%E5%AE%83%E8%83%BD%E5%A4%9F%E6%94%AF%E6%8C%81%E5%8A%A8%E6%80%81%E4%BF%AE%E6%94%B9%E5%92%8C%E6%9F%A5%E8%AF%A2%E8%80%8C%E5%89%8D%E9%9D%A2%E6%8F%90%E5%88%B0%E7%9A%84lca%E5%9C%A8%E6%9F%A5%E8%AF%A2%E4%B8%8A%E8%A1%A8%E7%8E%B0%E7%9B%B8%E5%BD%93%E4%BC%98%E5%BC%82%E5%9C%A8%E9%9D%A2%E5%AF%B9%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8D%B4%E9%80%80%E5%8C%96%E6%88%90%E4%BA%86onlgn%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%BF%9C%E8%BF%9C%E4%B8%8D%E8%83%BD%E6%94%AF%E6%8C%81%E7%AE%97%E6%B3%95-%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E8%A6%81%E8%80%83%E8%99%91%E6%9B%B4%E9%80%82%E5%90%88%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">由于题目没有强制要求询问在线，因此可以考虑将询问离线处理。首先观察询问的特点，发现每个询问只涉及一种牛，所以我们可以考虑先假设整棵树是空的，然后往里加入种类为i的牛，处理对应查询，再把这些牛删掉。这样每次只需要在节点上维护一个bool值，表示当前位置是否有一头当前正在处理的种类的牛即可，而不必单独维护每一种牛是否存在，很大的简化了问题。但是这个做法有一个很大的缺陷：你需要用一个数据结构，使它能够支持动态修改和查询，而前面提到的LCA在查询上表现相当优异，在面对修改时却退化成了O(nlgn)的复杂度，远远不能支持算法。所以我们要考虑更适合的数据结构。</a></li>
+<li><a href="#%E6%A0%91%E4%BF%AE%E6%94%B9%E6%9F%A5%E8%AF%A2%E8%B7%AF%E5%BE%84%E6%9D%83%E5%80%BC%E6%83%B3%E5%BF%85%E5%90%84%E4%BD%8D%E4%B9%9F%E6%83%B3%E5%88%B0%E4%BA%86%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%E6%98%AF%E6%9C%80%E9%80%82%E5%90%88%E7%9A%84-%E6%89%80%E4%BB%A5%E7%AE%97%E6%B3%95%E4%BE%BF%E8%87%AA%E7%84%B6%E8%80%8C%E7%84%B6%E7%9A%84%E5%87%BA%E6%9D%A5%E4%BA%86%E5%85%88%E5%B0%86%E7%A9%BA%E6%A0%91%E5%89%96%E5%88%86%E7%84%B6%E5%90%8E%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%BB%B4%E6%8A%A4%E4%B8%80%E4%B8%AAbool%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%BD%93%E5%89%8D%E4%BD%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%9C%89%E4%B8%80%E5%A4%B4%E5%BD%93%E5%89%8D%E6%AD%A3%E5%9C%A8%E5%A4%84%E7%90%86%E7%9A%84%E7%A7%8D%E7%B1%BB%E7%9A%84%E7%89%9B%E7%94%A8%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E9%87%8D%E9%93%BE%E4%B8%8A%E6%98%AF%E5%90%A6%E8%87%B3%E5%B0%91%E5%AD%98%E5%9C%A8%E4%B8%80%E4%B8%AAtrue%E5%80%BC-%E6%AF%8F%E6%AC%A1%E5%A4%84%E7%90%86%E8%AF%A2%E9%97%AE%E5%89%8D%E5%B0%86%E5%AF%B9%E5%BA%94%E7%A7%8D%E7%B1%BB%E4%B8%8A%E7%9A%84%E5%AF%B9%E5%BA%94%E4%BD%8D%E7%BD%AE%E7%9A%84%E7%89%9B%E7%9A%84bool%E5%80%BC%E6%94%B9%E4%B8%BAtrue%E5%A4%84%E7%90%86%E5%AF%B9%E5%BA%94%E6%9F%A5%E8%AF%A2%E5%B9%B6%E5%B0%86%E5%AF%B9%E5%BA%94%E4%BD%8D%E7%BD%AE%E4%B8%8A%E7%9A%84%E7%89%9B%E7%9A%84bool%E5%80%BC%E9%87%8D%E6%96%B0%E6%94%B9%E4%B8%BAfalse%E5%8D%B3%E5%8F%AF-%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6onlgnlgn%E5%A4%A7%E7%BA%A6%E5%9C%A831e7%E5%B7%A6%E5%8F%B3%E5%88%9A%E5%A5%BD%E5%8F%AF%E4%BB%A5%E5%8D%A1%E8%BF%87%E5%8E%BB">树，修改，查询路径权值……想必各位也想到了，树链剖分是最适合的。所以算法便自然而然的出来了：先将空树剖分，然后每个节点维护一个bool值，表示当前位置是否有一头当前正在处理的种类的牛，用线段树维护重链上是否至少存在一个true值。每次处理询问前，将对应种类上的对应位置的牛的bool值改为true，处理对应查询，并将对应位置上的牛的bool值重新改为false即可。时间复杂度O(nlgnlgn)，大约在3×1e7左右，刚好可以卡过去。</a></li>
+</ul>
+</li>
+<li><a href="#code-2">Code</a></li>
+<li><a href="#c-moortal-cowmbat">C-Moortal Cowmbat</a>
+<ul>
+<li><a href="#ps-%E7%94%B1%E4%BA%8E%E7%AC%94%E8%80%85%E6%B0%B4%E5%B9%B3%E4%B8%8D%E5%A4%9F%E5%8F%AA%E8%83%BD%E5%86%99%E5%87%BAon2%E7%9A%84%E7%AE%97%E6%B3%95%E7%84%B6%E9%B9%85%E8%BF%87%E4%B8%8D%E4%BA%86%E6%AD%A4%E9%A2%98%E5%B0%B1%E4%B8%8D%E6%94%BE%E5%9C%A8%E8%BF%99%E9%87%8C%E4%B8%A2%E4%BA%BA%E7%8E%B0%E7%9C%BC%E4%BA%86qaq%E8%99%BD%E7%84%B6%E6%88%91%E5%B7%B2%E7%BB%8F%E7%9C%8B%E5%87%BA%E8%BF%99%E9%81%93%E9%A2%98%E6%98%AF%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F%E4%BC%98%E5%8C%96dp%E4%BA%86">P.S. 由于笔者水平不够，只能写出O(n^2)的算法，然鹅过不了此题，就不放在这里丢人现眼了QAQ（虽然我已经看出这道题是四边形不等式优化DP了）</a></li>
+</ul>
+</li>
+<li><a href="#%E9%93%B6%E7%BB%84">银组</a></li>
+<li><a href="#a-moobuzz">A-MooBuzz</a></li>
+<li><a href="#%E9%A2%98%E6%84%8F-3">题意</a>
+<ul>
+<li><a href="#%E4%BB%8E1%E5%BC%80%E5%A7%8B%E6%8A%A5%E6%95%B0%E6%8A%A5%E5%88%B03%E6%88%965%E7%9A%84%E5%80%8D%E6%95%B0%E5%B0%B1%E8%B7%B3%E8%BF%87%E5%8E%BB%E6%B1%82%E7%AC%ACn%E4%B8%AA%E6%8A%A5%E5%88%B0%E7%9A%84%E6%95%B0%E6%98%AF%E5%A4%9A%E5%B0%911n1e9">从1开始报数，报到3或5的倍数就跳过去，求第n个报到的数是多少（1&lt;=n&lt;=1e9）</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-3">题解</a>
+<ul>
+<li><a href="#%E7%AD%BE%E5%88%B0%E9%A2%98-%E6%98%BE%E7%84%B6%E6%AF%8F15%E4%B8%AA%E6%95%B0%E4%B8%80%E5%BE%AA%E7%8E%AF%E5%8F%AA%E6%9C%8912478111314%E5%8F%AF%E4%BB%A5%E5%8F%96%E6%89%80%E4%BB%A5%E7%9B%B4%E6%8E%A5%E6%9E%9A%E4%B8%BE%E5%87%BA%E7%8E%B0%E4%BA%86%E5%87%A0%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%B9%B6%E7%BB%9F%E8%AE%A1%E4%BD%99%E6%95%B0%E5%8D%B3%E5%8F%AF">签到题。显然，每15个数一循环，只有1,2,4,7,8,11,13,14可以取，所以直接枚举出现了几个完整的循环并统计余数即可。</a></li>
+</ul>
+</li>
+<li><a href="#code-3">Code</a></li>
+<li><a href="#b-meetings">B-Meetings</a></li>
+<li><a href="#%E9%A2%98%E6%84%8F-4">题意</a>
+<ul>
+<li><a href="#%E6%9C%89n%E5%A4%B4%E7%89%9B%E5%9C%A8%E4%B8%80%E6%A0%B9%E9%95%BF%E5%BA%A6%E4%B8%BAl%E7%9A%84%E6%95%B0%E8%BD%B4%E4%B8%8A1n51e41l1e9%E6%AF%8F%E5%A4%B4%E7%89%9B%E8%A6%81%E4%B9%88%E6%9C%9D%E5%B7%A6%E8%A6%81%E4%B9%88%E6%9C%9D%E5%8F%B3%E9%83%BD%E6%8C%89%E7%85%A71%E7%9A%84%E5%8D%95%E4%BD%8D%E6%AF%8F%E7%A7%92%E7%9A%84%E9%80%9F%E5%BA%A6%E8%BF%90%E5%8A%A8%E5%BD%93%E8%BF%90%E5%8A%A8%E5%88%B00%E6%88%96l%E6%97%B6%E5%B0%B1%E4%BC%9A%E5%81%9C%E4%B8%8B-%E5%BD%93%E4%B8%A4%E5%A4%B4%E7%89%9B%E5%9C%A8%E5%90%8C%E4%B8%80%E4%B8%AA%E7%82%B9%E4%B8%8A%E6%97%B6%E5%8D%B3%E7%9B%B8%E9%81%87%E6%9C%AA%E5%BF%85%E5%9C%A8%E6%95%B4%E7%82%B9%E4%B8%8A%E5%8F%91%E7%94%9F%E4%BB%96%E4%BB%AC%E4%BC%9A%E5%8E%9F%E8%B7%AF%E8%BF%94%E5%9B%9E%E5%8D%B3%E5%8F%8D%E5%BC%B9-%E6%AF%8F%E5%A4%B4%E7%89%9B%E9%83%BD%E6%9C%89%E4%B8%80%E4%B8%AA%E8%B4%A8%E9%87%8Fm1m1e3%E5%BD%93%E5%81%9C%E4%B8%8B%E7%89%9B%E7%9A%84%E8%B4%A8%E9%87%8F%E6%80%BB%E8%B4%A8%E9%87%8F%E7%9A%84%E4%B8%80%E5%8D%8A%E6%97%B6%E6%B1%82%E7%9B%B8%E9%81%87%E7%89%9B%E7%9A%84%E5%AF%B9%E6%95%B0">有n头牛在一根长度为l的数轴上(1&lt;=n&lt;=5×1e4，1&lt;=l&lt;=1e9)，每头牛要么朝左，要么朝右，都按照1的单位每秒的速度运动，当运动到0或l时就会停下。当两头牛在同一个点上时（即相遇，未必在整点上发生），他们会原路返回（即反弹）。每头牛都有一个质量m（1&lt;=m&lt;=1e3），当停下牛的质量&gt;=总质量的一半时，求相遇牛的对数。</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-4">题解</a>
+<ul>
+<li><a href="#%E5%85%88%E5%96%B7%E4%B8%80%E5%8F%A5%E4%B8%8D%E6%84%A7%E6%98%AFbenjamin-qi%E5%87%BA%E7%9A%84%E9%A2%98%E6%9E%9C%E7%84%B6%E5%A4%9F%E6%AF%92%E7%98%A4%E6%81%B6%E5%BF%83%E4%BA%86%E6%88%91%E5%8D%81%E5%87%A0%E5%88%86%E9%92%9F%E6%89%8D%E6%83%B3%E5%87%BA%E6%AD%A3%E8%A7%A3-%E7%9C%9F%E6%98%AF%E4%B8%8D%E6%8A%98%E4%B8%8D%E6%89%A3%E7%9A%84%E6%AF%92%E7%98%A4">先喷一句，不愧是Benjamin Qi出的题，果然够毒瘤，恶心了我十几分钟才想出正解。真是不折不扣的毒瘤</a></li>
+<li><a href="#%E9%A6%96%E5%85%88%E5%B0%86%E7%AE%97%E6%B3%95%E5%88%86%E4%B8%BA2%E9%83%A8%E5%88%86-%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E6%B1%82%E5%81%9C%E4%B8%8B%E7%9A%84%E6%97%B6%E9%97%B4t%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%E6%B1%82%E7%9B%B8%E9%81%87%E7%89%9B%E7%9A%84%E5%AF%B9%E6%95%B0-%E5%85%88%E8%80%83%E8%99%91%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E5%A6%82%E6%9E%9C%E6%9C%89%E4%BA%BA%E5%81%9A%E8%BF%87poj%E7%9A%84%E4%B8%80%E9%81%93%E9%A2%98ants%E7%9A%84%E8%AF%9D%E5%B0%B1%E4%BC%9A%E5%8F%91%E7%8E%B0%E8%BF%99%E9%81%93%E9%A2%98%E5%B0%B1%E6%98%AF%E5%AE%83%E7%9A%84%E5%8D%87%E7%BA%A7%E7%89%88-%E5%BD%93%E4%B8%A4%E5%A4%B4%E7%89%9B%E5%8F%8D%E5%BC%B9%E6%97%B6%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E7%90%86%E8%A7%A3%E4%B8%BA%E4%B8%A4%E5%A4%B4%E7%89%9B%E4%BA%92%E7%9B%B8%E7%A9%BF%E8%BF%87%E5%AF%B9%E6%96%B9%E7%BB%A7%E7%BB%AD%E5%89%8D%E8%BF%9B%E7%84%B6%E5%90%8E%E5%BE%97%E5%87%BA%E4%B8%80%E4%B8%AA%E5%BA%8F%E5%88%97a%E5%85%B6%E4%B8%ADai%E8%A1%A8%E7%A4%BA%E7%AC%ACi%E5%A4%B4%E5%81%9C%E4%B8%8B%E7%9A%84%E7%89%9B%E6%B3%A8%E6%84%8F%E4%B8%8D%E6%98%AF%E7%AC%ACi%E5%A4%B4%E7%89%9B%E6%98%AF%E7%AC%ACi%E5%A4%B4%E5%81%9C%E4%B8%8B%E7%9A%84%E7%89%9B%E6%98%AF%E5%9C%A8%E6%9C%80%E5%B7%A6%E8%BE%B9%E5%81%9C%E7%9A%84%E8%BF%98%E6%98%AF%E5%9C%A8%E6%9C%80%E5%8F%B3%E8%BE%B9%E5%81%9C%E7%9A%84-%E8%BF%99%E4%B8%80%E6%AD%A5%E6%83%B3%E5%BF%85%E5%90%84%E4%BD%8D%E9%83%BD%E8%83%BD%E5%86%99%E7%9A%84%E5%87%BA%E6%9D%A5%E6%8E%92%E4%B8%AA%E5%BA%8F%E4%B8%80%E7%AE%97%E5%B0%B1%E5%A5%BD%E4%BA%86-%E7%84%B6%E5%90%8E%E8%80%83%E8%99%91%E9%A2%98%E7%9B%AE%E7%9A%84%E7%8E%B0%E7%8A%B6%E4%B8%A4%E5%A4%B4%E7%89%9B%E7%9B%B8%E9%81%87%E5%90%8E%E5%8F%8D%E5%BC%B9%E6%AD%A4%E6%97%B6%E4%B8%8D%E9%9A%BE%E5%8F%91%E7%8E%B0%E6%AD%A4%E6%97%B6%E5%BE%97%E5%88%B0%E7%9A%84a%E5%BA%8F%E5%88%97%E4%B8%8E%E5%B0%86%E7%9B%B8%E9%81%87%E7%90%86%E8%A7%A3%E4%B8%BA%E7%A9%BF%E8%BF%87%E6%97%B6%E7%9A%84a%E5%BA%8F%E5%88%97%E7%AB%9F%E7%84%B6%E5%AE%8C%E5%85%A8%E7%9B%B8%E5%90%8C%E5%A6%82%E6%9E%9C%E6%83%B3%E4%B8%8D%E9%80%9A%E7%9A%84%E8%AF%9D%E8%87%AA%E5%B7%B1%E6%89%8B%E5%8A%A8%E6%A8%A1%E6%8B%9F%E4%B8%80%E4%B8%8B%E5%B0%B1%E5%A5%BD%E5%95%A6%E7%84%B6%E5%90%8E%E5%86%8D%E8%80%83%E8%99%91%E6%AF%8F%E5%A4%B4%E5%81%9C%E4%B8%8B%E7%9A%84%E7%89%9B%E8%8B%A5%E4%BB%96%E6%98%AF%E5%9C%A8%E6%9C%80%E5%B7%A6%E8%BE%B9%E5%81%9C%E4%B8%8B%E7%9A%84%E9%82%A3%E4%B9%88%E8%AF%B4%E6%98%8E%E4%BB%96%E7%9A%84%E5%B7%A6%E8%BE%B9%E4%B8%80%E5%AE%9A%E6%B2%A1%E6%9C%89%E7%89%9B%E5%8F%B3%E8%BE%B9%E5%90%8C%E7%90%86-%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E5%85%88%E5%81%87%E8%AE%BE%E7%9B%B8%E9%81%87%E5%B0%B1%E6%98%AF%E7%A9%BF%E8%BF%87%E5%AF%B9%E6%96%B9%E6%B1%82%E5%87%BAa%E5%BA%8F%E5%88%97%E5%86%8D%E5%B0%86%E6%AF%8F%E5%A4%B4%E7%89%9B%E6%8C%89%E7%85%A7%E4%BD%8D%E7%BD%AE%E6%8E%92%E5%BA%8F%E7%94%B1%E4%BA%8E%E5%81%9C%E4%B8%8B%E7%9A%84%E7%89%9B%E4%B8%80%E5%AE%9A%E5%9C%A8%E4%B8%A4%E7%AB%AF%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%88%B0%E5%81%9C%E4%B8%8B%E7%89%9B%E7%9A%84%E9%A1%BA%E5%BA%8F%E4%BB%8E%E8%80%8C%E6%B1%82%E5%87%BA%E7%9B%B8%E5%BA%94%E7%9A%84%E5%81%9C%E4%B8%8B%E6%97%B6%E9%97%B4t">首先，将算法分为2部分。第一部分：求停下的时间t；第二部分：求相遇牛的对数。先考虑第一部分。如果有人做过POJ的一道题Ants的话，就会发现这道题就是它的升级版。当两头牛反弹时，我们可以理解为两头牛互相穿过对方，继续前进，然后得出一个序列a，其中ai表示第i头停下的牛（注意不是第i头牛，是第i头停下的牛）是在最左边停的还是在最右边停的。这一步想必各位都能写的出来，排个序一算就好了。然后考虑题目的现状：两头牛相遇后反弹，此时不难发现，此时得到的a序列与将“相遇”理解为“穿过”时的a序列竟然完全相同！（如果想不通的话自己手动模拟一下就好啦）然后再考虑：每头停下的牛，若他是在最左边停下的，那么说明他的左边一定没有牛，右边同理。所以我们先假设“相遇”就是“穿过对方”，求出a序列，再将每头牛按照位置排序，由于停下的牛一定在两端，所以我们就可以得到停下牛的顺序，从而求出相应的停下时间t。</a></li>
+<li><a href="#%E5%86%8D%E8%80%83%E8%99%91%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%E7%9B%B8%E9%81%87%E5%AF%B9%E6%95%B0-%E6%9C%89%E4%BA%86%E5%89%8D%E9%9D%A2%E7%9A%84t%E8%BF%99%E4%B8%80%E6%AD%A5%E5%B0%B1%E7%9B%B8%E5%BD%93%E7%AE%80%E5%8D%95%E4%BA%86%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%B0%86%E8%BF%99%E7%A7%8D%E6%83%85%E5%86%B5%E7%90%86%E8%A7%A3%E4%B8%BA%E9%80%86%E5%BA%8F%E5%AF%B9-%E5%85%88%E7%BB%9F%E8%AE%A1%E5%88%9D%E5%A7%8B%E7%8A%B6%E6%80%81%E4%B8%8B%E6%AF%8F%E5%A4%B4%E7%89%9B%E7%9A%84%E4%BD%8D%E7%BD%AE%E4%B8%8A%E4%BB%8E%E5%B7%A6%E5%88%B0%E5%8F%B3%E9%87%8D%E6%96%B0%E6%8C%891~n%E7%BC%96%E5%8F%B7%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E4%BD%93%E7%8E%B0%E5%B0%B1%E6%98%AF%E6%8E%92%E5%BA%8F%E7%84%B6%E5%90%8E%E5%86%8D%E7%BB%9F%E8%AE%A1t%E7%A7%92%E5%90%8E%E6%AF%8F%E5%A4%B4%E7%89%9B%E7%9A%84%E4%BD%8D%E7%BD%AE-%E7%94%B1%E4%BA%8E%E5%90%8C%E5%90%91%E7%9A%84%E7%89%9B%E4%B8%8D%E4%BC%9A%E5%8F%91%E7%94%9F%E8%BF%BD%E5%87%BB%E6%89%80%E4%BB%A5%E5%BE%88%E6%98%8E%E6%98%BE%E6%88%91%E4%BB%AC%E4%B8%8D%E5%BF%85%E8%80%83%E8%99%91%E5%81%9C%E4%B8%8B%E7%9A%84%E7%8A%B6%E5%86%B5%E5%81%87%E8%AE%BE%E4%BB%96%E4%BB%AC%E4%B8%80%E7%9B%B4%E8%BF%90%E5%8A%A8%E7%9A%84%E7%BB%93%E6%9E%9C%E5%92%8C%E5%88%B0%E4%B8%A4%E7%AB%AF%E5%81%9C%E4%B8%8B%E7%9A%84%E7%BB%93%E6%9E%9C%E4%B8%80%E5%AE%9A%E7%9B%B8%E5%90%8C-%E9%80%86%E5%BA%8F%E5%AF%B9%E6%B1%82%E8%A7%A3%E5%8D%B3%E5%8F%AF">再考虑第二部分：相遇对数。有了前面的t，这一步就相当简单了，你可以将这种情况理解为逆序对。先统计初始状态下每头牛的位置上，从左到右重新按1~n编号（在代码中的体现就是排序），然后再统计t秒后每头牛的位置。由于同向的牛不会发生追击，所以很明显我们不必考虑停下的状况，假设他们一直运动的结果和到两端停下的结果一定相同。逆序对求解即可。</a></li>
+</ul>
+</li>
+<li><a href="#code-4">Code</a></li>
+<li><a href="#c-milk-visits%E5%BC%B1%E5%8C%96%E7%89%88">C-Milk Visits（弱化版）</a></li>
+<li><a href="#%E9%A2%98%E6%84%8F-5">题意</a>
+<ul>
+<li><a href="#%E9%A2%98%E9%9D%A2%E4%B8%8E%E9%87%91%E7%BB%84t2%E7%B1%BB%E4%BC%BC-%E7%BB%99%E5%AE%9A%E4%B8%80%E6%A3%B5%E6%9C%89n%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E6%A0%911n1e5%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E4%B8%8A%E9%83%BD%E6%9C%89%E7%89%B9%E5%AE%9A%E7%A7%8D%E7%B1%BB%E7%9A%84%E7%89%9B%E7%A7%8D%E7%B1%BB%E4%B8%BAguernsey%E7%94%A8g%E8%A1%A8%E7%A4%BA%E6%88%96holstein%E7%94%A8h%E8%A1%A8%E7%A4%BA%E6%9C%89m%E4%B8%AA%E8%AF%A2%E9%97%AE%E6%AF%8F%E6%AC%A1%E7%BB%99%E4%B8%80%E4%B8%AAaibi%E8%A1%A8%E7%A4%BA%E6%A0%91%E4%B8%8A%E7%9A%84%E4%B8%80%E6%9D%A1%E5%9C%A8aibi%E9%97%B4%E7%9A%84%E8%B7%AF%E5%BE%84%E9%97%AE%E8%B7%AF%E5%BE%84%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%87%B3%E5%B0%91%E4%B8%80%E5%A4%B4%E7%A7%8D%E7%B1%BB%E4%B8%BAci%E7%9A%84%E7%89%9Bci%E6%98%AFg%E6%88%96h%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA">题面与金组T2类似。给定一棵有n个节点的树(1&lt;=n&lt;=1e5)，每个节点上都有特定种类的牛，种类为Guernsey（用'G'表示）或Holstein（用'H'表示），有m个询问，每次给一个ai,bi表示树上的一条在ai,bi间的路径，问路径中是否存在至少一头种类为ci的牛（ci是'G'或'H'中的一个）</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-5">题解</a>
+<ul>
+<li><a href="#%E6%98%AF%E9%87%91%E7%BB%84t2%E7%9A%84%E9%AD%94%E6%94%B9%E7%89%88%E5%9F%BA%E6%9C%AC%E5%B1%9E%E4%BA%8E%E6%A8%A1%E6%9D%BF%E9%A2%98-%E5%88%A9%E7%94%A8lca%E7%BB%B4%E6%8A%A4%E6%95%B4%E9%A2%97%E6%A0%91%E5%B9%B6%E5%9C%A8%E7%BB%B4%E6%8A%A4lca%E6%97%B6%E5%90%8C%E6%97%B6%E7%BB%B4%E6%8A%A4%E4%B8%A4%E4%B8%AAbool%E5%8F%98%E9%87%8F%E8%A1%A8%E7%A4%BA%E7%9B%AE%E5%89%8D%E7%9A%84%E8%BF%99%E4%B8%80%E6%AE%B5%E6%98%AF%E5%90%A6%E6%9C%89%E8%87%B3%E5%B0%91%E4%B8%80%E5%A4%B4h%E7%89%9B%E5%92%8C%E7%9B%AE%E5%89%8D%E7%9A%84%E8%BF%99%E4%B8%80%E6%AE%B5%E6%98%AF%E5%90%A6%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E5%A4%B4g%E7%89%9B%E7%84%B6%E5%90%8E%E6%89%93lca%E7%9A%84%E6%9D%BF%E5%AD%90%E5%8D%B3%E5%8F%AF">是金组T2的魔改版，基本属于模板题。利用LCA维护整颗树，并在维护LCA时同时维护两个bool变量，表示目前的这一段是否有至少一头H牛和目前的这一段是否至少有一头G牛，然后打LCA的板子即可。</a></li>
+</ul>
+</li>
+<li><a href="#code-5">Code</a></li>
+<li><a href="#%E9%93%9C%E7%BB%84">铜组</a></li>
+<li><a href="#a-cow-gymnastics">A-Cow Gymnastics</a></li>
+<li><a href="#%E9%A2%98%E6%84%8F-6">题意</a>
+<ul>
+<li><a href="#%E6%9C%89n%E5%A4%B4%E7%89%9Bk%E6%AC%A1%E8%AE%AD%E7%BB%83%E8%AF%BE-%E7%BB%99%E5%87%BA%E6%AF%8F%E6%AC%A1%E8%AE%AD%E7%BB%83%E8%AF%BE%E6%AF%8F%E5%A4%B4%E7%89%9B%E7%9A%84%E6%8E%92%E5%90%8D-%E6%B1%82%E6%BB%A1%E8%B6%B3%E6%89%80%E6%9C%89%E8%AE%AD%E7%BB%83%E8%AF%BE%E4%B8%AD%E4%B8%80%E5%A4%B4%E7%89%9B%E9%83%BD%E6%AF%94%E5%8F%A6%E4%B8%80%E5%A4%B4%E6%8E%92%E5%90%8D%E9%9D%A0%E5%89%8D%E7%9A%84%E7%89%9B%E7%9A%84%E5%AF%B9%E6%95%B01k101n20">有n头牛，k次训练课。给出每次训练课每头牛的排名。求满足所有训练课中，一头牛都比另一头排名靠前的牛的对数（1&lt;=k&lt;=10,1&lt;=n&lt;=20）</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-6">题解</a>
+<ul>
+<li><a href="#%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE%E5%8D%B3%E5%8F%AF%E6%80%8E%E4%B9%88%E6%A0%B7%E5%86%99%E9%83%BD%E8%83%BD%E8%BF%87%E5%B0%B1%E4%B8%8D%E7%BB%86%E8%AE%B2%E4%BA%86">暴力枚举即可，怎么样写都能过，就不细讲了。</a></li>
+</ul>
+</li>
+<li><a href="#code-6">Code</a></li>
+<li><a href="#b-where-am-i">B-Where am I?</a></li>
+<li><a href="#%E9%A2%98%E6%84%8F-7">题意</a>
+<ul>
+<li><a href="#%E7%BB%99%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2s1s100%E4%B8%94s%E6%9C%89%E5%A4%A7%E5%86%99%E5%AD%97%E6%AF%8D%E6%9E%84%E6%88%90%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AEi%E6%88%91%E4%BB%AC%E7%94%A8%E4%B8%80%E6%AE%B5%E5%AD%90%E4%B8%B2sisi1si2sik%E8%A1%A8%E7%A4%BA%E5%AE%83%E7%9A%84%E4%BD%8D%E7%BD%AE-%E6%B1%82%E6%9C%80%E5%B0%8F%E7%9A%84%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84k%E4%BD%BF%E6%89%80%E6%9C%89%E7%9A%84%E4%BD%8D%E7%BD%AEi%E8%A1%A8%E7%A4%BA%E5%AE%83%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%AD%90%E4%B8%B2%E5%90%84%E4%B8%8D%E7%9B%B8%E5%90%8C">给一个字符串S(1&lt;=|s|&lt;=100,且S有大写字母构成）,对于每一个位置i，我们用一段子串si,si+1,si+2,...,si+k表示它的位置。求最小的满足条件的k，使所有的位置i，表示它位置的子串<strong>各不相同</strong></a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-7">题解</a>
+<ul>
+<li><a href="#%E6%88%AA%E6%96%AD%E5%AD%90%E4%B8%B2%E5%B9%B6%E4%BF%9D%E8%AF%81%E5%85%B6%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E6%80%A7%E8%AE%A9%E6%88%91%E4%BB%AC%E6%83%B3%E5%88%B0%E4%BA%86%E5%88%A9%E7%94%A8map%E8%BF%9B%E8%A1%8C%E6%9F%A5%E9%87%8D%E6%93%8D%E4%BD%9C-%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAmap%E8%A1%A8%E7%A4%BAstring%E5%88%B0bool%E7%9A%84%E6%98%A0%E5%B0%84-%E8%80%83%E8%99%91%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BEk%E5%B9%B6%E6%8A%8A%E6%AF%8F%E4%B8%AA%E5%AD%97%E4%B8%B2%E5%9C%A8map%E4%B8%AD%E7%9A%84%E5%80%BC%E6%94%B9%E4%B8%BA1-%E8%8B%A5%E8%AF%A5%E5%AD%97%E4%B8%B2%E5%9C%A8%E4%BF%AE%E6%94%B9%E4%B9%8B%E5%89%8D%E5%B7%B2%E7%BB%8F%E4%B8%BA1%E8%AF%B4%E6%98%8E%E9%87%8D%E5%A4%8D%E4%BA%86%E6%8E%92%E9%99%A4%E8%BF%9B%E5%85%A5%E4%B8%8B%E4%B8%80%E4%B8%AAk%E8%BF%9B%E8%A1%8C%E6%9E%9A%E4%B8%BE-%E6%B3%A8%E6%84%8Fmap%E4%B8%8D%E9%9C%80%E8%A6%81%E5%AE%9E%E6%97%B6%E6%B8%85%E7%A9%BA%E5%9B%A0%E4%B8%BA%E6%AF%8F%E4%B8%AAsubstring%E7%9A%84%E9%95%BF%E5%BA%A6%E9%83%BD%E4%B8%8D%E5%90%8C%E5%9B%A0%E8%80%8C%E4%B8%8D%E4%BC%9A%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84k%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9B%B8%E5%90%8C%E7%9A%84%E5%AD%97%E4%B8%B2">截断子串，并保证其独一无二性，让我们想到了利用map进行查重操作。建立一个map，表示string到bool的映射。考虑暴力枚举k，并把每个字串在map中的值改为1。若该字串在修改之前已经为1，说明重复了，排除，进入下一个k进行枚举。注意map不需要实时清空，因为每个substring的长度都不同，因而不会在不同的k时出现相同的字串。</a></li>
+</ul>
+</li>
+<li><a href="#code-7">Code</a></li>
+<li><a href="#c-line-up">C-Line Up</a></li>
+<li><a href="#%E9%A2%98%E6%84%8F-8">题意</a>
+<ul>
+<li><a href="#%E6%9C%898%E5%A4%B4%E7%89%9B%E5%88%86%E5%88%AB%E5%8F%AB%E8%A6%81%E6%8E%92%E6%88%90%E4%B8%80%E5%88%97-%E7%BB%99%E5%AE%9An%E4%B8%AA%E9%99%90%E5%88%B6%E6%9D%A1%E4%BB%B61n7%E6%AF%8F%E4%B8%AA%E6%9D%A1%E4%BB%B6%E4%B8%BAa-must-be-milked-after-b%E8%A1%A8%E7%A4%BAa-b%E5%BF%85%E9%A1%BB%E5%9C%A8%E9%98%9F%E4%BC%8D%E4%B8%AD%E7%9B%B8%E9%82%BB-%E6%B1%82%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%AD%97%E5%85%B8%E5%BA%8F%E6%9C%80%E5%B0%8F%E7%9A%84%E6%8E%92%E5%88%97">有8头牛，分别叫，要排成一列。给定n个限制条件（1&lt;=n&lt;=7），每个条件为&quot;A must be milked after B&quot;,表示A、B必须在队伍中相邻。求满足条件的<strong>字典序最小的</strong>排列</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3-8">题解</a>
+<ul>
+<li><a href="#%E4%B8%AA%E4%BA%BA%E8%AE%A4%E4%B8%BA%E6%98%AF%E4%B8%89%E5%9C%BA%E6%AF%94%E8%B5%9B%E4%B8%AD%E6%9C%80%E6%9C%80%E6%9C%80%E6%97%A0%E8%80%BB%E7%9A%84%E4%B8%80%E9%81%93%E9%A2%98%E5%B7%AE%E7%82%B9%E9%80%BC%E6%88%91%E7%94%A8%E6%8B%93%E6%89%91%E8%99%BD%E7%84%B6%E6%8B%93%E6%89%91%E4%B9%9F%E5%81%9A%E4%B8%8D%E5%87%BA%E6%9D%A5%E5%B0%A4%E5%85%B6%E5%AF%B9%E4%BA%8E%E6%96%B0%E6%89%8B%E7%9B%B8%E5%BD%93%E4%B8%8D%E5%8F%8B%E5%A5%BD%E5%B0%86%E6%9A%B4%E5%8A%9B%E7%9A%84%E6%AD%A3%E8%A7%A3%E8%97%8F%E5%BE%97%E4%B8%A5%E4%B8%A5%E5%AE%9E%E5%AE%9E%E4%BB%A4%E4%BA%BA%E6%B5%AE%E6%83%B3%E7%BF%A9%E7%BF%A9%E4%B8%8D%E7%9F%A5%E4%B8%8D%E8%A7%89%E8%BF%9B%E5%85%A5%E8%B4%AA%E5%BF%83%E5%92%8Cdp%E7%9A%84%E5%A4%A7%E5%9D%91qaq-%E8%80%8C%E4%B8%94%E8%AF%B4%E6%98%AF%E5%AD%97%E5%85%B8%E5%BA%8F%E8%BF%99%E7%89%9B%E5%90%8D%E5%AD%97%E6%9C%89%E4%B8%80%E5%A4%A7%E5%8D%8A%E9%83%BD%E6%98%AFb%E6%89%93%E5%A4%B4%E7%9A%84%E5%85%89%E6%89%BE%E5%AD%97%E5%85%B8%E5%BA%8F%E6%88%91%E5%B0%B1%E5%B7%AE%E7%82%B9%E8%87%AA%E9%97%AD%E8%BF%98%E8%80%83%E4%BA%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%AE%9E%E5%9C%A8%E6%98%AF%E6%81%B6%E5%BF%83%E5%88%B0%E4%BA%86%E4%BB%A4%E4%BA%BA%E5%8F%91%E6%8C%87%E7%9A%84%E5%9C%B0%E6%AD%A5-%E8%AF%B7%E6%89%80%E6%9C%89%E8%AF%A5%E9%A2%98%E5%8E%9F%E5%9C%B0%E7%88%86%E7%82%B8%E7%9A%84%E5%90%8C%E5%AD%A6%E4%BB%94%E7%BB%86%E8%AF%BB%E4%B8%80%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%B0%B18%E5%A4%B4%E7%89%9B%E4%BD%A0%E8%A7%89%E5%BE%97%E5%AF%B9%E4%BA%8E%E5%B0%86%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%8D%A1%E7%9A%84%E5%88%9A%E5%88%9A%E5%A5%BD%E7%9A%84%E6%AF%92%E7%98%A4ojusaco%E6%80%8E%E4%B9%88%E5%8F%AF%E8%83%BD%E8%BF%99%E4%B9%88%E5%8F%8B%E5%A5%BD%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E5%BA%A6n%E6%96%B9%E4%B8%80%E4%B8%8B%E7%9A%84%E7%AE%97%E6%B3%95%E4%BC%9A%E5%8F%AA%E5%8F%AF%E8%83%BD%E7%BB%99%E5%A4%A7%E5%B0%8F%E4%B8%BA8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%90%97%E5%86%B5%E4%B8%94%E9%93%9C%E7%BB%84%E9%87%8C%E4%B8%80%E8%88%AC%E4%B8%8D%E4%BC%9A%E5%87%BA%E7%8E%B0%E6%AD%A4%E7%B1%BB%E7%AE%97%E6%B3%95%E7%9A%84%E4%BB%94%E7%BB%86%E6%8F%A3%E6%91%A9%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%83%BD%E6%81%B0%E5%A5%BD%E5%8D%A1%E5%88%B08%E7%9A%84%E7%AE%97%E6%B3%95%E4%B9%9F%E5%8F%AA%E6%9C%89onn%E6%88%96o2n%E4%B9%8B%E7%B1%BB%E4%BA%86%E5%90%A7-%E6%89%80%E4%BB%A5%E5%8F%AA%E5%8F%AF%E8%83%BD%E6%98%AF%E6%9A%B4%E5%8A%9B%E6%90%9C%E7%B4%A2-%E6%88%91%E8%BF%99%E9%87%8C%E9%87%87%E7%94%A8%E4%BA%86map%E6%98%A0%E5%B0%84%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%B0%86%E7%89%9B%E6%8C%89%E7%85%A7%E5%AD%97%E5%85%B8%E5%BA%8F%E8%BF%9B%E8%A1%8C%E5%93%88%E5%B8%8C%E7%84%B6%E5%90%8E%E4%BD%BF%E7%94%A8stl%E4%B8%AD%E7%9A%84next_permutation%E9%82%A3%E4%B9%88%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AF%E8%A1%8C%E8%A7%A3%E4%B8%80%E5%AE%9A%E6%98%AF%E5%AD%97%E5%85%B8%E5%BA%8F%E6%9C%80%E5%B0%8F%E7%9A%84%E5%8F%AA%E9%9C%80%E5%85%A8%E6%8E%92%E5%88%97%E6%A3%80%E6%9F%A5%E5%8D%B3%E5%8F%AF">个人认为是三场比赛中最最最无耻的一道题，差点逼我用拓扑（虽然拓扑也做不出来），尤其对于新手相当不友好，将暴力的正解藏得严严实实，令人浮想翩翩，不知不觉进入贪心和DP的大坑QAQ。而且说是字典序，这牛名字有一大半都是B打头的，光找字典序我就差点自闭，还考了字符串的输入输出，实在是恶心到了令人发指的地步。请所有该题原地爆炸的同学仔细读一下数据，就8头牛，你觉得对于将一个数据复杂度卡的刚刚好的毒瘤OJ——USACO，怎么可能这么友好，一个复杂度n方一下的算法会只可能给大小为8的数据吗？（况且铜组里一般不会出现此类算法的）仔细揣摩，复杂度能恰好卡到8的算法，也只有O（n!×n)或O(2^n)之类了吧。所以只可能是暴力搜索。我这里采用了map映射的形式，将牛<strong>按照字典序</strong>进行哈希，然后使用STL中的next_permutation，那么第一个可行解一定是字典序最小的，只需全排列+检查即可。</a></li>
+</ul>
+</li>
+<li><a href="#code-8">Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    lList.push(elem);
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+addTocNumber(tocContent, '');
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+          </div>
+        
+      </div>
+    </div>
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+
+  if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+    let hasFix = false;
+    let scrollEl = document.querySelector('.main-continer');
+    let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+    window.addEventListener('scroll', function(e) {
+    if (document.scrollingElement.scrollTop >= limitTop) {
+      if (!hasFix) {
+        sidebar.classList.add('sidebar-fixed');
+        hasFix = true;
+      }
+    } else {
+      if (hasFix) {
+        sidebar.classList.remove('sidebar-fixed');
+        hasFix = false;
+      }
+    }
+  });
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <div class="article-box">
+    <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://xiaoh105.github.io/post/usaco-dec-2019-can-sai-zong-jie/">
+      USACO DEC 2019 参赛总结
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2019-12-19</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://xiaoh105.github.io/tag/Summary/">
+              <span>参赛总结</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>26分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>5296<span class="pc-show">字数</span></span>
+    </span>
+  </div>
+</header>
+</div>
+              <div class="post-body next-md-body" id="post_body">
+                <h3 id="usaco-dec-2019-参赛总结2019-12-13~2019-12-16">USACO DEC 2019 参赛总结（2019-12-13~2019-12-16）</h3>
+<h4 id="2019-12-19-xiaoh">2019-12-19 xiaoh</h4>
+<h4 id="金组gold">金组Gold</h4>
+<h4 id="a-milk-pumping"><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=969">A-Milk Pumping</a></h4>
+<h4 id="题意">题意</h4>
+<h5 id="给定一个n个点m条边的无向图每一条边都有一个最大流量f和一个价格c1nm10001cf1000找一条从1到n的路径保证存在求最大化minfσc的路径将这个值1e6取下整后输出">给定一个n个点，m条边的无向图，每一条边都有一个最大流量f和一个价格c（1&lt;=n,m&lt;=1000，1&lt;=c,f&lt;=1000）,找一条从1到n的路径（保证存在），求最大化Min{f}/Σ{c}的路径，将这个值×1e6取下整后输出</h5>
+<h4 id="题解">题解</h4>
+<h5 id="首先很明显当流量最小值固定时我们只要求满足条件的最小的σc即可-所以考虑枚举每一个minf然后将所有流量f的边建图跑dijkstra即可时间复杂度omaxfnmlgnm大约在1e7多一点的样子可以过敲板子即可">首先，很明显，当流量最小值固定时，我们只要求满足条件的最小的Σ{c}即可。所以考虑枚举每一个Min{f}，然后将所有流量&gt;=f的边建图，跑Dijkstra即可，时间复杂度O(maxf×(n+m)lg(n+m))，大约在1e7多一点的样子，可以过，敲板子即可。</h5>
+<h4 id="code">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define inf 9999999
+using namespace std;
+inline int read()//快读
+{
+	int ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+int n,m;
+int tot=1;
+struct node{
+	int v,c;
+	bool flag;
+}edge[2010];
+int nxt[2010];
+int hd[1010];
+inline void add_edge(int u,int v,int c)//前向星
+{
+	edge[tot].v=v,edge[tot].c=c;
+	nxt[tot]=hd[u];
+	hd[u]=tot++;
+}
+struct node2{
+	int u,v,c,f;
+}a[1010];
+bool cmp(node2 a,node2 b)//将边按流量排序（实际没什么卵用）
+{
+	return a.f&lt;b.f;
+}
+struct node3{//Dijkstra专用堆+运算符重载
+	int pos,num;
+	friend bool operator &lt; (node3 a,node3 b)
+	{
+		return a.num&gt;b.num;
+	}
+};
+long double ans=0;
+priority_queue&lt;node3&gt; q;
+int dis[1010];
+bool book[1010];
+inline void init(int limit)//按照流量限制初始化并建图
+{
+	tot=1;
+	memset(edge,0,sizeof(edge));
+	memset(nxt,0,sizeof(nxt));
+	memset(hd,0,sizeof(hd));
+	memset(book,0,sizeof(book));
+	for(int i=1;i&lt;=n;i++) dis[i]=(i==1)? 0:inf;
+	for(int i=1;i&lt;=m;i++)
+	if(a[i].f&gt;=limit)
+	{
+		add_edge(a[i].u,a[i].v,a[i].c);
+		add_edge(a[i].v,a[i].u,a[i].c);
+	}
+}
+void Dijkstra()//Dijkstra板子，不解释
+{
+	q.push({1,0});
+	while(!q.empty())
+	{
+		int x=q.top().pos;
+		q.pop();
+		if(book[x]) continue;
+		book[x]=1;
+		for(int i=hd[x];i;i=nxt[i])
+		if(dis[edge[i].v]&gt;dis[x]+edge[i].c)
+		{
+			dis[edge[i].v]=dis[x]+edge[i].c;
+			q.push({edge[i].v,dis[edge[i].v]});
+		}
+	}
+}
+int main()
+{
+	n=read(),m=read();
+	for(int i=1;i&lt;=m;i++) a[i].u=read(),a[i].v=read(),a[i].c=read(),a[i].f=read();
+	sort(a+1,a+m+1,cmp);
+	for(int i=1;i&lt;=1000;i++)
+	{
+		init(i);
+		Dijkstra();
+		ans=max(ans,(long double)i/(long double)dis[n]);
+	}
+	ans*=(long double)1000000;
+	ans=floor(ans);
+	printf(&quot;%lld\n&quot;,(long long)ans);
+	return 0;
+}
+</code></pre>
+<h4 id="b-milk-visits"><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=970">B-Milk Visits</a></h4>
+<h4 id="题意-2">题意</h4>
+<h5 id="给定一棵有n个节点的树1n1e5每个节点上都有特定种类的牛种类在1n间有m个询问每次给一个aibi表示树上的一条在aibi间的路径问路径中是否存在至少一头种类为ci的牛">给定一棵有n个节点的树(1&lt;=n&lt;=1e5)，每个节点上都有特定种类的牛（种类在[1,n]间），有m个询问，每次给一个ai,bi表示树上的一条在ai,bi间的路径，问路径中是否存在至少一头种类为ci的牛</h5>
+<h4 id="题解-2">题解</h4>
+<h5 id="笔者刚看到题的时候第一个反应是用lca维护啊用lca暴力维护每一种牛是否存在至于维护的具体方式只能是bitset之类的数据结构可就算是使用bitset我们可以大致的计算一下空间复杂度1e5lg1e51e532大概是20个g根本不行所以只能换思路了">笔者刚看到题的时候，第一个反应是用LCA维护啊！用LCA暴力维护每一种牛是否存在，至于维护的具体方式只能是bitset之类的数据结构，可就算是使用bitset，我们可以大致的计算一下空间复杂度:1e5×lg1e5×1e5/32，大概是20个G，根本不行！所以只能换思路了。</h5>
+<h5 id="由于题目没有强制要求询问在线因此可以考虑将询问离线处理-首先观察询问的特点发现每个询问只涉及一种牛所以我们可以考虑先假设整棵树是空的然后往里加入种类为i的牛处理对应查询再把这些牛删掉-这样每次只需要在节点上维护一个bool值表示当前位置是否有一头当前正在处理的种类的牛即可而不必单独维护每一种牛是否存在很大的简化了问题-但是这个做法有一个很大的缺陷你需要用一个数据结构使它能够支持动态修改和查询而前面提到的lca在查询上表现相当优异在面对修改时却退化成了onlgn的复杂度远远不能支持算法-所以我们要考虑更适合的数据结构">由于题目没有强制要求询问在线，因此可以考虑将询问离线处理。首先观察询问的特点，发现每个询问只涉及一种牛，所以我们可以考虑先假设整棵树是空的，然后往里加入种类为i的牛，处理对应查询，再把这些牛删掉。这样每次只需要在节点上维护一个bool值，表示当前位置是否有一头当前正在处理的种类的牛即可，而不必单独维护每一种牛是否存在，很大的简化了问题。但是这个做法有一个很大的缺陷：你需要用一个数据结构，使它能够支持动态修改和查询，而前面提到的LCA在查询上表现相当优异，在面对修改时却退化成了O(nlgn)的复杂度，远远不能支持算法。所以我们要考虑更适合的数据结构。</h5>
+<h5 id="树修改查询路径权值想必各位也想到了树链剖分是最适合的-所以算法便自然而然的出来了先将空树剖分然后每个节点维护一个bool值表示当前位置是否有一头当前正在处理的种类的牛用线段树维护重链上是否至少存在一个true值-每次处理询问前将对应种类上的对应位置的牛的bool值改为true处理对应查询并将对应位置上的牛的bool值重新改为false即可-时间复杂度onlgnlgn大约在31e7左右刚好可以卡过去">树，修改，查询路径权值……想必各位也想到了，树链剖分是最适合的。所以算法便自然而然的出来了：先将空树剖分，然后每个节点维护一个bool值，表示当前位置是否有一头当前正在处理的种类的牛，用线段树维护重链上是否至少存在一个true值。每次处理询问前，将对应种类上的对应位置的牛的bool值改为true，处理对应查询，并将对应位置上的牛的bool值重新改为false即可。时间复杂度O(nlgnlgn)，大约在3×1e7左右，刚好可以卡过去。</h5>
+<h4 id="code-2">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+inline int read()//快读
+{
+	int ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+int n,m;
+int tot=1;
+int edge[200010];
+int nxt[200010];
+int hd[100010];
+inline void add_edge(int u,int v)//前向星
+{
+	edge[tot]=v;
+	nxt[tot]=hd[u];
+	hd[u]=tot++;
+}
+int a[100010];
+bool ans[100010];
+//Segment_Tree
+struct node{
+	int l,r;
+	bool num;
+}f[100010*4];
+inline void pushup(int p)
+{
+	f[p].num=0;//注意这一步，否则节点有可能一直是true而在其子节点都被改为false后由于or的性质没有被改变
+	f[p].num|=f[p*2].num,f[p].num|=f[p*2+1].num;
+}
+void build(int p,int l,int r)//建树
+{
+	f[p].l=l,f[p].r=r;
+	if(l==r) return;
+	int mid=(l+r)&gt;&gt;1;
+	build(p*2,l,mid);
+	build(p*2+1,mid+1,r);
+}
+bool query(int p,int l,int r)//查询
+{
+	if(f[p].l&gt;=l&amp;&amp;f[p].r&lt;=r) return f[p].num;
+	int mid=(f[p].l+f[p].r)&gt;&gt;1;
+	bool ans=0;
+	if(l&lt;=mid) ans|=query(p*2,l,r);
+	if(r&gt;mid) ans|=query(p*2+1,l,r);
+	return ans;
+}
+void modify(int p,int x,bool y)//修改
+{
+	if(f[p].l==f[p].r)
+	{
+		f[p].num=y;
+		return;
+	}
+	int mid=(f[p].l+f[p].r)&gt;&gt;1;
+	if(x&lt;=mid) modify(p*2,x,y);
+	else modify(p*2+1,x,y);
+	pushup(p);
+}
+//树剖
+int son[100010],rk[100010],id[100010],sz[100010],fa[100010],top[100010],d[100010];
+void dfs1(int p,int f,int dep)//第一次深搜
+{
+	fa[p]=f,d[p]=dep,sz[p]=1;
+	for(int i=hd[p];i;i=nxt[i])
+	{
+		if(edge[i]==f) continue;
+		dfs1(edge[i],p,dep+1);
+		sz[p]+=sz[edge[i]];
+		if(sz[edge[i]]&gt;sz[son[p]]) son[p]=edge[i];
+	}
+}
+int cnt=0;
+void dfs2(int p,int tp)//第二次深搜
+{
+	id[p]=++cnt,rk[cnt]=p,top[p]=tp;
+	if(son[p]) dfs2(son[p],tp);
+	for(int i=hd[p];i;i=nxt[i])
+	{
+		if(edge[i]==fa[p]||edge[i]==son[p]) continue;
+		dfs2(edge[i],edge[i]);
+	}
+}
+bool query_LCA(int x,int y)//查询答案
+{
+	bool ans=0;
+	while(top[x]!=top[y])
+	{
+		if(d[top[x]]&lt;d[top[y]]) swap(x,y);
+		ans|=query(1,id[top[x]],id[x]);
+		x=fa[top[x]];
+	}
+	ans|=query(1,min(id[x],id[y]),max(id[x],id[y]));
+	return ans;
+}
+vector&lt;int&gt; v1[100010];//储存每种牛在哪些位置
+struct node2{
+	int a,b,id;
+};
+vector&lt;node2&gt; v2[100010];//储存查询每种牛的查询操作在哪个位置，方便最后储存答案
+int main()
+{
+	n=read(),m=read();
+	for(int i=1;i&lt;=n;i++) a[i]=read(),v1[a[i]].push_back(i);
+	for(int i=1;i&lt;n;i++)
+	{
+		int u=read(),v=read();
+		add_edge(u,v),add_edge(v,u);
+	}
+	dfs1(1,-1,1);
+	dfs2(1,1);
+	build(1,1,n);
+	for(int i=1;i&lt;=m;i++)
+	{
+		int a=read(),b=read(),c=read();
+		v2[c].push_back({a,b,i});
+	}
+	for(int i=1;i&lt;=n;i++)
+	{
+		for(vector&lt;int&gt;::iterator it=v1[i].begin();it!=v1[i].end();it++) modify(1,id[*it],1);
+		for(vector&lt;node2&gt;::iterator it=v2[i].begin();it!=v2[i].end();it++) ans[it-&gt;id]=query_LCA(it-&gt;a,it-&gt;b);
+		for(vector&lt;int&gt;::iterator it=v1[i].begin();it!=v1[i].end();it++) modify(1,id[*it],0);
+	}
+	for(int i=1;i&lt;=m;i++)
+	if(ans[i]) printf(&quot;1&quot;);
+	else printf(&quot;0&quot;);
+	printf(&quot;\n&quot;);
+	return 0;
+}
+</code></pre>
+<h4 id="c-moortal-cowmbat"><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=971">C-Moortal Cowmbat</a></h4>
+<h5 id="ps-由于笔者水平不够只能写出on2的算法然鹅过不了此题就不放在这里丢人现眼了qaq虽然我已经看出这道题是四边形不等式优化dp了">P.S. 由于笔者水平不够，只能写出O(n^2)的算法，然鹅过不了此题，就不放在这里丢人现眼了QAQ（虽然我已经看出这道题是四边形不等式优化DP了）</h5>
+<h4 id="银组">银组</h4>
+<h4 id="a-moobuzz"><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=966">A-MooBuzz</a></h4>
+<h4 id="题意-3">题意</h4>
+<h5 id="从1开始报数报到3或5的倍数就跳过去求第n个报到的数是多少1n1e9">从1开始报数，报到3或5的倍数就跳过去，求第n个报到的数是多少（1&lt;=n&lt;=1e9）</h5>
+<h4 id="题解-3">题解</h4>
+<h5 id="签到题-显然每15个数一循环只有12478111314可以取所以直接枚举出现了几个完整的循环并统计余数即可">签到题。显然，每15个数一循环，只有1,2,4,7,8,11,13,14可以取，所以直接枚举出现了几个完整的循环并统计余数即可。</h5>
+<h4 id="code-3">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+inline int read()
+{
+	int ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+long long n;
+long long a[]={-1,1,2,4,7,8,11,13};
+int main()
+{
+	cin&gt;&gt;n;
+	cout&lt;&lt;(n/8)*15+a[n%8]&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+<h4 id="b-meetings"><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=967">B-Meetings</a></h4>
+<h4 id="题意-4">题意</h4>
+<h5 id="有n头牛在一根长度为l的数轴上1n51e41l1e9每头牛要么朝左要么朝右都按照1的单位每秒的速度运动当运动到0或l时就会停下-当两头牛在同一个点上时即相遇未必在整点上发生他们会原路返回即反弹-每头牛都有一个质量m1m1e3当停下牛的质量总质量的一半时求相遇牛的对数">有n头牛在一根长度为l的数轴上(1&lt;=n&lt;=5×1e4，1&lt;=l&lt;=1e9)，每头牛要么朝左，要么朝右，都按照1的单位每秒的速度运动，当运动到0或l时就会停下。当两头牛在同一个点上时（即相遇，未必在整点上发生），他们会原路返回（即反弹）。每头牛都有一个质量m（1&lt;=m&lt;=1e3），当停下牛的质量&gt;=总质量的一半时，求相遇牛的对数。</h5>
+<h4 id="题解-4">题解</h4>
+<h5 id="先喷一句不愧是benjamin-qi出的题果然够毒瘤恶心了我十几分钟才想出正解-真是不折不扣的毒瘤">先喷一句，不愧是Benjamin Qi出的题，果然够毒瘤，恶心了我十几分钟才想出正解。真是不折不扣的毒瘤</h5>
+<h5 id="首先将算法分为2部分-第一部分求停下的时间t第二部分求相遇牛的对数-先考虑第一部分-如果有人做过poj的一道题ants的话就会发现这道题就是它的升级版-当两头牛反弹时我们可以理解为两头牛互相穿过对方继续前进然后得出一个序列a其中ai表示第i头停下的牛注意不是第i头牛是第i头停下的牛是在最左边停的还是在最右边停的-这一步想必各位都能写的出来排个序一算就好了-然后考虑题目的现状两头牛相遇后反弹此时不难发现此时得到的a序列与将相遇理解为穿过时的a序列竟然完全相同如果想不通的话自己手动模拟一下就好啦然后再考虑每头停下的牛若他是在最左边停下的那么说明他的左边一定没有牛右边同理-所以我们先假设相遇就是穿过对方求出a序列再将每头牛按照位置排序由于停下的牛一定在两端所以我们就可以得到停下牛的顺序从而求出相应的停下时间t">首先，将算法分为2部分。第一部分：求停下的时间t；第二部分：求相遇牛的对数。先考虑第一部分。如果有人做过POJ的一道题Ants的话，就会发现这道题就是它的升级版。当两头牛反弹时，我们可以理解为两头牛互相穿过对方，继续前进，然后得出一个序列a，其中ai表示第i头停下的牛（注意不是第i头牛，是第i头停下的牛）是在最左边停的还是在最右边停的。这一步想必各位都能写的出来，排个序一算就好了。然后考虑题目的现状：两头牛相遇后反弹，此时不难发现，此时得到的a序列与将“相遇”理解为“穿过”时的a序列竟然完全相同！（如果想不通的话自己手动模拟一下就好啦）然后再考虑：每头停下的牛，若他是在最左边停下的，那么说明他的左边一定没有牛，右边同理。所以我们先假设“相遇”就是“穿过对方”，求出a序列，再将每头牛按照位置排序，由于停下的牛一定在两端，所以我们就可以得到停下牛的顺序，从而求出相应的停下时间t。</h5>
+<h5 id="再考虑第二部分相遇对数-有了前面的t这一步就相当简单了你可以将这种情况理解为逆序对-先统计初始状态下每头牛的位置上从左到右重新按1~n编号在代码中的体现就是排序然后再统计t秒后每头牛的位置-由于同向的牛不会发生追击所以很明显我们不必考虑停下的状况假设他们一直运动的结果和到两端停下的结果一定相同-逆序对求解即可">再考虑第二部分：相遇对数。有了前面的t，这一步就相当简单了，你可以将这种情况理解为逆序对。先统计初始状态下每头牛的位置上，从左到右重新按1~n编号（在代码中的体现就是排序），然后再统计t秒后每头牛的位置。由于同向的牛不会发生追击，所以很明显我们不必考虑停下的状况，假设他们一直运动的结果和到两端停下的结果一定相同。逆序对求解即可。</h5>
+<h4 id="code-4">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+inline int read()
+{
+	int ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+int n,l;
+struct node{
+	int w,x,d;
+}a[50010];
+bool cmp(node x,node y)
+{
+	return x.x&lt;y.x;
+}
+struct node2{
+	int t,dir;
+}b[50010];
+bool cmp2(node2 x,node2 y)
+{
+	return x.t&lt;y.t;
+}
+int totw=0,t;
+int f[50010];//树状数组板子
+inline int lowbit(int x)
+{
+	return x&amp;(-x);
+}
+inline void modify(int x,int y)
+{
+	for(;x&lt;=n;x+=lowbit(x)) f[x]+=y;
+}
+inline int query(int x)
+{
+	int ret=0;
+	for(;x;x-=lowbit(x)) ret+=f[x];
+	return ret;
+}
+struct node3{
+	int pos,id;
+}c[50010];
+bool cmp3(node3 x,node3 y)
+{
+	if(x.pos!=y.pos) return x.pos&lt;y.pos;
+	else return x.id&gt;y.id;//注意：有可能有多头牛最后在同一个点，此时他们也算相遇，所以要加这一句
+}
+long long ans=0;
+int main()
+{
+	n=read(),l=read();
+	for(int i=1;i&lt;=n;i++) a[i].w=read(),a[i].x=read(),a[i].d=read(),totw+=a[i].w;
+	sort(a+1,a+n+1,cmp);//按照数轴上的位置排序
+	for(int i=1;i&lt;=n;i++)
+	if(a[i].d==1) b[i]={l-a[i].x,1};
+	else b[i]={a[i].x,-1};//按照“互相穿过”计算A序列
+	sort(b+1,b+n+1,cmp2);
+	int lp=1,rp=n,cnt=0;
+	for(int i=1;i&lt;=n;i++)
+	{
+		if(b[i].dir==1) cnt+=a[rp--].w;
+		else cnt+=a[lp++].w;
+		t=b[i].t;
+		if(cnt&gt;=(totw+1)/2) break;
+	}//计算时间t
+	for(int i=1;i&lt;=n;i++)
+	if(a[i].d==1) c[i]={a[i].x+t,i};
+	else c[i]={a[i].x-t,i};//计算t秒后的位置
+	sort(c+1,c+n+1,cmp3);//排序
+	for(int i=n;i&gt;=1;i--)
+	ans+=(long long)query(c[i].id-1),modify(c[i].id,1);//逆序对
+	printf(&quot;%lld\n&quot;,ans);
+	return 0;
+}
+</code></pre>
+<h4 id="c-milk-visits弱化版"><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=968">C-Milk Visits（弱化版）</a></h4>
+<h4 id="题意-5">题意</h4>
+<h5 id="题面与金组t2类似-给定一棵有n个节点的树1n1e5每个节点上都有特定种类的牛种类为guernsey用g表示或holstein用h表示有m个询问每次给一个aibi表示树上的一条在aibi间的路径问路径中是否存在至少一头种类为ci的牛ci是g或h中的一个">题面与金组T2类似。给定一棵有n个节点的树(1&lt;=n&lt;=1e5)，每个节点上都有特定种类的牛，种类为Guernsey（用'G'表示）或Holstein（用'H'表示），有m个询问，每次给一个ai,bi表示树上的一条在ai,bi间的路径，问路径中是否存在至少一头种类为ci的牛（ci是'G'或'H'中的一个）</h5>
+<h4 id="题解-5">题解</h4>
+<h5 id="是金组t2的魔改版基本属于模板题-利用lca维护整颗树并在维护lca时同时维护两个bool变量表示目前的这一段是否有至少一头h牛和目前的这一段是否至少有一头g牛然后打lca的板子即可">是金组T2的魔改版，基本属于模板题。利用LCA维护整颗树，并在维护LCA时同时维护两个bool变量，表示目前的这一段是否有至少一头H牛和目前的这一段是否至少有一头G牛，然后打LCA的板子即可。</h5>
+<h4 id="code-5">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+inline int read()
+{
+	int ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+int n,m;
+int a[100010];
+int tot=1;
+int edge[200010];
+int nxt[200010];
+int hd[100010];
+inline void add_edge(int u,int v)//前向星
+{
+	edge[tot]=v;
+	nxt[tot]=hd[u];
+	hd[u]=tot++;
+}
+int d[100010];
+struct node{
+	int pos;
+	bool val1,val2;
+}LCA[100010][20];
+queue&lt;int&gt; q;
+bool book[100010];
+int max_lg;
+void prework()//LCA预处理
+{
+	book[1]=1;
+	d[1]=1,q.push(1);
+	max_lg=log2(n)+1;
+	while(!q.empty())
+	{
+		int x=q.front();
+		q.pop();
+		for(int i=hd[x];i;i=nxt[i])
+		{
+			int y=edge[i];
+			if(book[y]) continue;
+			book[y]=1;
+			if(a[x]==0) LCA[y][0].val1=1;
+			else LCA[y][0].val2=1;
+			LCA[y][0].pos=x;
+			d[y]=d[x]+1;
+			for(int j=1;j&lt;=max_lg;j++)
+			{
+				LCA[y][j].pos=LCA[LCA[y][j-1].pos][j-1].pos;//在维护LCA的同时维护val1和val2
+				LCA[y][j].val1|=LCA[LCA[y][j-1].pos][j-1].val1;
+				LCA[y][j].val1|=LCA[y][j-1].val1;
+				LCA[y][j].val2|=LCA[LCA[y][j-1].pos][j-1].val2;
+				LCA[y][j].val2|=LCA[y][j-1].val2;
+			}
+			q.push(y);
+		}
+	}
+}
+bool query(int x,int y,int type)//查询LCA的同时查询val1或val2
+{
+	bool ans1=0,ans2=0;
+	if(a[x]==0) ans1=1;
+	else ans2=1;
+	if(a[y]==0) ans1=1;
+	else ans2=1;
+	if(d[x]&lt;d[y]) swap(x,y);
+	for(int i=max_lg;i&gt;=0;i--)
+	if(d[LCA[x][i].pos]&gt;=d[y])
+	{
+		ans1|=LCA[x][i].val1,ans2|=LCA[x][i].val2;
+		x=LCA[x][i].pos;
+	}
+	if(x==y)
+	{
+		if(type==1) return ans1;
+		else return ans2;
+	}
+	for(int i=max_lg;i&gt;=0;i--)
+	if(LCA[x][i].pos!=LCA[y][i].pos)
+	{
+		ans1|=LCA[x][i].val1,ans2|=LCA[x][i].val2;
+		x=LCA[x][i].pos;
+		ans1|=LCA[y][i].val1,ans2|=LCA[y][i].val2;
+		y=LCA[y][i].pos;
+	}
+	ans1|=LCA[x][0].val1,ans2|=LCA[x][0].val2;
+	ans1|=LCA[y][0].val1,ans2|=LCA[y][0].val2;
+	if(type==1) return ans1;
+	else return ans2;
+}
+int main()
+{
+	n=read(),m=read();
+	string s;
+	cin&gt;&gt;s;
+	for(int i=0;i&lt;s.length();i++)
+	if(s[i]=='H') a[i+1]=0;
+	else a[i+1]=1;
+	for(int i=1;i&lt;n;i++)
+	{
+		int u=read(),v=read();
+		add_edge(u,v);
+		add_edge(v,u);
+	}
+	prework();
+	for(int i=1;i&lt;=m;i++)
+	{
+		int x=read(),y=read();
+		char c;
+		cin&gt;&gt;c;
+		if(c=='H')
+		{
+			if(query(x,y,1)==0) printf(&quot;0&quot;);
+			else printf(&quot;1&quot;);
+		}
+		else
+		{
+			if(query(x,y,2)==0) printf(&quot;0&quot;);
+			else printf(&quot;1&quot;);
+		}
+	}
+	printf(&quot;\n&quot;);
+	return 0;
+}
+</code></pre>
+<h4 id="铜组">铜组</h4>
+<h4 id="a-cow-gymnastics"><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=963">A-Cow Gymnastics</a></h4>
+<h4 id="题意-6">题意</h4>
+<h5 id="有n头牛k次训练课-给出每次训练课每头牛的排名-求满足所有训练课中一头牛都比另一头排名靠前的牛的对数1k101n20">有n头牛，k次训练课。给出每次训练课每头牛的排名。求满足所有训练课中，一头牛都比另一头排名靠前的牛的对数（1&lt;=k&lt;=10,1&lt;=n&lt;=20）</h5>
+<h4 id="题解-6">题解</h4>
+<h5 id="暴力枚举即可怎么样写都能过就不细讲了">暴力枚举即可，怎么样写都能过，就不细讲了。</h5>
+<h4 id="code-6">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+inline int read()//快读
+{
+	int ret=0,w=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') w=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
+	return w*ret;
+}
+int n,k;
+int a[25][25];
+int ans=0;
+int main()
+{
+	k=read(),n=read();
+	for(int i=1;i&lt;=k;i++)
+	for(int j=1;j&lt;=n;j++)//读入
+	{
+		int x=read();
+		a[i][x]=j;
+	}
+	for(int i=1;i&lt;=n;i++)//枚举牛
+	for(int j=1;j&lt;=n;j++)
+	if(i!=j)
+	{
+		for(int l=1;l&lt;=k;l++)//检查是否可行
+		if(a[l][i]&lt;a[l][j]) goto nxt;
+		ans++;
+		nxt:;
+	}
+	cout&lt;&lt;ans&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+<h4 id="b-where-am-i"><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=964">B-Where am I?</a></h4>
+<h4 id="题意-7">题意</h4>
+<h5 id="给一个字符串s1s100且s有大写字母构成对于每一个位置i我们用一段子串sisi1si2sik表示它的位置-求最小的满足条件的k使所有的位置i表示它位置的子串各不相同">给一个字符串S(1&lt;=|s|&lt;=100,且S有大写字母构成）,对于每一个位置i，我们用一段子串si,si+1,si+2,...,si+k表示它的位置。求最小的满足条件的k，使所有的位置i，表示它位置的子串<strong>各不相同</strong></h5>
+<h4 id="题解-7">题解</h4>
+<h5 id="截断子串并保证其独一无二性让我们想到了利用map进行查重操作-建立一个map表示string到bool的映射-考虑暴力枚举k并把每个字串在map中的值改为1-若该字串在修改之前已经为1说明重复了排除进入下一个k进行枚举-注意map不需要实时清空因为每个substring的长度都不同因而不会在不同的k时出现相同的字串">截断子串，并保证其独一无二性，让我们想到了利用map进行查重操作。建立一个map，表示string到bool的映射。考虑暴力枚举k，并把每个字串在map中的值改为1。若该字串在修改之前已经为1，说明重复了，排除，进入下一个k进行枚举。注意map不需要实时清空，因为每个substring的长度都不同，因而不会在不同的k时出现相同的字串。</h5>
+<h4 id="code-7">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int n;
+string s;
+map&lt;string,bool&gt; mp;
+int main()
+{
+	cin&gt;&gt;n&gt;&gt;s;
+	for(int i=1;i&lt;=n;i++)
+	{
+		for(int j=0;j+i-1&lt;n;j++)
+		{
+			string tmp=s.substr(j,i);//取表示位置当前的子串
+			if(mp[tmp]) goto nxt;//若重复，则不可行，进入下一个k
+			mp[tmp]=1;//将子串标记为存在
+		}
+		cout&lt;&lt;i&lt;&lt;endl;//若没有冲突，则说明当前解可行，输出并返回
+		return 0;
+		nxt:;
+	}
+	return 0;
+}
+</code></pre>
+<h4 id="c-line-up"><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=965">C-Line Up</a></h4>
+<h4 id="题意-8">题意</h4>
+<h5 id="有8头牛分别叫要排成一列-给定n个限制条件1n7每个条件为a-must-be-milked-after-b表示a-b必须在队伍中相邻-求满足条件的字典序最小的排列">有8头牛，分别叫，要排成一列。给定n个限制条件（1&lt;=n&lt;=7），每个条件为&quot;A must be milked after B&quot;,表示A、B必须在队伍中相邻。求满足条件的<strong>字典序最小的</strong>排列</h5>
+<h4 id="题解-8">题解</h4>
+<h5 id="个人认为是三场比赛中最最最无耻的一道题差点逼我用拓扑虽然拓扑也做不出来尤其对于新手相当不友好将暴力的正解藏得严严实实令人浮想翩翩不知不觉进入贪心和dp的大坑qaq-而且说是字典序这牛名字有一大半都是b打头的光找字典序我就差点自闭还考了字符串的输入输出实在是恶心到了令人发指的地步-请所有该题原地爆炸的同学仔细读一下数据就8头牛你觉得对于将一个数据复杂度卡的刚刚好的毒瘤ojusaco怎么可能这么友好一个复杂度n方一下的算法会只可能给大小为8的数据吗况且铜组里一般不会出现此类算法的仔细揣摩复杂度能恰好卡到8的算法也只有onn或o2n之类了吧-所以只可能是暴力搜索-我这里采用了map映射的形式将牛按照字典序进行哈希然后使用stl中的next_permutation那么第一个可行解一定是字典序最小的只需全排列检查即可">个人认为是三场比赛中最最最无耻的一道题，差点逼我用拓扑（虽然拓扑也做不出来），尤其对于新手相当不友好，将暴力的正解藏得严严实实，令人浮想翩翩，不知不觉进入贪心和DP的大坑QAQ。而且说是字典序，这牛名字有一大半都是B打头的，光找字典序我就差点自闭，还考了字符串的输入输出，实在是恶心到了令人发指的地步。请所有该题原地爆炸的同学仔细读一下数据，就8头牛，你觉得对于将一个数据复杂度卡的刚刚好的毒瘤OJ——USACO，怎么可能这么友好，一个复杂度n方一下的算法会只可能给大小为8的数据吗？（况且铜组里一般不会出现此类算法的）仔细揣摩，复杂度能恰好卡到8的算法，也只有O（n!×n)或O(2^n)之类了吧。所以只可能是暴力搜索。我这里采用了map映射的形式，将牛<strong>按照字典序</strong>进行哈希，然后使用STL中的next_permutation，那么第一个可行解一定是字典序最小的，只需全排列+检查即可。</h5>
+<h4 id="code-8">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int n;
+int a[10];
+map&lt;string,int&gt; mp1;
+map&lt;int,string&gt; mp2;
+int b[8][2];
+void check()
+{
+	for(int i=1;i&lt;=n;i++)//检查当前解是否可行
+	{
+		int x,y;
+		for(int j=1;j&lt;=8;j++)
+		if(a[j]==b[i][0]) x=j;
+		else if(a[j]==b[i][1]) y=j;
+		if(abs(x-y)!=1) return;
+	}
+	for(int i=1;i&lt;=8;i++) cout&lt;&lt;mp2[a[i]]&lt;&lt;endl;//若可行，直接输出并返回
+	exit(0);
+}
+int main()
+{
+	mp1[&quot;Beatrice&quot;]=1,mp2[1]=&quot;Beatrice&quot;;//正向+反向手动按字典序映射
+	mp1[&quot;Belinda&quot;]=2,mp2[2]=&quot;Belinda&quot;;
+	mp1[&quot;Bella&quot;]=3,mp2[3]=&quot;Bella&quot;;
+	mp1[&quot;Bessie&quot;]=4,mp2[4]=&quot;Bessie&quot;;
+	mp1[&quot;Betsy&quot;]=5,mp2[5]=&quot;Betsy&quot;;
+	mp1[&quot;Blue&quot;]=6,mp2[6]=&quot;Blue&quot;;
+	mp1[&quot;Buttercup&quot;]=7,mp2[7]=&quot;Buttercup&quot;;
+	mp1[&quot;Sue&quot;]=8,mp2[8]=&quot;Sue&quot;;
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;i++)
+	{
+		string s;
+		cin&gt;&gt;s;
+		b[i][0]=mp1[s];
+		cin&gt;&gt;s,cin&gt;&gt;s,cin&gt;&gt;s,cin&gt;&gt;s;//这里连着那么多cin主要是为了处理中间的那堆废话
+		cin&gt;&gt;s;
+		b[i][1]=mp1[s];
+	}
+	for(int i=1;i&lt;=8;i++) a[i]=i;
+	do{
+		check();//查询当前解是否可行
+	}while(next_permutation(a+1,a+9));//暴力枚举
+	return 0;
+}
+</code></pre>
+
+              </div>
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      xiaoh的博客
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://xiaoh105.github.io/post/usaco-dec-2019-can-sai-zong-jie/" title="USACO DEC 2019 参赛总结">USACO DEC 2019 参赛总结</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://xiaoh105.github.io/tag/Summary/"># 参赛总结</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="洛谷 P4168 [Violet]蒲公英 题解" href="https://xiaoh105.github.io/post/luo-gu-p4168-violetpu-gong-ying-ti-jie/">洛谷 P4168 [Violet]蒲公英 题解</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="洛谷 P4168 [Violet]蒲公英 题解" href="https://xiaoh105.github.io/post/luo-gu-p4168-violetpu-gong-ying-ti-jie/">上一篇</a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="洛谷 P2915 [USACO08NOV]奶牛混合起来Mixed Up Cows 题解" href="https://xiaoh105.github.io/post/luo-gu-p2915-usaco08novnai-niu-hun-he-qi-lai-mixed-up-cows-ti-jie/">洛谷 P2915 [USACO08NOV]奶牛混合起来Mixed Up Cows 题解</a>
+        <a class="nav-mobile-next" title="洛谷 P2915 [USACO08NOV]奶牛混合起来Mixed Up Cows 题解" href="https://xiaoh105.github.io/post/luo-gu-p2915-usaco08novnai-niu-hun-he-qi-lai-mixed-up-cows-ti-jie/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
+              
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+</script>
+                
+                
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      © 2019-2020 <i class="fa fa-heart"></i> HsxyHao
+    </div>
+    <div class="poweredby">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+  </footer>
+  
+  
+  <div class="gemini back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+  back2TopText = document.querySelector('#back_to_top_text'),
+  drawerBox = document.querySelector('#drawer_box'),
+  rightSideBar = document.querySelector('.sidebar'),
+  viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+   
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function(e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+  
+  window.addEventListener('scroll', function(e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+  
+  let hasCacu = false;
+  window.onresize = function() {
+    if (window.width > 991) {
+      calcuHeight();
+    } else {
+      hasCacu = false;
+    }
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+  
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function() {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, transitionDir,{ });
+          }
+        })
+        window.Velocity(viewport, openProp,{
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp ,{
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+
+</script>
+    </div>
+  </body>
+  <script src="/media/js/motion.js"></script>
+</html>
