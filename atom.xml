@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaoh105.github.io</id>
     <title>xiaoh&apos;s Blog</title>
-    <updated>2020-02-24T01:17:31.730Z</updated>
+    <updated>2020-02-25T01:39:32.230Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaoh105.github.io"/>
     <link rel="self" href="https://xiaoh105.github.io/atom.xml"/>
@@ -301,8 +301,8 @@ signed main()
     </entry>
     <entry>
         <title type="html"><![CDATA[洛谷 P1993 小K的农场 题解]]></title>
-        <id>https://xiaoh105.github.io/post/luo-gu-p1993-xiao-k-de-nong-chang-ti-jie/</id>
-        <link href="https://xiaoh105.github.io/post/luo-gu-p1993-xiao-k-de-nong-chang-ti-jie/">
+        <id>https://xiaoh105.github.io/post/xiao-k-de-nong-chang/</id>
+        <link href="https://xiaoh105.github.io/post/xiao-k-de-nong-chang/">
         </link>
         <updated>2020-02-22T08:42:22.000Z</updated>
         <content type="html"><![CDATA[<h3 id="洛谷-p1993-小k的农场"><a href="https://www.luogu.com.cn/problem/P1993">洛谷 P1993 小K的农场</a> 题解</h3>
@@ -413,8 +413,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[洛谷 P3338 【ZJOI2014】力/BZOJ 3527 力 题解]]></title>
-        <id>https://xiaoh105.github.io/post/luo-gu-p3338-zjoi2014-li-bzoj-3527-li-ti-jie/</id>
-        <link href="https://xiaoh105.github.io/post/luo-gu-p3338-zjoi2014-li-bzoj-3527-li-ti-jie/">
+        <id>https://xiaoh105.github.io/post/li/</id>
+        <link href="https://xiaoh105.github.io/post/li/">
         </link>
         <updated>2020-02-17T06:23:28.000Z</updated>
         <content type="html"><![CDATA[<h3 id="洛谷-p3338-zjoi2014力"><a href="https://www.luogu.com.cn/problem/P3338">洛谷 P3338 【ZJOI2014】力</a>/<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=3527">BZOJ 3527 力</a> 题解</h3>
@@ -517,8 +517,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[noi.ac #51 array 题解]]></title>
-        <id>https://xiaoh105.github.io/post/dollarnoiacdollar-51-array-ti-jie/</id>
-        <link href="https://xiaoh105.github.io/post/dollarnoiacdollar-51-array-ti-jie/">
+        <id>https://xiaoh105.github.io/post/array/</id>
+        <link href="https://xiaoh105.github.io/post/array/">
         </link>
         <updated>2020-02-13T06:26:21.000Z</updated>
         <content type="html"><![CDATA[<h3 id="noiac-51-array题解"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>o</mi><mi>i</mi><mi mathvariant="normal">.</mi><mi>a</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">noi.ac</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault">o</span><span class="mord mathdefault">i</span><span class="mord">.</span><span class="mord mathdefault">a</span><span class="mord mathdefault">c</span></span></span></span> <a href="http://noi.ac/problem/51">#51 array</a>题解</h3>
@@ -655,8 +655,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[洛谷 P3292 【SCOI2016】幸运数字/BZOJ 4568 幸运数字 题解]]></title>
-        <id>https://xiaoh105.github.io/post/luo-gu-p3292-scoi2016-xing-yun-shu-zi-bzoj-4568-xing-yun-shu-zi-ti-jie/</id>
-        <link href="https://xiaoh105.github.io/post/luo-gu-p3292-scoi2016-xing-yun-shu-zi-bzoj-4568-xing-yun-shu-zi-ti-jie/">
+        <id>https://xiaoh105.github.io/post/xing-yun-shu-zi/</id>
+        <link href="https://xiaoh105.github.io/post/xing-yun-shu-zi/">
         </link>
         <updated>2020-02-12T06:31:14.000Z</updated>
         <content type="html"><![CDATA[<h3 id="洛谷-p3292-scoi2016幸运数字"><a href="https://www.luogu.com.cn/problem/P3292">洛谷 P3292 【SCOI2016】幸运数字</a>/<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4568">BZOJ 4568 幸运数字</a> 题解</h3>
@@ -788,8 +788,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[洛谷 P3391 【模板】文艺平衡树/BZOJ 3223 文艺平衡树 题解]]></title>
-        <id>https://xiaoh105.github.io/post/luo-gu-p3391-mo-ban-wen-yi-ping-heng-shu-bzoj-3223-wen-yi-ping-heng-shu-ti-jie/</id>
-        <link href="https://xiaoh105.github.io/post/luo-gu-p3391-mo-ban-wen-yi-ping-heng-shu-bzoj-3223-wen-yi-ping-heng-shu-ti-jie/">
+        <id>https://xiaoh105.github.io/post/wen-yi-ping-heng-shu/</id>
+        <link href="https://xiaoh105.github.io/post/wen-yi-ping-heng-shu/">
         </link>
         <updated>2020-02-06T06:32:36.000Z</updated>
         <content type="html"><![CDATA[<h3 id="洛谷-p3391-模板文艺平衡树"><a href="https://www.luogu.com.cn/problem/P3391">洛谷 P3391 【模板】文艺平衡树</a>/<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=3223">BZOJ 3223 文艺平衡树</a> 题解</h3>
@@ -922,8 +922,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[洛谷P5787 二分图 /【模板】线段树分治/BZOJ4025 二分图 题解]]></title>
-        <id>https://xiaoh105.github.io/post/luo-gu-p5787-er-fen-tu-mo-ban-xian-duan-shu-fen-zhi-bzoj4025-er-fen-tu-ti-jie/</id>
-        <link href="https://xiaoh105.github.io/post/luo-gu-p5787-er-fen-tu-mo-ban-xian-duan-shu-fen-zhi-bzoj4025-er-fen-tu-ti-jie/">
+        <id>https://xiaoh105.github.io/post/er-fen-tu/</id>
+        <link href="https://xiaoh105.github.io/post/er-fen-tu/">
         </link>
         <updated>2020-02-03T06:36:18.000Z</updated>
         <content type="html"><![CDATA[<h3 id="洛谷p5787-二分图-模板线段树分治"><a href="https://www.luogu.com.cn/problem/P5787">洛谷P5787 二分图 /【模板】线段树分治</a>/<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4025">BZOJ4025 二分图</a>题解</h3>
@@ -1059,8 +1059,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[洛谷 P5283 【十二省联考2019】异或粽子 题解]]></title>
-        <id>https://xiaoh105.github.io/post/luo-gu-p5283-shi-er-sheng-lian-kao-2019-yi-huo-zong-zi-ti-jie/</id>
-        <link href="https://xiaoh105.github.io/post/luo-gu-p5283-shi-er-sheng-lian-kao-2019-yi-huo-zong-zi-ti-jie/">
+        <id>https://xiaoh105.github.io/post/yi-huo-zong-zi/</id>
+        <link href="https://xiaoh105.github.io/post/yi-huo-zong-zi/">
         </link>
         <updated>2020-02-03T06:34:49.000Z</updated>
         <content type="html"><![CDATA[<h3 id="洛谷-p5283-十二省联考2019异或粽子"><a href="https://www.luogu.com.cn/problem/P5283">洛谷 P5283 【十二省联考2019】异或粽子</a>题解</h3>
@@ -1165,8 +1165,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[洛谷 P2495/BZOJ 2286 消耗战题解]]></title>
-        <id>https://xiaoh105.github.io/post/luo-gu-p2495bzoj-2286-xiao-hao-zhan-ti-jie/</id>
-        <link href="https://xiaoh105.github.io/post/luo-gu-p2495bzoj-2286-xiao-hao-zhan-ti-jie/">
+        <id>https://xiaoh105.github.io/post/xiao-hao-zhan/</id>
+        <link href="https://xiaoh105.github.io/post/xiao-hao-zhan/">
         </link>
         <updated>2020-01-12T06:39:45.000Z</updated>
         <content type="html"><![CDATA[<h3 id="洛谷-p2495"><a href="https://www.luogu.com.cn/problem/P2495">洛谷 P2495</a>/<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2286">BZOJ 2286</a> 消耗战题解</h3>
@@ -1350,8 +1350,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[洛谷 P1494/ACWing 251 小Z的袜子 题解]]></title>
-        <id>https://xiaoh105.github.io/post/luo-gu-p1494acwing-251-xiao-z-de-wa-zi-ti-jie/</id>
-        <link href="https://xiaoh105.github.io/post/luo-gu-p1494acwing-251-xiao-z-de-wa-zi-ti-jie/">
+        <id>https://xiaoh105.github.io/post/xiao-z-de-wa-zi/</id>
+        <link href="https://xiaoh105.github.io/post/xiao-z-de-wa-zi/">
         </link>
         <updated>2020-01-02T06:41:19.000Z</updated>
         <content type="html"><![CDATA[<h3 id="洛谷-p1494"><a href="https://www.luogu.com.cn/problem/P1494">洛谷 P1494</a>/<a href="https://www.acwing.com/problem/content/253/">ACWing 251</a> 小Z的袜子 题解</h3>
