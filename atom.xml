@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaoh105.github.io</id>
     <title>xiaoh&apos;s Blog</title>
-    <updated>2020-02-25T01:50:19.736Z</updated>
+    <updated>2020-02-25T14:35:08.477Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaoh105.github.io"/>
     <link rel="self" href="https://xiaoh105.github.io/atom.xml"/>
@@ -10,6 +10,83 @@
     <logo>https://xiaoh105.github.io/images/avatar.png</logo>
     <icon>https://xiaoh105.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, xiaoh&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[洛谷 P3745 【六省联考2017】期末考试 题解]]></title>
+        <id>https://xiaoh105.github.io/post/qi-mo-kao-shi/</id>
+        <link href="https://xiaoh105.github.io/post/qi-mo-kao-shi/">
+        </link>
+        <updated>2020-02-25T14:32:55.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="洛谷-p3745-六省联考2017期末考试"><a href="https://www.luogu.com.cn/problem/P3745">洛谷 P3745 【六省联考2017】期末考试</a> 题解</h3>
+<h4 id="2020-2-25-xiaoh">2020-2-25 xiaoh</h4>
+<h4 id="题意">题意</h4>
+<p>有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个学生,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>门科目的考试(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo separator="true">,</mo><mi>m</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">1\leq n,m\leq 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8304100000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>).第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>个学生希望<strong>所有</strong>成绩在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">t_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>天前出来,在此之后每晚一天会有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>的不满意值(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>C</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>18</mn></msup></mrow><annotation encoding="application/x-tex">1\leq C\leq 10^{18}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span></span>).第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>门科目的成绩出来的时间为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">b_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.我们可以对一些科目进行如下两种操作:<br>
+1.将科目<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>提前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>天,并将科目<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>延迟<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>天,会有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span></span></span></span>的不满意值.<br>
+2.将科目<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>提前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>天,会有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span>的不满意值.(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>18</mn></msup></mrow><annotation encoding="application/x-tex">1\leq A,B\leq 10^{18}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span></span>)<br>
+每种操作可以进行任意多次,求最小的不满意值.</p>
+<h4 id="题解">题解</h4>
+<p>显然,学生的不满意值只会随着最晚出来的那一科的时间而决定.我们可以考虑枚举最晚那一科出成绩的时间,学生的总不满意值可以通过<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>递推,且是单调不下降的.且教师的总不满意值也可以通过<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>递推,且是单调不上升的.对于需要将最晚的出成绩时间往前调,若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>&gt;</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A&gt;B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span>则显然全部使用操作<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>更优,否则能用操作<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>就用操作<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>,其余的全部用操作<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>即可.时间复杂度的瓶颈在于对<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>排序,时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>+</mo><mi>m</mi><mi>log</mi><mo>⁡</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n+m\log m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span>.注意有个坑点在于使用<code>long long</code>是不够的,会WA掉两个点,要用<code>__int128</code>才行.</p>
+<h4 id="code">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+template&lt;typename T&gt;
+inline void read(T &amp;x)
+{
+	x=0;
+	int f=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') f=-1;
+		ch=getchar();
+}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') x=x*10+(ch^48),ch=getchar();
+	x*=f;
+	return;
+}	
+template&lt;typename T&gt;
+void write(T x)
+{
+	if(x&lt;0) putchar('-'),x=-x;
+	if(x&gt;=10) write(x/10);
+	putchar(x%10+'0');
+	return;
+}
+const int MAXN=100010;
+const __int128 inf=(__int128)LONG_LONG_MAX*(__int128)LONG_LONG_MAX;
+__int128 p,q,r;
+int n,m;
+int t[MAXN],b[MAXN];
+__int128 ans=inf;
+int main()
+{
+    read(p),read(q),read(r);
+    p=min(p,q);
+    read(n),read(m);
+    for(int i=1;i&lt;=n;i++) read(t[i]);
+    for(int i=1;i&lt;=m;i++) read(b[i]);
+    sort(t+1,t+n+1),sort(b+1,b+m+1);
+    __int128 num1=0,num2=0,sumpre=0,sum2=0,sumsuf=0;
+    for(int i=b[m];i&gt;=1;i--)
+    {
+        sumsuf=sumsuf+num1;
+        while(b[m-num1]==i) num1++;
+    }
+    num1=0;
+    for(int i=1;i&lt;=max(t[n],b[m]);i++)
+    {
+        sum2+=num2*r,sumpre+=num1;
+        while(t[num2+1]==i&amp;&amp;num2&lt;=n) num2++;
+        while(b[num1+1]==i&amp;&amp;num1&lt;=m) num1++;
+        if(sumpre&gt;=sumsuf) ans=min(ans,sumsuf*p+sum2);
+        else ans=min(ans,sumpre*p+(sumsuf-sumpre)*q+sum2);
+        sumsuf-=(m-num1);
+    }
+    write(ans),putchar('\n');
+	return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ABC156 Summary]]></title>
         <id>https://xiaoh105.github.io/post/abc156-summary/</id>
@@ -1342,161 +1419,6 @@ int main()
 		dp(1);
 		init();
 		write(f[1]),putchar('\n');
-	}
-	return 0;
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[洛谷 P1494/ACWing 251 小Z的袜子 题解]]></title>
-        <id>https://xiaoh105.github.io/post/xiao-z-de-wa-zi/</id>
-        <link href="https://xiaoh105.github.io/post/xiao-z-de-wa-zi/">
-        </link>
-        <updated>2020-01-02T06:41:19.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="洛谷-p1494"><a href="https://www.luogu.com.cn/problem/P1494">洛谷 P1494</a>/<a href="https://www.acwing.com/problem/content/253/">ACWing 251</a> 小Z的袜子 题解</h3>
-<h4 id="题意">题意</h4>
-<h5 id="给定一个有n个数1n5e4的序列c1cin-有m个询问1m5e4每次给定一个区间lr求给区间中任取两个所在位置不同的数取到对应ci的值相等的概率用最简整数比输出-注不强制在线">给定一个有n个数(1&lt;=n&lt;=5e4)的序列C(1&lt;=ci&lt;=n)。有m个询问（1&lt;=m&lt;=5e4），每次给定一个区间[l,r]，求给区间中任取两个所在位置不同的数取到对应ci的值相等的概率，用最简整数比输出。<strong>注：不强制在线</strong></h5>
-<h4 id="题解">题解</h4>
-<h5 id="本题是莫队的模板题-那么莫队是什么呢莫队是我们国家队队爷的莫涛提出的基于分块的毒瘤算法-具体实现方法为对询问进行分块-先将所有询问按照l端点从小到大排序再在每个块中按照r端点从小到大排序-对于每个块的第一个数我们用暴力求出它的值其余的根据原有的的范围为基础进行扩展即可-以不带修的莫队为例我们以n为块的大小那么它的复杂度是onn的-本题就是裸的莫队板子-直接开一个数组维护区间内每一个ci的个数然后排列组合一下就完事啦">本题是莫队的模板题。那么莫队是什么呢？莫队是我们国家队队爷的莫涛提出的基于分块的毒瘤算法。具体实现方法为：对询问进行分块。先将所有询问按照l端点从小到大排序，再在每个块中按照r端点从小到大排序。对于每个块的第一个数，我们用暴力求出它的值，其余的根据原有的的范围为基础进行扩展即可。以不带修的莫队为例，我们以√n为块的大小，那么它的复杂度是O(n√n）的。本题就是裸的莫队板子。直接开一个数组维护区间内每一个ci的个数，然后排列组合一下就完事啦！</h5>
-<h4 id="code">Code</h4>
-<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-inline int read()
-{
-	int ret=0,w=1;
-	char ch=getchar();
-	while(ch&lt;'0'||ch&gt;'9')
-	{
-		if(ch=='-') w=-1;
-		ch=getchar();
-	}
-	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
-	return w*ret;
-}
-int n,m;
-int a[50010];
-struct node{
-	int l,r;
-	int id;
-}f[50010];
-bool cmp1(node p,node q)
-{
-	if(p.l!=q.l) return p.l&lt;q.l;
-	else return p.r&lt;q.r;
-}
-bool cmp2(node p,node q)
-{
-	return p.r&lt;q.r;
-}
-struct node2{
-	long long p,q;
-}ans[50010];
-int t;
-int tot;
-int lp,rp;
-long long cnt=0;
-long long tmp[50010];
-void cal1(int l,int r)
-{
-	cnt=0;
-	memset(tmp,0,sizeof(tmp));
-	for(int i=l;i&lt;=r;i++)
-	{
-		int x=a[i];
-		cnt-=tmp[x]*(tmp[x]-1)/2;
-		tmp[x]++;
-		cnt+=tmp[x]*(tmp[x]-1)/2;
-	}
-	lp=l,rp=r;
-}
-void cal2(int l,int r)
-{
-	if(lp&gt;l)
-	{
-		for(int i=l;i&lt;lp;i++)
-		{
-			int x=a[i];
-			cnt-=tmp[x]*(tmp[x]-1)/2;
-			tmp[x]++;
-			cnt+=tmp[x]*(tmp[x]-1)/2;
-		}
-		lp=l;
-	}
-	if(lp&lt;l)
-	{
-		for(int i=lp;i&lt;l;i++)
-		{
-			int x=a[i];
-			cnt-=tmp[x]*(tmp[x]-1)/2;
-			tmp[x]--;
-			cnt+=tmp[x]*(tmp[x]-1)/2;
-		}
-		lp=l;
-	}
-	if(rp&lt;r)
-	{
-		for(int i=rp+1;i&lt;=r;i++)
-		{
-			int x=a[i];
-			cnt-=tmp[x]*(tmp[x]-1)/2;
-			tmp[x]++;
-			cnt+=tmp[x]*(tmp[x]-1)/2;
-			rp++;
-		}
-		rp=r;
-	}
-}
-long long gcd(long long a,long long b)
-{
-	return (b==0)? a:gcd(b,a%b);
-}
-int main()
-{
-	n=read(),m=read();
-	for(int i=1;i&lt;=n;i++) a[i]=read();
-	for(int i=1;i&lt;=m;i++) f[i].l=read(),f[i].r=read(),f[i].id=i;
-	sort(f+1,f+m+1,cmp1);
-	t=sqrt(n);
-	tot=n/t;
-	if(t*tot&lt;n) tot++;
-	for(int i=1;i&lt;=tot;i++)
-	{
-		int l=(i-1)*t+1,r=min(i*t,n);
-		sort(f+l,f+r+1,cmp2);
-		start:
-		if(f[l].l==f[l].r)
-		{
-			ans[f[l].id].p=0;
-			ans[f[l].id].q=1;
-			l++;
-			goto start;
-		}
-		else
-		{
-			cal1(f[l].l,f[l].r);
-			long long num=(long long)(f[l].r-f[l].l+1);
-			ans[f[l].id].p=cnt,ans[f[l].id].q=(num-1)*num/2;
-		}
-		for(int j=l+1;j&lt;=r;j++)
-		{
-			if(f[j].l==f[j].r)
-			{
-				ans[f[j].id].p=0;
-				ans[f[j].id].q=1;
-			}
-			else
-			{
-				cal2(f[j].l,f[j].r);
-				long long num=(long long)(f[j].r-f[j].l+1);
-				ans[f[j].id].p=cnt,ans[f[j].id].q=(num-1)*num/2;
-			}
-		}
-	}
-	for(int i=1;i&lt;=m;i++)
-	{
-		long long x=gcd(ans[i].p,ans[i].q);
-		printf(&quot;%lld/%lld\n&quot;,ans[i].p/x,ans[i].q/x); 
 	}
 	return 0;
 }
