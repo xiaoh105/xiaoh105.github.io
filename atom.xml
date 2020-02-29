@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaoh105.github.io</id>
     <title>xiaoh&apos;s Blog</title>
-    <updated>2020-02-27T12:49:15.653Z</updated>
+    <updated>2020-02-29T14:04:10.714Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaoh105.github.io"/>
     <link rel="self" href="https://xiaoh105.github.io/atom.xml"/>
@@ -10,6 +10,162 @@
     <logo>https://xiaoh105.github.io/images/avatar.png</logo>
     <icon>https://xiaoh105.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, xiaoh&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[洛谷 P2824 【HEOI2016/TJOI2016】排序 题解]]></title>
+        <id>https://xiaoh105.github.io/post/pai-xu/</id>
+        <link href="https://xiaoh105.github.io/post/pai-xu/">
+        </link>
+        <updated>2020-02-29T14:02:14.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="洛谷-p2824-heoi2016tjoi2016排序"><a href="https://www.luogu.com.cn/problem/P2824">洛谷 P2824 【HEOI2016/TJOI2016】排序</a> 题解</h3>
+<h4 id="2020-2-29-xiaoh">2020-2-29 xiaoh</h4>
+<h4 id="题意">题意</h4>
+<p>给定有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个正整数的序列<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">1\leq n\leq 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>),且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>~<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>的一个排列.接下来给定<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>个操作(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>m</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">1\leq m\leq 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>),第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>个操作为将区间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><msub><mi>a</mi><mi>l</mi></msub><mo separator="true">,</mo><msub><mi>a</mi><mi>r</mi></msub><mo>]</mo></mrow><annotation encoding="application/x-tex">[a_l,a_r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span> 按照升序/降序排列.求最终在第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span>个位置上的数.</p>
+<h4 id="题解">题解</h4>
+<p>本题是个人认为出的相当好的一道题,思路非常的精妙.<br>
+由于对于所有数进行排序是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>的,所以不可能依次进行排序,所以考虑二分进行处理.假设当前二分的值为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>,则将所有小于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>的数全部设为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>,其余的都设为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>.显然,我们可以用线段树来维护,并且用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 的复杂度进行维护.在所有的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>个操作结束后,我们只要检查第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span>个位置上的数,若为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>则说明答案比<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>,反之则比<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>小.时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msup><mi>log</mi><mo>⁡</mo><mn>2</mn></msup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log^2 n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.148448em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>.</p>
+<h4 id="code">Code</h4>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+template&lt;typename T&gt;
+inline void read(T &amp;x)
+{
+	x=0;
+	int f=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') f=-1;
+		ch=getchar();
+}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') x=x*10+(ch^48),ch=getchar();
+	x*=f;
+	return;
+}	
+template&lt;typename T&gt;
+void write(T x)
+{
+	if(x&lt;0) putchar('-'),x=-x;
+	if(x&gt;=10) write(x/10);
+	putchar(x%10+'0');
+	return;
+}
+const int MAXN=200010;
+int n,m,q;
+int a[MAXN];
+struct node{
+    int l,r;
+    int num0,num1;
+    int tag;
+}f[MAXN*4];
+int b[MAXN];
+int pos;
+inline int len(register int p)
+{
+    return f[p].r-f[p].l+1;
+}
+inline void pushup(register int p)
+{
+    f[p].num0=f[p&lt;&lt;1].num0+f[p&lt;&lt;1|1].num0;
+    f[p].num1=f[p&lt;&lt;1].num1+f[p&lt;&lt;1|1].num1;
+}
+inline void pushdown(register int p)
+{
+    if(f[p].tag==1)
+    {
+        f[p&lt;&lt;1].num0=len(p&lt;&lt;1),f[p&lt;&lt;1].num1=0;
+        f[p&lt;&lt;1|1].num0=len(p&lt;&lt;1|1),f[p&lt;&lt;1|1].num1=0;
+        f[p&lt;&lt;1].tag=f[p&lt;&lt;1|1].tag=1;
+    }
+    else if(f[p].tag==2)
+    {
+        f[p&lt;&lt;1].num1=len(p&lt;&lt;1),f[p&lt;&lt;1].num0=0;
+        f[p&lt;&lt;1|1].num1=len(p&lt;&lt;1|1),f[p&lt;&lt;1|1].num0=0;
+        f[p&lt;&lt;1].tag=f[p&lt;&lt;1|1].tag=2;
+    }
+    f[p].tag=0;
+}
+void init(register int p)
+{
+    f[p].tag=0;
+    if(f[p].l==f[p].r)
+    {
+        if(b[f[p].l]==0) f[p].num0=1,f[p].num1=0;
+        else f[p].num1=1,f[p].num0=0;
+        return;
+    }
+    init(p&lt;&lt;1),init(p&lt;&lt;1|1);
+    pushup(p);
+}
+void modify(register int p,register int l,register int r,register int type)
+{
+    if(f[p].l&gt;=l&amp;&amp;f[p].r&lt;=r)
+    {
+        if(type==0) f[p].num0=len(p),f[p].num1=0,f[p].tag=1;
+        else f[p].num1=len(p),f[p].num0=0,f[p].tag=2;
+        return;
+    }
+    pushdown(p);
+    register int mid=(f[p].l+f[p].r)&gt;&gt;1;
+    if(l&lt;=mid) modify(p&lt;&lt;1,l,r,type);
+    if(r&gt;mid) modify(p&lt;&lt;1|1,l,r,type);
+    pushup(p);
+}
+int query(register int p,register int l,register int r,register int type)
+{
+    if(f[p].l&gt;=l&amp;&amp;f[p].r&lt;=r) return (type==0)? f[p].num0:f[p].num1;
+    pushdown(p);
+    register int ret=0;
+    register int mid=(f[p].l+f[p].r)&gt;&gt;1;
+    if(l&lt;=mid) ret+=query(p&lt;&lt;1,l,r,type);
+    if(r&gt;mid) ret+=query(p&lt;&lt;1|1,l,r,type);
+    return ret;
+}
+void build(register int p,register int l,register int r)
+{
+    f[p].l=l,f[p].r=r;
+    if(l==r) return;
+    register int mid=(l+r)&gt;&gt;1;
+    build(p&lt;&lt;1,l,mid),build(p&lt;&lt;1|1,mid+1,r);
+}
+struct node2{
+    int l,r;
+    int type;
+}op[MAXN];
+inline bool check(register int x)
+{
+    for(register int i=1;i&lt;=n;i++) b[i]=(a[i]&gt;=x);
+    init(1);
+    for(register int i=1;i&lt;=m;i++)
+    {
+        register int l=op[i].l,r=op[i].r;
+        register int x=query(1,l,r,0);
+        if(op[i].type==0) modify(1,l,l+x-1,0),modify(1,l+x,r,1);
+        else modify(1,l,r-x,1),modify(1,r-x+1,r,0);
+    }
+    return query(1,q,q,1);
+}
+int main()
+{
+    read(n),read(m);
+    for(register int i=1;i&lt;=n;i++) read(a[i]),assert(a[i]&gt;=1&amp;&amp;a[i]&lt;=n);
+    for(register int i=1;i&lt;=m;i++) read(op[i].type),read(op[i].l),read(op[i].r);
+    read(q);
+    build(1,1,n);
+    register int l=0,r=n+1;
+    while(l+1&lt;r)
+    {
+        int mid=(l+r)&gt;&gt;1;
+        if(check(mid)) l=mid;
+        else r=mid;
+    }
+    write(l),putchar('\n');
+	return 0;
+}
+</code></pre>
+<h4 id="后记">后记</h4>
+<p>经过本题的<s>折磨</s>考验,我终于知道线段树的常数有多可怕了o(╥﹏╥)o硬生生删了几个无用的操作,加上一堆的<code>inline</code>和<code>register</code>,才终于卡过去了……不得不说,常数真是个万恶的东西啊……</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[洛谷 P4139 上帝与集合的正确用法 题解]]></title>
         <id>https://xiaoh105.github.io/post/shang-di-yu-ji-he-de-zheng-que-yong-fa/</id>
@@ -1188,143 +1344,6 @@ int main()
         reverse(l,r);
     }
     dfs(rt),putchar('\n');
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[洛谷P5787 二分图 /【模板】线段树分治/BZOJ4025 二分图 题解]]></title>
-        <id>https://xiaoh105.github.io/post/er-fen-tu/</id>
-        <link href="https://xiaoh105.github.io/post/er-fen-tu/">
-        </link>
-        <updated>2020-02-03T06:36:18.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="洛谷p5787-二分图-模板线段树分治"><a href="https://www.luogu.com.cn/problem/P5787">洛谷P5787 二分图 /【模板】线段树分治</a>/<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4025">BZOJ4025 二分图</a>题解</h3>
-<h4 id="2020-02-03-xiaoh">2020-02-03 xiaoh</h4>
-<h4 id="题意">题意</h4>
-<h5 id="给定一张有n个节点的图1leq-n-leq-105初始情况下图中没有任何边-接下来的k秒中1leq-k-leq-105总共会出现m条边1leq-m-leq-2105第i条边在第l_i秒出现第r_i秒消失-求每一秒这张图是否是二分图">给定一张有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个节点的图(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">1\leq n \leq 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>)，初始情况下，图中没有任何边。接下来的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>秒中(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>k</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">1\leq k \leq 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83041em;vertical-align:-0.13597em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>)，总共会出现<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>条边(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>m</mi><mo>≤</mo><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">1\leq m \leq 2×10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>)，第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>条边在第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>l</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">l_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>秒出现，第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">r_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>秒消失。求每一秒这张图是否是二分图。</h5>
-<h4 id="题解">题解</h4>
-<h5 id="既然是模板题那么当然要使用线段树二分啦-线段树二分的思路简单来讲就是先将整个问题离线下来以时间轴为坐标建立一颗线段树然后对于每一个修改就在线段树上对应的位置打上永久的标记-接下来以dfs遍历整棵树并在通过标记时将其计入答案-通常可以解决一些容易解决区间加法却不易解决区间减法的问题-在本题中我们只要用一个扩展域并查集维护原图是否是二分图即可-注意由于在递归到叶子后要回溯操作因此不能使用路径压缩因此考虑按秩合并并记录下具体修改的点即可-吐槽一下数据有多水我按秩合并修改时忘记还原了结果依然非常完美的卡了过去时间复杂度omlogkmlogklogn">既然是模板题，那么当然要使用线段树二分啦。线段树二分的思路，简单来讲就是先将整个问题离线下来，以时间轴为坐标建立一颗线段树，然后对于每一个修改，就在线段树上对应的位置打上<strong>永久</strong>的标记。接下来以dfs遍历整棵树并在通过标记时将其计入答案。通常可以解决一些容易解决区间加法，却不易解决区间减法的问题。在本题中，我们只要用一个扩展域并查集维护原图是否是二分图即可。注意由于在递归到叶子后要回溯操作，因此不能使用路径压缩，因此考虑按秩合并，并记录下具体修改的点即可。（吐槽一下数据有多水，我按秩合并修改时忘记还原了，结果依然非常完美的卡了过去）时间复杂度O(mlogk+mlogklogn)。</h5>
-<h4 id="code">Code</h4>
-<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-template&lt;typename T&gt;
-inline void read(T &amp;x)
-{
-	x=0;
-	int f=1;
-	char ch=getchar();
-	while(ch&lt;'0'||ch&gt;'9')
-	{
-		if(ch=='-') f=-1;
-		ch=getchar();
-	}
-	while(ch&gt;='0'&amp;&amp;ch&lt;='9') x=x*10+(ch^48),ch=getchar();
-	x*=f;
-	return;
-}
-template&lt;typename T&gt;
-void write(T x)
-{
-	if(x&lt;0) putchar('-'),x=-x;
-	if(x&gt;=10) write(x/10);
-	putchar(x%10+'0');
-	return;
-}
-const int MAXN=100010,MAXM=200010;
-int n,m,k;
-int tot=1;
-int edge[MAXM*2],w[MAXM*2],nxt[MAXM*2],hd[MAXN];//前向星
-inline void add_edge(int u,int v)
-{
-	edge[tot]=v,w[tot]=u,nxt[tot]=hd[u],hd[u]=tot++;
-}
-struct node{//线段树
-	int l,r;//左右区间
-	vector&lt;int&gt; f;//永久标记，表示该时间区间的添加的边
-}f[MAXN*4];
-void build(int p,int l,int r)//递归建树
-{
-	f[p].l=l,f[p].r=r;
-	if(l==r) return;
-	int mid=(l+r)&gt;&gt;1;
-	build(p*2,l,mid),build(p*2+1,mid+1,r);
-}
-void modify(int p,int l,int r,int val)//区间修改，将边加入线段树中
-{
-	if(f[p].l&gt;=l&amp;&amp;f[p].r&lt;=r)
-	{
-		f[p].f.push_back(val);
-		return;
-	}
-	int mid=(f[p].l+f[p].r)&gt;&gt;1;
-	if(l&lt;=mid) modify(p*2,l,r,val);
-	if(r&gt;mid) modify(p*2+1,l,r,val);
-}
-int a[MAXN*2],rk[MAXN*2];
-inline void init()//初始化并查集
-{
-	for(int i=1;i&lt;=2*n;i++) a[i]=i,rk[i]=1;
-}
-struct node2{//记录修改位置的结构体
-	int a,b;
-};
-stack&lt;node2&gt; q;
-int find(int x)//查询(不能使用路径压缩)
-{
-	return (x==a[x])? a[x]:find(a[x]);
-}
-int Union(int u,int v)//按秩合并
-{
-	u=find(u),v=find(v);
-	if(find(u)==find(v)) return 0;
-	if(rk[u]&lt;=rk[v]) q.push({u,a[u]}),a[u]=v,rk[v]=max(rk[v],rk[u]+1);
-	else q.push({v,a[v]}),a[v]=u,rk[u]=max(rk[u],rk[v]+1);
-	return 1;
-}
-void back(int x)//注意此处写法有一些小问题，笔者忘记加上回溯秩rk的步骤了，但是依旧卡过了，请勿效仿
-{
-	for(int i=1;i&lt;=x;i++) a[q.top().a]=q.top().b,q.pop();
-}
-void dfs(int p,bool ans)//递归整棵树求解答案
-{
-	int cnt=0;
-	for(vector&lt;int&gt;::iterator it=f[p].f.begin();it!=f[p].f.end();it++)
-	if(ans)
-	{
-		int x=edge[*it],y=w[*it];
-		if(x==y)//若目前已经不是二分图了，那么所有的子节点也一定不是
-		{
-			ans=0;
-			continue;
-		}
-		if(find(x)!=find(y)&amp;&amp;find(n+x)!=find(n+y)) cnt+=Union(x,n+y),cnt+=Union(y,n+x);
-		else ans=0;
-	}
-	if(f[p].l==f[p].r)//递归边界
-	{
-		if(ans) printf(&quot;Yes\n&quot;);
-		else printf(&quot;No\n&quot;);
-		back(cnt);
-		return;
-	}
-	dfs(p*2,ans),dfs(p*2+1,ans);
-	back(cnt);
-}
-int main()
-{
-	read(n),read(m),read(k);
-	build(1,1,k);
-	for(int i=1;i&lt;=m;i++)
-	{
-		int x,y,l,r;
-		read(x),read(y),read(l),read(r);
-		if(l&gt;=r) continue;
-		add_edge(x,y);
-		modify(1,l+1,r,tot-1);
-	}
-	init();
-	dfs(1,1);
-	return 0;
 }
 </code></pre>
 ]]></content>
