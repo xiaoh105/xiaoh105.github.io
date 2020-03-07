@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="Practise like you never won, Perform like you never lost!">
 <meta name="theme-color" content="#339af0">
-<title>洛谷 P2687 [USACO4.3]逢低吸纳Buy Low, Buy Lower/ACWing 314 低买 题解 | xiaoh&#39;s Blog</title>
+<title>NOI Online 反思 | xiaoh&#39;s Blog</title>
 <link rel="shortcut icon" href="https://xiaoh105.github.io/favicon.ico?v=1583591597112">
 <link rel="stylesheet" href="https://xiaoh105.github.io/styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="洛谷 P2687 [USACO4.3]逢低吸纳Buy Low, Buy Lower/ACWing 314 低买 题解" />
-    <meta name="keywords" content="线性DP,动态规划" />
+    <meta name="description" content="NOI Online 反思" />
+    <meta name="keywords" content="参赛总结" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -196,36 +196,9 @@
 <ul>
 <li>
 <ul>
-<li><a href="#%E6%B4%9B%E8%B0%B7-p2687-usaco43%E9%80%A2%E4%BD%8E%E5%90%B8%E7%BA%B3buy-low-buy-lower">洛谷 P2687 [USACO4.3]逢低吸纳Buy Low, Buy Lower</a></li>
-<li><a href="#2019-12-26-xiaoh">2019-12-26 xiaoh</a>
+<li><a href="#noi-online-%E5%8F%8D%E6%80%9D">NOI Online 反思</a>
 <ul>
-<li><a href="#%E9%A2%98%E6%84%8F">题意</a>
-<ul>
-<li><a href="#%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AA%E6%9C%89n%E4%B8%AA%E6%95%B0%E7%9A%84%E5%BA%8F%E5%88%97a1n5000%E4%B8%94a%E4%B8%AD%E6%AF%8F%E4%B8%AA%E6%95%B0%E5%9C%A8int%E8%8C%83%E5%9B%B4%E5%86%85%E6%B1%82%E6%9C%80%E9%95%BF%E4%B8%A5%E6%A0%BC%E4%B8%8B%E9%99%8D%E5%AD%90%E5%BA%8F%E5%88%97%E6%88%91%E4%BB%AC%E4%B8%8D%E5%A6%A8%E7%A7%B0%E5%85%B6%E4%B8%BAldslargest-descreasing-subsequence%E7%9A%84%E9%95%BF%E5%BA%A6%E5%8F%8A%E6%95%B0%E9%87%8F-%E6%B3%A8%E5%BD%93%E4%B8%A4%E4%B8%AAlds%E5%85%83%E7%B4%A0%E5%AE%8C%E5%85%A8%E7%9B%B8%E5%90%8C%E6%97%B6%E5%B0%B1%E7%AE%97%E5%85%83%E7%B4%A0%E4%BB%8E%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%96%E5%87%BA%E4%B9%9F%E7%AE%97%E4%BD%9C%E5%90%8C%E4%B8%80%E4%B8%AA%E7%AD%94%E6%A1%88">给定一个有n个数的序列a(1&lt;=n&lt;=5000，且a中每个数在int范围内)，求最长严格下降子序列（我们不妨称其为LDS,Largest Descreasing Subsequence）的长度及数量。注：当两个LDS元素完全相同时，就算元素从不同的位置取出，也算作同一个答案</a></li>
-</ul>
-</li>
-<li><a href="#%E9%A2%98%E8%A7%A3">题解</a>
-<ul>
-<li><a href="#%E9%A6%96%E5%85%88%E6%95%B0%E6%8D%AE%E5%BE%88%E5%B0%8Fn%E5%8F%AA%E6%9C%895000%E5%BE%88%E6%98%8E%E6%98%BE%E9%95%BF%E5%BA%A6%E7%9B%B4%E6%8E%A5%E5%A5%97lis%E7%9A%84%E6%9D%BF%E5%AD%90%E5%B0%B1%E8%A1%8C-%E6%8E%A5%E4%B8%8B%E6%9D%A5%E8%A6%81%E8%80%83%E8%99%91%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E6%95%B0%E9%87%8F%E5%B9%B6%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%90%8C%E7%9A%84%E5%BA%8F%E5%88%97-%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%88%91%E4%BB%AC%E8%80%83%E8%99%91%E5%A6%82%E4%BD%95%E5%9C%A8dp%E6%97%B6%E7%AE%97%E5%87%BA%E6%BB%A1%E8%B6%B3%E8%A6%81%E6%B1%82%E7%9A%84lds%E7%9A%84%E6%95%B0%E7%9B%AE-%E5%B0%86dp%E6%96%B9%E7%A8%8Bfimaxfj1ji1n%E4%B8%94aiaj%E7%9A%84%E6%83%85%E5%86%B5%E5%88%86%E4%B8%BA%E4%B8%89%E7%B1%BB">首先，数据很小，n只有5000，很明显长度直接套LIS的板子就行。接下来要考虑如何计算数量，并避免重复计算相同的序列。接下来，我们考虑如何在DP时算出满足要求的LDS的数目。将DP方程f[i]=Max{f[j]+1},j∈[i+1,n]且a[i]&gt;a[j]的情况分为三类：</a></li>
-<li><a href="#1-fj1%E5%A4%A7%E4%BA%8Efi%E8%AF%B4%E6%98%8E%E5%AD%98%E5%9C%A8%E6%9B%B4%E9%95%BF%E7%9A%84%E5%BA%8F%E5%88%97%E5%88%99fifj1%E8%80%8C%E4%BB%A5i%E4%B8%BA%E5%BC%80%E5%A4%B4%E7%9A%84lds%E7%9A%84%E9%95%BF%E5%BA%A6fi%E7%9A%84%E6%95%B0%E9%87%8Ftoti%E5%B0%B1%E7%AD%89%E4%BA%8Etotj">1、f[j]+1大于f[i]，说明存在更长的序列，则f[i]=f[j]+1，而以i为开头的LDS的长度f[i]的数量tot[i]就等于tot[j];</a></li>
-<li><a href="#2-fj1%E7%AD%89%E4%BA%8Efi%E8%AF%B4%E6%98%8E%E4%BB%A5i%E4%B8%BA%E5%BC%80%E5%A4%B4%E7%9A%84lds%E5%90%8E%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%B8%AA%E6%95%B0%E5%8F%AF%E4%BB%A5%E6%9C%89%E5%A4%9A%E7%A7%8D%E6%83%85%E5%86%B5%E9%82%A3%E4%B9%88%E5%B0%B1%E9%83%BD%E8%A6%81%E8%AE%A1%E5%85%A5tot%E4%B8%AD%E5%8D%B3totitotj">2、f[j]+1等于f[i]，说明以i为开头的LDS后的第二个数可以有多种情况，那么就都要计入tot中，即tot[i]+=tot[j];</a></li>
-<li><a href="#3-fj%E5%B0%8F%E4%BA%8Efi%E6%AD%A4%E6%97%B6%E4%BB%80%E4%B9%88%E4%B9%9F%E5%81%9A%E4%B8%8D%E4%BA%86%E5%B0%B1%E8%BF%87%E5%8E%BB%E5%90%A7qaq">3、f[j]小于f[i]，此时，什么也做不了，就过去吧QAQ</a></li>
-<li><a href="#%E8%BF%99%E6%A0%B7%E6%88%91%E4%BB%AC%E5%B0%B1%E5%88%9D%E6%AD%A5%E6%8D%8B%E5%87%BA%E4%BA%86%E5%A4%A7%E8%87%B4%E7%9A%84%E7%AE%97%E6%B3%95-%E4%BD%86%E4%BB%8D%E7%84%B6%E5%AD%98%E5%9C%A8%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%E5%8D%B3%E4%B8%A4%E4%B8%AAlds%E7%9A%84%E5%85%83%E7%B4%A0%E5%AE%8C%E5%85%A8%E7%9B%B8%E5%90%8C%E6%97%B6%E5%B0%B1%E7%AE%97%E4%BB%8E%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%96%E5%87%BA%E4%B9%9F%E5%8F%AA%E8%83%BD%E7%AE%97%E4%B8%80%E4%B8%AA-%E9%82%A3%E4%B9%88%E6%88%91%E4%BB%AC%E8%80%83%E8%99%91%E5%AF%B9%E4%BA%8E%E4%B8%80%E5%AF%B9i%E5%92%8Cj%E8%8B%A5aiaj%E4%B8%94fifj%E9%82%A3%E4%B9%88%E5%BE%88%E6%98%8E%E6%98%BE%E8%BF%99%E4%B8%A4%E8%80%85%E4%B8%AD%E5%8F%AA%E9%9C%80%E8%A6%81%E7%AE%97%E4%B8%80%E4%B8%AA%E5%9B%A0%E4%B8%BA%E6%95%B0%E7%9B%B8%E5%90%8C%E9%95%BF%E5%BA%A6%E4%B9%9F%E7%9B%B8%E5%90%8C%E8%AF%B4%E6%98%8E%E4%B8%A4%E4%B8%AA%E5%BA%8F%E5%88%97%E4%B8%80%E5%AE%9A%E5%8F%AF%E4%BB%A5%E9%87%8D%E5%90%88%E5%9B%A0%E6%AD%A4%E5%9C%A8%E5%A4%84%E7%90%86%E5%AE%8Ci%E4%B9%8B%E5%90%8Ej%E5%86%8D%E8%B7%91%E4%B8%80%E8%BE%B9%E6%89%BE%E5%87%BA%E7%AC%A6%E5%90%88%E7%9A%84j%E5%B0%86%E5%85%B6totj%E8%AE%BE%E4%B8%BA0%E5%8D%B3%E5%8F%AF-%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6on2%E5%88%9A%E5%A5%BD%E8%83%BD%E8%BF%87">这样我们就初步捋出了大致的算法。但仍然存在一个问题：即两个LDS的元素完全相同时，就算从不同的位置取出，也只能算一个。那么我们考虑对于一对i和j，若a[i]=a[j]，且f[i]=f[j]，那么很明显这两者中只需要算一个，因为数相同，长度也相同，说明两个序列一定可以重合，因此在处理完i之后j再跑一边找出符合的j，将其tot[j]设为0即可。时间复杂度O（n^2），刚好能过</a></li>
-</ul>
-</li>
-<li><a href="#code">Code</a></li>
-<li><a href="#%E5%90%8E%E8%AE%B0">后记</a>
-<ul>
-<li><a href="#%E5%85%B6%E5%AE%9E%E6%9C%AC%E4%BA%BA%E7%9C%8B%E5%88%B0%E8%BF%99%E9%81%93%E9%A2%98%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%8D%E5%BA%94%E6%98%AF%E9%9B%BE%E8%8D%89%E8%BF%99%E9%81%93%E9%A2%98%E4%BC%BC%E4%B9%8E%E5%8F%AF%E4%BB%A5%E7%94%A8map%E6%9D%A5%E7%BB%B4%E6%8A%A4%E9%87%8D%E5%A4%8D%E9%83%A8%E5%88%86%E8%AF%B6%E4%BA%8E%E6%98%AF%E4%B9%8Eonlgnlgn%E6%88%90%E5%8A%9F%E7%9A%84%E7%88%86%E7%82%B8%E4%BA%86%E5%90%8E%E6%9D%A5%E7%9C%8B%E4%BA%86%E9%A2%98%E8%A7%A3%E6%89%8D%E5%8F%91%E7%8E%B0%E5%8E%9F%E6%9D%A5%E6%AD%A3%E8%A7%A3%E9%82%A3%E4%B9%88%E6%84%9A%E8%A0%A2qaq">其实本人看到这道题的第一反应是：雾草！这道题似乎可以用map来维护重复部分诶！于是乎，O(nlgnlgn)成功的爆炸了……后来看了题解才发现原来正解那么愚蠢QAQ</a></li>
-<li><a href="#%E7%90%86%E8%AE%BA%E4%B8%8A%E5%88%B0%E8%BF%99%E9%87%8C%E5%B0%B1%E5%BA%94%E8%AF%A5%E7%BB%93%E6%9D%9F%E4%BA%86%E6%98%AF%E7%9A%84%E5%9C%A8acwing%E9%87%8C%E4%BB%A5%E4%B8%8A%E4%BB%A3%E7%A0%81%E5%B0%B1%E8%83%BD%E8%BD%BB%E6%9D%BE%E7%9A%84%E6%8B%BF%E5%88%B0ac%E7%9A%84%E5%A5%BD%E6%88%90%E7%BB%A9%E4%BD%86%E6%98%AF%E5%9C%A8luogu%E4%B8%AD%E4%BD%A0%E5%8D%B4%E6%83%8A%E5%96%9C%E7%9A%84%E5%8F%91%E7%8E%B0%E7%AC%AC%E4%B9%9D%E4%B8%AA%E7%82%B9%E6%AD%BB%E6%B4%BB%E4%B9%9F%E8%BF%87%E4%B8%8D%E5%8E%BB%E4%BA%8E%E6%98%AF%E4%B9%8E%E7%AC%94%E8%80%85%E4%B8%8B%E8%BD%BD%E4%BA%86%E4%B8%80%E4%B8%8B%E7%AC%AC%E4%B9%9D%E4%B8%AA%E7%82%B9%E7%9A%84%E6%95%B0%E6%8D%AE%E5%90%84%E4%BD%8D%E7%9C%8B%E4%B8%80%E4%B8%8B%E8%BE%93%E5%87%BA">理论上到这里就应该结束了，是的，在ACWing里，以上代码就能轻松的拿到AC的好成绩，但是在luogu中，你却惊喜的发现，第九个点死活也过不去，于是乎，笔者下载了一下第九个点的数据，各位看一下输出：</a></li>
-<li><a href="#~~%E5%A5%89%E5%8A%9D%E6%AD%A3%E5%9C%A8%E6%95%B0%E4%BD%8D%E6%95%B0%E7%9A%84%E5%90%84%E4%BD%8D%E5%88%AB%E6%95%B0%E4%BA%8661%E4%BD%8D-~~%E6%98%BE%E7%84%B6__int128%E7%94%9A%E8%87%B3long-long%E4%B9%9F%E8%A7%A3%E5%86%B3%E4%B8%8D%E4%BA%86%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E4%BD%86%E6%98%AF%E6%88%91%E4%BB%AC%E5%8F%88%E4%B8%8D%E6%83%B3%E5%86%99%E9%AB%98%E7%B2%BE%E9%82%A3%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E%E5%91%A2%E7%AA%81%E7%84%B6%E9%97%B4%E6%88%91%E4%BB%AC%E6%83%B3%E5%88%B0%E4%BA%86long-double%E8%BF%99%E4%B8%AA%E4%B8%9C%E8%A5%BF%E5%A5%BD%E5%83%8F%E6%AF%94long-long%E5%AD%98%E7%9A%84%E8%BF%98%E5%A4%9A%E8%AF%B6-%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E5%B0%86%E8%BE%93%E5%87%BA%E7%9A%84%E7%A7%8D%E7%B1%BB%E6%94%B9%E4%B8%BA%E7%94%A8long-double%E5%AD%98%E6%9C%89%E4%BA%9B%E9%A2%98%E8%A7%A3%E8%AF%B41e17%E5%AD%98%E5%AE%9E%E9%99%85%E4%B8%8A%E6%98%AF%E4%B8%8D%E8%A1%8C%E7%9A%84%E5%9B%A0%E4%B8%BA%E7%B2%BE%E5%BA%A6%E4%B8%A2%E5%A4%B1%E7%9B%B4%E6%8E%A5%E5%AD%98%E5%B0%B1%E8%83%BD%E8%BF%87%E7%84%B6%E5%90%8E%E5%91%A2ac">~~奉劝正在数位数的各位，别数了，61位。~~显然，__int128甚至long long也解决不了这个问题，但是我们又不想写高精，那该怎么办呢？突然间，我们想到了long double，这个东西好像比long long存的还多诶。所以我们将输出的种类改为用long double存（有些题解说/1e17存，实际上是不行的，因为精度丢失，直接存就能过），然后呢……AC!</a></li>
-</ul>
-</li>
-<li><a href="#code%E6%B4%9B%E8%B0%B7%E7%89%88">Code(洛谷版)</a>
-<ul>
-<li><a href="#%E8%AF%81%E6%8D%AE%E5%9C%A8%E6%AD%A4">证据在此↓↓↓</a></li>
-</ul>
-</li>
+<li><a href="#2020-3-7-xiaohhidden">2020-3-7 xiaoh(hidden)</a></li>
 </ul>
 </li>
 </ul>
@@ -482,8 +455,8 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaoh105.github.io/post/feng-di-xi-na/">
-      洛谷 P2687 [USACO4.3]逢低吸纳Buy Low, Buy Lower/ACWing 314 低买 题解
+    <a class="post-title-link" href="https://xiaoh105.github.io/post/NOI-Online-fan-si/">
+      NOI Online 反思
     </a>
   </h1>
   <div class="post-meta">
@@ -491,7 +464,7 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-12-26</span>
+      <span>2020-03-07</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -500,14 +473,8 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://xiaoh105.github.io/tag/Linear-DP/">
-              <span>线性DP</span>
-            </a>、
-          
-        
-          
-            <a href="https://xiaoh105.github.io/tag/Dynamic-Programming/">
-              <span>动态规划</span>
+            <a href="https://xiaoh105.github.io/tag/Summary/">
+              <span>参赛总结</span>
             </a>
           
         
@@ -516,131 +483,32 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>6分钟</span>
+      <span>4分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1234<span class="pc-show">字数</span></span>
+      <span>871<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <h3 id="洛谷-p2687-usaco43逢低吸纳buy-low-buy-lower"><a href="https://www.luogu.com.cn/problem/P2687">洛谷 P2687 [USACO4.3]逢低吸纳Buy Low, Buy Lower</a>/<a href="https://www.acwing.com/problem/content/316/">ACWing 314 低买</a> 题解</h3>
-<h3 id="2019-12-26-xiaoh">2019-12-26 xiaoh</h3>
-<h4 id="题意">题意</h4>
-<h5 id="给定一个有n个数的序列a1n5000且a中每个数在int范围内求最长严格下降子序列我们不妨称其为ldslargest-descreasing-subsequence的长度及数量-注当两个lds元素完全相同时就算元素从不同的位置取出也算作同一个答案">给定一个有n个数的序列a(1&lt;=n&lt;=5000，且a中每个数在int范围内)，求最长严格下降子序列（我们不妨称其为LDS,Largest Descreasing Subsequence）的长度及数量。注：当两个LDS元素完全相同时，就算元素从不同的位置取出，也算作同一个答案</h5>
-<h4 id="题解">题解</h4>
-<h5 id="首先数据很小n只有5000很明显长度直接套lis的板子就行-接下来要考虑如何计算数量并避免重复计算相同的序列-接下来我们考虑如何在dp时算出满足要求的lds的数目-将dp方程fimaxfj1ji1n且aiaj的情况分为三类">首先，数据很小，n只有5000，很明显长度直接套LIS的板子就行。接下来要考虑如何计算数量，并避免重复计算相同的序列。接下来，我们考虑如何在DP时算出满足要求的LDS的数目。将DP方程f[i]=Max{f[j]+1},j∈[i+1,n]且a[i]&gt;a[j]的情况分为三类：</h5>
-<h5 id="1-fj1大于fi说明存在更长的序列则fifj1而以i为开头的lds的长度fi的数量toti就等于totj">1、f[j]+1大于f[i]，说明存在更长的序列，则f[i]=f[j]+1，而以i为开头的LDS的长度f[i]的数量tot[i]就等于tot[j];</h5>
-<h5 id="2-fj1等于fi说明以i为开头的lds后的第二个数可以有多种情况那么就都要计入tot中即totitotj">2、f[j]+1等于f[i]，说明以i为开头的LDS后的第二个数可以有多种情况，那么就都要计入tot中，即tot[i]+=tot[j];</h5>
-<h5 id="3-fj小于fi此时什么也做不了就过去吧qaq">3、f[j]小于f[i]，此时，什么也做不了，就过去吧QAQ</h5>
-<h5 id="这样我们就初步捋出了大致的算法-但仍然存在一个问题即两个lds的元素完全相同时就算从不同的位置取出也只能算一个-那么我们考虑对于一对i和j若aiaj且fifj那么很明显这两者中只需要算一个因为数相同长度也相同说明两个序列一定可以重合因此在处理完i之后j再跑一边找出符合的j将其totj设为0即可-时间复杂度on2刚好能过">这样我们就初步捋出了大致的算法。但仍然存在一个问题：即两个LDS的元素完全相同时，就算从不同的位置取出，也只能算一个。那么我们考虑对于一对i和j，若a[i]=a[j]，且f[i]=f[j]，那么很明显这两者中只需要算一个，因为数相同，长度也相同，说明两个序列一定可以重合，因此在处理完i之后j再跑一边找出符合的j，将其tot[j]设为0即可。时间复杂度O（n^2），刚好能过</h5>
-<h4 id="code">Code</h4>
-<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-inline int read()
-{
-	int ret=0,w=1;
-	char ch=getchar();
-	while(ch&lt;'0'||ch&gt;'9')
-	{
-		if(ch=='-') w=-1;
-		ch=getchar();
-	}
-	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
-	return w*ret;
-}
-int n;
-int a[5010];//原数组
-struct node{//num为LDS的长度，tot为总数
-	int num;
-	long long tot;
-}f[5010];
-int ans1=0;//LDS长度
-long long ans2=0;//LDS数量
-map&lt;int,bool&gt; mp;
-int main()
-{
-	n=read();
-	for(int i=1;i&lt;=n;i++) a[i]=read();
-	for(int i=n;i&gt;=1;i--)
-	{
-		f[i].num=1;
-		f[i].tot=1;
-		for(int j=i+1;j&lt;=n;j++)//计算LDS数量和长度
-		if(a[i]&gt;a[j])
-		{
-			if(f[j].num+1&gt;f[i].num) f[i].num=f[j].num+1,f[i].tot=f[j].tot;
-			else if(f[j].num+1==f[i].num) f[i].tot+=f[j].tot;
-		}
-		for(int j=i+1;j&lt;=n;j++)//找出重复部分并删除
-		if(a[i]==a[j]&amp;&amp;f[i].num==f[j].num) f[j].num=f[j].tot=0;
-	}
-	for(int i=1;i&lt;=n;i++)
-	if(f[i].num&gt;ans1) ans1=f[i].num,ans2=f[i].tot;
-	else if(f[i].num==ans1) ans2+=f[i].tot;
-	printf(&quot;%d %lld\n&quot;,ans1,ans2);
-	return 0;
-}
-</code></pre>
-<h4 id="后记">后记</h4>
-<h5 id="其实本人看到这道题的第一反应是雾草这道题似乎可以用map来维护重复部分诶于是乎onlgnlgn成功的爆炸了后来看了题解才发现原来正解那么愚蠢qaq">其实本人看到这道题的第一反应是：雾草！这道题似乎可以用map来维护重复部分诶！于是乎，O(nlgnlgn)成功的爆炸了……后来看了题解才发现原来正解那么愚蠢QAQ</h5>
-<h5 id="理论上到这里就应该结束了是的在acwing里以上代码就能轻松的拿到ac的好成绩但是在luogu中你却惊喜的发现第九个点死活也过不去于是乎笔者下载了一下第九个点的数据各位看一下输出">理论上到这里就应该结束了，是的，在ACWing里，以上代码就能轻松的拿到AC的好成绩，但是在luogu中，你却惊喜的发现，第九个点死活也过不去，于是乎，笔者下载了一下第九个点的数据，各位看一下输出：</h5>
-<pre><code class="language-cpp">200 1606938044258990275541962092341162602522202993782792835301376
-</code></pre>
-<h5 id="~~奉劝正在数位数的各位别数了61位-~~显然__int128甚至long-long也解决不了这个问题但是我们又不想写高精那该怎么办呢突然间我们想到了long-double这个东西好像比long-long存的还多诶-所以我们将输出的种类改为用long-double存有些题解说1e17存实际上是不行的因为精度丢失直接存就能过然后呢ac">~~奉劝正在数位数的各位，别数了，61位。~~显然，__int128甚至long long也解决不了这个问题，但是我们又不想写高精，那该怎么办呢？突然间，我们想到了long double，这个东西好像比long long存的还多诶。所以我们将输出的种类改为用long double存（有些题解说/1e17存，实际上是不行的，因为精度丢失，直接存就能过），然后呢……AC!</h5>
-<h4 id="code洛谷版">Code(洛谷版)</h4>
-<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-inline int read()
-{
-    int ret=0,w=1;
-    char ch=getchar();
-    while(ch&lt;'0'||ch&gt;'9')
-    {
-        if(ch=='-') w=-1;
-        ch=getchar();
-    }
-    while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
-    return w*ret;
-}
-int n;
-int a[5010];
-struct node{
-    int num;
-    long double tot;
-}f[5010];
-int ans1=0;
-long double ans2=0;
-map&lt;int,bool&gt; mp;
-int main()
-{
-    n=read();
-    for(int i=1;i&lt;=n;i++) a[i]=read();
-    for(int i=n;i&gt;=1;i--)
-    {
-        f[i].num=1;
-        f[i].tot=1;
-        for(int j=i+1;j&lt;=n;j++)
-        if(a[i]&gt;a[j])
-        {
-            if(f[j].num+1&gt;f[i].num) f[i].num=f[j].num+1,f[i].tot=f[j].tot;
-            else if(f[j].num+1==f[i].num) f[i].tot+=f[j].tot;
-        }
-        for(int j=i+1;j&lt;=n;j++)
-        if(a[i]==a[j]&amp;&amp;f[i].num==f[j].num) f[j].num=f[j].tot=0;
-    }
-    for(int i=1;i&lt;=n;i++)
-    if(f[i].num&gt;ans1) ans1=f[i].num,ans2=f[i].tot;
-    else if(f[i].num==ans1) ans2+=f[i].tot;
-    printf(&quot;%d %.0Lf\n&quot;,ans1,ans2);
-    return 0;
-}
-</code></pre>
-<h5 id="证据在此">证据在此↓↓↓</h5>
-<figure data-type="image" tabindex="1"><img src="https://img2018.cnblogs.com/blog/1908000/201912/1908000-20191228194824128-1028482690.png" alt="" loading="lazy"></figure>
+                <h3 id="noi-online-反思">NOI Online 反思</h3>
+<h4 id="2020-3-7-xiaohhidden">2020-3-7 xiaoh(hidden)</h4>
+<p>首先，应该严重吐槽一下CCF对本场比赛的态度.</p>
+<p>第一,所有题目没有大样例.大样例通常是验证算法正确性的重要标准.但是本场考试非但没有提供大样例,而且每道题只提供了一组样例,还是强度很弱的那种,是个非常严重的问题……</p>
+<p>第二,比赛界面的配置相当的差.GAIT制作的UI界面像是上个世纪的电脑界面.读题时严重影响选手体验(可能是令我读错题的重要因素之一),<s>差评</s>而且服务器承压能力极差,开场就卡了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10</mn><mtext> </mtext><mi>m</mi><mi>i</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">10\,min</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span></span></span></span>,还不给补时,<s>相当的缺德</s></p>
+<p>第三,通知并没有即使发放.对于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">T3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord">3</span></span></span></span>这道题来说,一个重要的数据解释(重要到很可能会使<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>100</mn><mi>p</mi><mi>t</mi><mi>s</mi><mo>→</mo><mn>0</mn><mi>p</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">100pts\to 0pts</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord mathdefault">p</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">0</span><span class="mord mathdefault">p</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span></span></span></span>),不但在比赛结束前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>30</mn></mrow><annotation encoding="application/x-tex">30</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span></span></span></span>分钟才公布,而且放在了非常不显眼、没人会去看的主界面上.导致大批选手没有看到(包括我).比赛结束前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>15</mn></mrow><annotation encoding="application/x-tex">15</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">5</span></span></span></span>分钟发了一个很显眼的弹窗来通知,说明CCF是可以做到显眼的通知选手的,但是出新数据以及解释时,却没有说明,体现出CCF对此次比赛的不重视(可能是因为免费的原因?).</p>
+<p>（分割线）</p>
+<p>在比赛过程中,笔者时间分配上出现了不小的问题.在第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>题上浪费了过多时间(大约<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>h</mi></mrow><annotation encoding="application/x-tex">2h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault">h</span></span></span></span>?),导致后面的题没有足够的时间做.可能是太想当然(一般正规比赛中难度都是排好序的嘛),因此没有专门的去思考<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">T2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord">2</span></span></span></span>,导致本来有可能解出的题目因为思考时间不足没有做出.而<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">T1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord">1</span></span></span></span>因为看错题(操作1只看到了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo></mrow><annotation encoding="application/x-tex">+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">+</span></span></span></span>,没看到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo></mrow><annotation encoding="application/x-tex">-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">−</span></span></span></span>),又没能想出足够强的算法来<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>a</mi><mi>c</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">hack</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>自己,导致在错误算法上浪费了不少时间.不过好在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">T3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord">3</span></span></span></span>打表找出了规律,不过因为没有注意到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">clarification</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">i</span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span></span></span></span>,导致<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>80</mn><mi>p</mi><mi>t</mi><mi>s</mi><mo>→</mo><mn>0</mn><mi>p</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">80pts\to 0pts</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">8</span><span class="mord">0</span><span class="mord mathdefault">p</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">0</span><span class="mord mathdefault">p</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span></span></span></span>,还是比较可惜的.</p>
+<p>总结下来,一共<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span>点:</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1.</mn></mrow><annotation encoding="application/x-tex">1.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">.</span></span></span></span>注意时间分配,如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mi>h</mi></mrow><annotation encoding="application/x-tex">1h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathdefault">h</span></span></span></span>想不出来的题(除非只差一点点了),否则你用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>h</mi></mrow><annotation encoding="application/x-tex">2h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault">h</span></span></span></span>也是想不出来的.打好你目前有把握的部分分,就可以去看下一题了;</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2.</mn></mrow><annotation encoding="application/x-tex">2.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">.</span></span></span></span>不要想当然,对于某些缺德的出题人,他们可能会<s>恶意</s>把题目难度调换,因此要注意如果前面的题做不出来,就去尝试后面的题,可能会有难度蹦极;</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3.</mn></mrow><annotation encoding="application/x-tex">3.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">.</span></span></span></span>一定要注意看通知!一定要注意看通知!一定要注意看通知!大部分长期举办赛事的网站(例如<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>t</mi><mi>c</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">Atcoder</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault">t</span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>或者<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">Codeforces</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">c</span><span class="mord mathdefault">e</span><span class="mord mathdefault">s</span></span></span></span>)往往会把通知放在最显眼的地方,但是对于某些系统(包括但不限于CCF的评测网站)可能设计的不人性化,因此要主动隔一段时间就去主页看一下是否有通知;</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4.</mn></mrow><annotation encoding="application/x-tex">4.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord">.</span></span></span></span>一定要认真读题!有些题目题面里往往会大喘气,说完半句话,来个逗号什么的,再说后半句.因此一定一定要多读几遍题.</p>
+<p>不过由于本次NOI Online的创办方CCF相当的不负责,本次成绩也并不是很重要,致省选:</p>
+<figure data-type="image" tabindex="1"><img src="https://xiaoh105.github.io/post-images/1583591590357.gif" alt="" loading="lazy"></figure>
 
               </div>
               <div class="post-footer">
@@ -651,7 +519,7 @@ int main()
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://xiaoh105.github.io/post/feng-di-xi-na/" title="洛谷 P2687 [USACO4.3]逢低吸纳Buy Low, Buy Lower/ACWing 314 低买 题解">洛谷 P2687 [USACO4.3]逢低吸纳Buy Low, Buy Lower/ACWing 314 低买 题解</a>
+      <a href="https://xiaoh105.github.io/post/NOI-Online-fan-si/" title="NOI Online 反思">NOI Online 反思</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -660,24 +528,14 @@ int main()
   </ul>
   <div class="tags">
     
-      <a href="https://xiaoh105.github.io/tag/Linear-DP/"># 线性DP</a>
-    
-      <a href="https://xiaoh105.github.io/tag/Dynamic-Programming/"># 动态规划</a>
+      <a href="https://xiaoh105.github.io/tag/Summary/"># 参赛总结</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="洛谷 P1854 花店橱窗布置/ACWing 313 花店橱窗 题解" href="https://xiaoh105.github.io/post/hua-dian-chu-chuang-bu-zhi/">洛谷 P1854 花店橱窗布置/ACWing 313 花店橱窗 题解</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="洛谷 P1854 花店橱窗布置/ACWing 313 花店橱窗 题解" href="https://xiaoh105.github.io/post/hua-dian-chu-chuang-bu-zhi/">上一篇</a>
-      
     </div>
     <div class="nav-next">
-      
-        <a class="nav-pc-next" title="洛谷 P4168 [Violet]蒲公英 题解" href="https://xiaoh105.github.io/post/pu-gong-ying/">洛谷 P4168 [Violet]蒲公英 题解</a>
-        <a class="nav-mobile-next" title="洛谷 P4168 [Violet]蒲公英 题解" href="https://xiaoh105.github.io/post/pu-gong-ying/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
