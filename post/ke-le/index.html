@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="Practise like you never won, Perform like you never lost!">
 <meta name="theme-color" content="#339af0">
-<title>洛谷 P2915 [USACO08NOV]奶牛混合起来Mixed Up Cows 题解 | xiaoh&#39;s Blog</title>
+<title>洛谷 P3758 【TJOI2017】可乐 题解 | xiaoh&#39;s Blog</title>
 <link rel="shortcut icon" href="https://xiaoh105.github.io/favicon.ico?v=1586156795992">
 <link rel="stylesheet" href="https://xiaoh105.github.io/styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="洛谷 P2915 [USACO08NOV]奶牛混合起来Mixed Up Cows 题解" />
-    <meta name="keywords" content="状压DP,动态规划" />
+    <meta name="description" content="洛谷 P3758 【TJOI2017】可乐 题解" />
+    <meta name="keywords" content="矩阵,快速幂,线性DP,图论" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -196,22 +196,11 @@
 <ul>
 <li>
 <ul>
-<li><a href="#%E6%B4%9B%E8%B0%B7-p2915-usaco08nov%E5%A5%B6%E7%89%9B%E6%B7%B7%E5%90%88%E8%B5%B7%E6%9D%A5mixed-up-cows-%E9%A2%98%E8%A7%A3">洛谷 P2915 [USACO08NOV]奶牛混合起来Mixed Up Cows 题解</a>
+<li><a href="#%E6%B4%9B%E8%B0%B7-p3758-tjoi2017%E5%8F%AF%E4%B9%90">洛谷 P3758 【TJOI2017】可乐</a>
 <ul>
-<li><a href="#2019-10-30-xiaoh">2019-10-30 xiaoh</a></li>
-<li><a href="#%E9%A2%98%E6%84%8F">题意</a>
-<ul>
-<li><a href="#%E6%9C%89n%E5%A4%B4%E7%89%9B4n16%E7%AC%ACi%E5%A4%B4%E7%89%9B%E7%9A%84%E8%BA%AB%E9%AB%98%E4%B8%BAsi-%E6%B1%82%E6%BB%A1%E8%B6%B3%E4%BB%BB%E6%84%8F%E7%9B%B8%E9%82%BB%E7%9A%84%E4%B8%A4%E5%A4%B4%E7%89%9B%E8%BA%AB%E9%AB%98%E5%B7%AE%E9%83%BD%E5%A4%A7%E4%BA%8E%E7%BB%99%E5%AE%9A%E5%B8%B8%E6%95%B0k1k3400%E7%9A%84%E6%8E%92%E5%88%97%E7%9A%84%E6%95%B0%E9%87%8F">有n头牛（4&lt;=n&lt;=16），第i头牛的身高为si。求满足<strong>任意相邻的两头牛</strong>身高差都大于给定常数k（1&lt;=k&lt;=3400）的排列的数量</a></li>
-</ul>
-</li>
-<li><a href="#%E6%80%9D%E8%B7%AF">思路</a>
-<ul>
-<li><a href="#%E7%9E%84%E5%88%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E7%9C%BC%E6%B3%A8%E6%84%8F%E5%88%B0%E4%BA%86%E6%95%B0%E6%8D%AE-4n16%E8%BF%99%E6%95%B0%E6%8D%AE%E6%9C%89%E7%82%B9%E5%B0%8F%E7%9A%84%E7%A6%BB%E8%B0%B1%E4%BA%86%E5%90%A7%E5%BE%88%E6%98%8E%E6%98%BE%E5%8F%AA%E6%9C%89%E4%B8%A4%E7%A7%8D%E5%8F%AF%E8%83%BD%E4%B8%80%E6%98%AF%E7%88%86%E6%90%9C%E8%80%8C%E6%98%AF%E7%8A%B6%E5%8E%8B">瞄到的第一眼注意到了数据。4&lt;=n&lt;=16！！！这数据有点小的离谱了吧！很明显，只有两种可能：一是爆搜，而是状压</a></li>
-<li><a href="#%E5%BF%83%E4%B8%AD%E9%BB%98%E9%BB%98%E4%B8%80%E7%AE%97%E6%9A%B4%E5%8A%9Bn%E5%B7%AE%E4%B8%8D%E5%A4%9A%E5%9C%A81e13%E5%A4%9A%E4%B8%80%E7%82%B9%E5%B0%B1%E7%AE%97%E5%89%AA%E6%9E%9D%E4%B9%9F%E6%B2%A1%E4%BB%80%E4%B9%88%E5%8D%B5%E7%94%A8-%E6%89%80%E4%BB%A5%E6%98%BE%E7%84%B6%E6%98%AF%E8%AE%B0%E6%90%9C%E6%88%96%E7%8A%B6%E5%8E%8B%E5%85%B6%E5%AE%9E%E6%98%AF%E4%B8%80%E4%B8%AA%E7%8E%A9%E6%84%8Fqaq-%E5%86%8D%E7%AE%97%E7%AE%97%E5%A4%8D%E6%9D%82%E5%BA%A6onn-2n%E5%A4%A7%E6%A6%82%E6%98%AF81e6%E5%B7%A6%E5%8F%B3%E5%90%A7-%E6%AD%A3%E5%A5%BD%E6%89%80%E4%BB%A5%E5%9F%BA%E6%9C%AC%E7%8A%B6%E5%8E%8B%E5%AE%9E%E9%94%A4%E4%BA%86">心中默默一算，暴力n!差不多在1e13多一点，就算剪枝也没什么卵用。所以显然是记搜或状压（其实是一个玩意）QAQ 再算算复杂度，O(n<em>n * 2^n),大概是8</em>1e6左右吧。正好！所以基本状压实锤了。</a></li>
-<li><a href="#%E6%97%A2%E7%84%B6%E6%98%AF%E7%8A%B6%E5%8E%8B%E9%82%A3%E7%AE%97%E6%B3%95%E4%B9%9F%E5%B0%B1%E5%BE%88%E6%98%8E%E6%98%BE%E4%BA%86%E5%90%A7-%E5%AE%9A%E4%B9%89dpiji%E4%B8%BA%E6%98%AF%E5%90%A6%E5%8F%96%E6%AF%8F%E4%B8%80%E5%A4%B4%E7%89%9B%E7%9A%84%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9j%E4%B8%BA%E5%BD%93%E5%89%8D%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%B4%E7%89%9B%E7%9A%84%E7%BC%96%E5%8F%B7-%E9%82%A3%E4%B9%88%E6%88%91%E4%BB%AC%E5%8F%AA%E8%A6%81%E5%85%88i%E4%BB%8E1%E5%8F%96%E5%88%B02n-1%E6%AF%8F%E6%AC%A1j%E4%BB%8E1%E8%B7%91%E5%88%B0n%E8%A1%A8%E7%A4%BA%E5%BD%93%E5%89%8D%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%B4%E7%89%9B%E7%9A%84%E7%BC%96%E5%8F%B7%E5%85%88%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%90%88%E6%B3%95%E8%8B%A5%E5%90%88%E6%B3%95%E7%9A%84%E8%AF%9D%E5%9C%A8%E6%8A%8Al%E4%BB%8E1%E8%B7%91%E5%88%B0n%E8%A1%A8%E7%A4%BA%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E5%A4%B4%E7%89%9B%E7%9A%84%E7%BC%96%E5%8F%B7%E5%8D%B3%E6%9E%9A%E4%B8%BE%E5%89%8D%E4%B8%80%E7%A7%8D%E6%83%85%E5%86%B5%E7%9A%84%E6%89%80%E6%9C%89%E5%8F%AF%E8%83%BD%E8%A7%A3%E5%A6%82%E6%9E%9Cl%E5%90%88%E6%B3%95%E4%B8%94jl%E7%9A%84%E8%BA%AB%E9%AB%98%E5%B7%AE%E5%A4%A7%E4%BA%8Ek%E7%9A%84%E8%AF%9D%E5%B0%B1%E6%8A%8A%E5%BD%93%E5%89%8D%E7%9A%84%E7%AD%94%E6%A1%88%E5%8A%A0%E4%B8%8A%E5%89%8D%E4%B8%80%E7%A7%8D%E6%83%85%E5%86%B5%E7%9A%84%E8%A7%A3%E7%9A%84%E6%95%B0%E9%87%8F%E5%B0%B1%E5%A5%BD%E5%95%A6qaq">既然是状压，那算法也就很明显了吧。定义dp[i][j]，i为是否取每一头牛的状态压缩，j为当前最后一头牛的编号。那么我们只要先i从1取到2^n-1，每次j从1跑到n表示当前的最后一头牛的编号，先判断是否合法，若合法的话，在把l从1跑到n，表示倒数第二头牛的编号（即枚举前一种情况的所有可能解），如果l合法且j,l的身高差大于k的话，就把当前的答案加上前一种情况的解的数量就好啦QAQ</a></li>
-<li><a href="#%E7%83%AD%E7%83%88%E5%BA%86%E7%A5%9D%E7%8A%B6%E5%8E%8B%E7%BC%96%E7%A0%81%E6%97%B6%E9%97%B4%E7%AC%AC%E4%B8%80%E6%AC%A130min%E5%B9%B6%E4%B8%94%E4%B8%80%E6%AC%A1%E8%BF%87">（热烈庆祝状压编码时间第一次&lt;30min，并且一次过）</a></li>
-</ul>
-</li>
+<li><a href="#xiaoh-2020-4-6">xiaoh 2020-4-6</a></li>
+<li><a href="#%E9%A2%98%E6%84%8F">题意</a></li>
+<li><a href="#%E9%A2%98%E8%A7%A3">题解</a></li>
 <li><a href="#code">Code</a></li>
 </ul>
 </li>
@@ -469,8 +458,8 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaoh105.github.io/post/nai-niu-hun-he-qi-lai/">
-      洛谷 P2915 [USACO08NOV]奶牛混合起来Mixed Up Cows 题解
+    <a class="post-title-link" href="https://xiaoh105.github.io/post/ke-le/">
+      洛谷 P3758 【TJOI2017】可乐 题解
     </a>
   </h1>
   <div class="post-meta">
@@ -478,7 +467,7 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-10-30</span>
+      <span>2020-04-06</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -487,14 +476,26 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://xiaoh105.github.io/tag/Compress-DP/">
-              <span>状压DP</span>
+            <a href="https://xiaoh105.github.io/tag/Matrix/">
+              <span>矩阵</span>
             </a>、
           
         
           
-            <a href="https://xiaoh105.github.io/tag/Dynamic-Programming/">
-              <span>动态规划</span>
+            <a href="https://xiaoh105.github.io/tag/Fast-Pow/">
+              <span>快速幂</span>
+            </a>、
+          
+        
+          
+            <a href="https://xiaoh105.github.io/tag/Linear-DP/">
+              <span>线性DP</span>
+            </a>、
+          
+        
+          
+            <a href="https://xiaoh105.github.io/tag/Graph-Theory/">
+              <span>图论</span>
             </a>
           
         
@@ -503,57 +504,96 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3分钟</span>
+      <span>4分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>573<span class="pc-show">字数</span></span>
+      <span>765<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <h3 id="洛谷-p2915-usaco08nov奶牛混合起来mixed-up-cows-题解"><a href="https://www.luogu.com.cn/problem/P2915">洛谷 P2915 [USACO08NOV]奶牛混合起来Mixed Up Cows 题解</a></h3>
-<h4 id="2019-10-30-xiaoh">2019-10-30 xiaoh</h4>
+                <h3 id="洛谷-p3758-tjoi2017可乐"><a href="https://www.luogu.com.cn/problem/P3758">洛谷 P3758 【TJOI2017】可乐</a> 题解</h3>
+<h4 id="xiaoh-2020-4-6">xiaoh 2020-4-6</h4>
 <h4 id="题意">题意</h4>
-<h5 id="有n头牛4n16第i头牛的身高为si-求满足任意相邻的两头牛身高差都大于给定常数k1k3400的排列的数量">有n头牛（4&lt;=n&lt;=16），第i头牛的身高为si。求满足<strong>任意相邻的两头牛</strong>身高差都大于给定常数k（1&lt;=k&lt;=3400）的排列的数量</h5>
-<h4 id="思路">思路</h4>
-<h5 id="瞄到的第一眼注意到了数据-4n16这数据有点小的离谱了吧很明显只有两种可能一是爆搜而是状压">瞄到的第一眼注意到了数据。4&lt;=n&lt;=16！！！这数据有点小的离谱了吧！很明显，只有两种可能：一是爆搜，而是状压</h5>
-<h5 id="心中默默一算暴力n差不多在1e13多一点就算剪枝也没什么卵用-所以显然是记搜或状压其实是一个玩意qaq-再算算复杂度onn-2n大概是81e6左右吧-正好所以基本状压实锤了">心中默默一算，暴力n!差不多在1e13多一点，就算剪枝也没什么卵用。所以显然是记搜或状压（其实是一个玩意）QAQ 再算算复杂度，O(n<em>n * 2^n),大概是8</em>1e6左右吧。正好！所以基本状压实锤了。</h5>
-<h5 id="既然是状压那算法也就很明显了吧-定义dpiji为是否取每一头牛的状态压缩j为当前最后一头牛的编号-那么我们只要先i从1取到2n-1每次j从1跑到n表示当前的最后一头牛的编号先判断是否合法若合法的话在把l从1跑到n表示倒数第二头牛的编号即枚举前一种情况的所有可能解如果l合法且jl的身高差大于k的话就把当前的答案加上前一种情况的解的数量就好啦qaq">既然是状压，那算法也就很明显了吧。定义dp[i][j]，i为是否取每一头牛的状态压缩，j为当前最后一头牛的编号。那么我们只要先i从1取到2^n-1，每次j从1跑到n表示当前的最后一头牛的编号，先判断是否合法，若合法的话，在把l从1跑到n，表示倒数第二头牛的编号（即枚举前一种情况的所有可能解），如果l合法且j,l的身高差大于k的话，就把当前的答案加上前一种情况的解的数量就好啦QAQ</h5>
-<h5 id="热烈庆祝状压编码时间第一次30min并且一次过">（热烈庆祝状压编码时间第一次&lt;30min，并且一次过）</h5>
+<p>给定一张有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个点,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>条边的简单无向图(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>30</mn><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>m</mi><mo>≤</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">1\leq n\leq 30,1\leq m\leq 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">3</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span>),有一个机器人初始在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>号点,每一秒可以选择停留在原地,延一条边走一步或自爆,求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>秒后总的行为的方案数.(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">1\leq t\leq 10^6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>)</p>
+<h4 id="题解">题解</h4>
+<p>考虑进行<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>.记<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>为目前在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>点,走了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>步的总方案数,则可得如下转移方程:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><munder><mo>∑</mo><mrow><mi>k</mi><mi mathvariant="normal">可</mi><mi mathvariant="normal">以</mi><mi mathvariant="normal">直</mi><mi mathvariant="normal">达</mi><mi>i</mi></mrow></munder><msub><mi>f</mi><mrow><mi>k</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}=\sum_{k可以直达i}f_{k,j-1}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.3521180000000004em;vertical-align:-1.3021129999999999em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0500050000000005em;"><span style="top:-1.847887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mord cjk_fallback mtight">可</span><span class="mord cjk_fallback mtight">以</span><span class="mord cjk_fallback mtight">直</span><span class="mord cjk_fallback mtight">达</span><span class="mord mathdefault mtight">i</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3021129999999999em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>那么自爆怎么办呢？我们可以把自爆理解成为一个点,这个点只进不出,加一个点连单向边即可.同样的,停留在原地可以理解为自环.</p>
+<p>发现可以用滚动数组来优化空间,目前的时间复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mi>t</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(mt)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span>,<s>可能加了一口新鲜的氧气就过了</s>显然由于常数的原因无法通过.</p>
+<p>但是我们发现,本题是常系数递推,重点是,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>还贼小！于是我们想到了矩阵快速幂优化递推.我们将上述的边(包括自爆和停留的边)建成一个邻接矩阵,即为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span></span></span></span>.则将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>也视为一个矩阵时,两个每相乘一次即为每多走一步当前的情况,于是乎用熟悉的矩阵快速幂优化即可.时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mi>log</mi><mo>⁡</mo><mi>t</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^3\log t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span>.<s>这回总能过去了吧QAQ</s></p>
 <h4 id="code">Code</h4>
 <pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
-inline int read()//快读
+template&lt;typename T&gt;
+inline void read(T &amp;x)
 {
-	int ret=0;
+	x=0;
+	int f=1;
 	char ch=getchar();
-	while(ch&lt;'0'||ch&gt;'9') ch=getchar();
-	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
-	return ret;
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-') f=-1;
+		ch=getchar();
 }
-int n,k;
-int s[20];
-long long dp[1&lt;&lt;20][20];
-long long ans=0;
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') x=x*10+(ch^48),ch=getchar();
+	x*=f;
+	return;
+}	
+template&lt;typename T&gt;
+void write(T x)
+{
+	if(x&lt;0) putchar('-'),x=-x;
+	if(x&gt;=10) write(x/10);
+	putchar(x%10+'0');
+	return;
+}
+const int MAXN=35;
+const int mod=2017;
+int n,m,t;
+struct Mat{//矩阵类
+public:
+    int a[MAXN][MAXN];
+    friend Mat operator *(const Mat &amp;x,const Mat &amp;y)
+    {
+        Mat ret;
+        for(int i=1;i&lt;=n+1;i++)
+        for(int j=1;j&lt;=n+1;j++) ret.a[i][j]=0;
+        for(int i=1;i&lt;=n+1;i++)
+        for(int j=1;j&lt;=n+1;j++)
+        for(int k=1;k&lt;=n+1;k++) ret.a[i][j]+=x.a[i][k]*y.a[k][j],ret.a[i][j]%=mod;
+        return ret;
+    }
+}a;//a为初始的邻接矩阵
+Mat pow(int k)//矩阵快速幂
+{
+    if(k==1) return a;
+    Mat tmp=pow(k&gt;&gt;1);
+    tmp=tmp*tmp;
+    if(k&amp;1) tmp=tmp*a;
+    return tmp;
+}
+int ans=0;
 int main()
 {
-	n=read(),k=read();
-	for(int i=1;i&lt;=n;i++) s[i]=read();
-	for(int i=1;i&lt;=n;i++) dp[1&lt;&lt;(i-1)][i]=1;//初始化
-	for(int i=1;i&lt;(1&lt;&lt;n);i++)
-	{
-		if(!(i&amp;(i-1))) continue;
-		for(int j=1;j&lt;=n;j++)//遍历前一种情况并计算
-		if(i&amp;(1&lt;&lt;(j-1)))
-		for(int l=1;l&lt;=n;l++)
-		if(i&amp;(1&lt;&lt;(l-1))&amp;&amp;abs(s[j]-s[l])&gt;k)
-		dp[i][j]+=dp[i^(1&lt;&lt;(j-1))][l];
-	}
-	for(int i=1;i&lt;=n;i++) ans+=dp[(1&lt;&lt;n)-1][i];
-	printf(&quot;%lld\n&quot;,ans);
+    read(n),read(m);
+    for(int i=1;i&lt;=m;i++)
+    {
+        int u,v;
+        read(u),read(v);
+        a.a[u][v]=a.a[v][u]=1;//按照条件连边
+    }
+    read(t);
+    for(int i=1;i&lt;=n;i++) a.a[n+1][i]=1;//建自爆的边
+    for(int i=1;i&lt;=n+1;i++) a.a[i][i]=1;//建停留的边
+    Mat cur=pow(t);
+    for(int i=1;i&lt;=n+1;i++) ans+=cur.a[i][1],ans%=2017;//统计答案
+    write(ans),putchar('\n');
+	return 0;
 }
 </code></pre>
 
@@ -566,7 +606,7 @@ int main()
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://xiaoh105.github.io/post/nai-niu-hun-he-qi-lai/" title="洛谷 P2915 [USACO08NOV]奶牛混合起来Mixed Up Cows 题解">洛谷 P2915 [USACO08NOV]奶牛混合起来Mixed Up Cows 题解</a>
+      <a href="https://xiaoh105.github.io/post/ke-le/" title="洛谷 P3758 【TJOI2017】可乐 题解">洛谷 P3758 【TJOI2017】可乐 题解</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -575,20 +615,24 @@ int main()
   </ul>
   <div class="tags">
     
-      <a href="https://xiaoh105.github.io/tag/Compress-DP/"># 状压DP</a>
+      <a href="https://xiaoh105.github.io/tag/Matrix/"># 矩阵</a>
     
-      <a href="https://xiaoh105.github.io/tag/Dynamic-Programming/"># 动态规划</a>
+      <a href="https://xiaoh105.github.io/tag/Fast-Pow/"># 快速幂</a>
+    
+      <a href="https://xiaoh105.github.io/tag/Linear-DP/"># 线性DP</a>
+    
+      <a href="https://xiaoh105.github.io/tag/Graph-Theory/"># 图论</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="USACO DEC 2019 参赛总结" href="https://xiaoh105.github.io/post/usaco-dec-2019/">USACO DEC 2019 参赛总结</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="USACO DEC 2019 参赛总结" href="https://xiaoh105.github.io/post/usaco-dec-2019/">上一篇</a>
-      
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="洛谷 P3008 【USACO11JAN】Roads and Planes G 题解" href="https://xiaoh105.github.io/post/Roads-and-Planes/">洛谷 P3008 【USACO11JAN】Roads and Planes G 题解</a>
+        <a class="nav-mobile-next" title="洛谷 P3008 【USACO11JAN】Roads and Planes G 题解" href="https://xiaoh105.github.io/post/Roads-and-Planes/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
