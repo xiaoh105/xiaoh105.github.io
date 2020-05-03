@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="Practise like you never won, Perform like you never lost!">
 <meta name="theme-color" content="#339af0">
-<title>洛谷 P5290 【十二省联考2019】春节十二响 题解 | xiaoh&#39;s Blog</title>
+<title>洛谷 P4631 【APIO2018】Circle selection 选圆圈 题解 | xiaoh&#39;s Blog</title>
 <link rel="shortcut icon" href="https://xiaoh105.github.io/favicon.ico?v=1588515619400">
 <link rel="stylesheet" href="https://xiaoh105.github.io/styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="洛谷 P5290 【十二省联考2019】春节十二响 题解" />
-    <meta name="keywords" content="堆,图论,数据结构" />
+    <meta name="description" content="洛谷 P4631 【APIO2018】Circle selection 选圆圈 题解" />
+    <meta name="keywords" content="K-D Tree,数据结构" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -196,9 +196,9 @@
 <ul>
 <li>
 <ul>
-<li><a href="#%E6%B4%9B%E8%B0%B7-p5290-%E5%8D%81%E4%BA%8C%E7%9C%81%E8%81%94%E8%80%832019%E6%98%A5%E8%8A%82%E5%8D%81%E4%BA%8C%E5%93%8D">洛谷 P5290 【十二省联考2019】春节十二响</a>
+<li><a href="#%E6%B4%9B%E8%B0%B7-p4631-apio2018circle-selection-%E9%80%89%E5%9C%86%E5%9C%88">洛谷 P4631 【APIO2018】Circle selection 选圆圈</a>
 <ul>
-<li><a href="#2020-2-26-xiaoh">2020-2-26 xiaoh</a></li>
+<li><a href="#xiaoh-2020-5-3">xiaoh 2020-5-3</a></li>
 <li><a href="#%E9%A2%98%E6%84%8F">题意</a></li>
 <li><a href="#%E9%A2%98%E8%A7%A3">题解</a></li>
 <li><a href="#code">Code</a></li>
@@ -459,8 +459,8 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaoh105.github.io/post/chun-jie-shi-er-xiang/">
-      洛谷 P5290 【十二省联考2019】春节十二响 题解
+    <a class="post-title-link" href="https://xiaoh105.github.io/post/xuan-yuan-quan/">
+      洛谷 P4631 【APIO2018】Circle selection 选圆圈 题解
     </a>
   </h1>
   <div class="post-meta">
@@ -468,7 +468,7 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-02-26</span>
+      <span>2020-05-03</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -477,14 +477,8 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://xiaoh105.github.io/tag/Heap/">
-              <span>堆</span>
-            </a>、
-          
-        
-          
-            <a href="https://xiaoh105.github.io/tag/Graph-Theory/">
-              <span>图论</span>
+            <a href="https://xiaoh105.github.io/tag/K-D-Tree/">
+              <span>K-D Tree</span>
             </a>、
           
         
@@ -499,117 +493,147 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>6分钟</span>
+      <span>7分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1110<span class="pc-show">字数</span></span>
+      <span>1287<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <h3 id="洛谷-p5290-十二省联考2019春节十二响"><a href="https://www.luogu.com.cn/problem/P5290">洛谷 P5290 【十二省联考2019】春节十二响</a> 题解</h3>
-<h4 id="2020-2-26-xiaoh">2020-2-26 xiaoh</h4>
+                <h3 id="洛谷-p4631-apio2018circle-selection-选圆圈"><a href="https://www.luogu.com.cn/problem/P4631">洛谷 P4631 【APIO2018】Circle selection 选圆圈</a> 题解</h3>
+<h4 id="xiaoh-2020-5-3">xiaoh 2020-5-3</h4>
 <h4 id="题意">题意</h4>
-<p>给定一棵以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>为根,有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个节点的树(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">1\leq n\leq 2\times 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>),第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>个点有一个权值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">s_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><msub><mi>s</mi><mi>i</mi></msub><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">1\leq s_i\leq 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>).对于不是祖先-后代关系的点,我们可以把它们放在一个集合中.一个集合的大小为其中权值最大的点的点权.你可以将所有的点划分成任意多个集合,但每个集合中所有点必须两两满足上述条件.求所有集合总大小的最小值</p>
+<p>平面上有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个圆(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>3</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">1\leq n\leq 3\times 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>y</mi><mi>i</mi></msub><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">x_i,y_i\leq 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8304100000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>r</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">1\leq r\leq 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>),我们将其按照半径为第一关键字,编号为第二关键字排序(编号不随排序改变),从前往后选取排序后的点,删除与其<strong>不外离</strong>的所有圆.求每个圆是被编号为多少的圆删去的.</p>
 <h4 id="题解">题解</h4>
-<p>不难发现,当两个集合并为一个集合的时候,总代价会变小,且相同情况下集合的大小越小总大小越小.所以对于每一个确定了最大值的集合,我们要尽可能的去带走它的前驱,前驱的前驱,……(前提是不违背题意中的限制)所以本题大致确定可以使用贪心的方法.<br>
-先考虑整棵树是一条链的时候,那么我们可以把整个左儿子和右儿子分别建成一个大根堆,每次取堆顶元素构成集合,当某一个堆取完时,剩下的元素和根自己构成一个集合.不难证明这个是最优的.我们考虑怎样将其拓展到树上.考虑对于每一个节点都建一个堆,表示以这个节点为根的子树按照上述的最优策略所构成的子所有集合的集合大小.那么假设一个节点有两个儿子,那么我们可以对这两个儿子进行与链相同的操作,不难证明这是最优的.而对于多叉树,很明显每次合并两个,多合并几次就合并完了嘛.但是这样,我们的复杂度依旧是停留在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 级别的,原因就在于合并的复杂度为两个堆的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>i</mi><mi>z</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">size</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault">e</span></span></span></span>中较大的那个.那怎么样能进行优化呢?我们想到了启发式合并.每次合并都将小的堆往大的堆合并,这样复杂度就降为了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>.当然很多人认为这道题的复杂度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msup><mi>log</mi><mo>⁡</mo><mn>2</mn></msup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log^2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.148448em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 的,实际上呢,我们可以将合并理解为删除小的子树,因此至多进行合并<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>次.所以总的复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>.</p>
+<p>听说题解是计算几何+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>D</mi><mi>Q</mi></mrow><annotation encoding="application/x-tex">CDQ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault">Q</span></span></span></span>做的？反正我不会就对了QAQ</p>
+<p>那么对于除了数据结构一无是处的普通人来说,这道题该怎么做呢？既然是平面上的点,那么我们自然而然的想到了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi><mo>−</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">K-D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mi>r</mi><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Tree</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span></span></span></span>.考虑如何将圆的位置关系转化为矩形的位置关系.不难想到可以将一颗子树的所有圆的外切矩形作为维护的空间划分(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi><mo>−</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">K-D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mi>r</mi><mi>e</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Tree</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span></span></span></span>本质上就是一个靠剪枝吃饭的超级暴力的数据结构,因此就算维护的矩形有重合也不会出锅).既然靠剪枝吃饭,所以我们自然需要剪枝.如果一个节点的外切矩形与询问的圆的外切矩形无公共点,则这棵子树必定没有可以删除的东西,可以跳过.直接维护即可.(不过本题似乎用了替罪羊的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mi>e</mi><mi>b</mi><mi>u</mi><mi>i</mi><mi>l</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">Rebuild</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault">e</span><span class="mord mathdefault">b</span><span class="mord mathdefault">u</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">d</span></span></span></span>之后更慢了？反正笔者不建议各位重建树).时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">O(n\log n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span></span></span></span>~<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><msqrt><mi>n</mi></msqrt><mo>)</mo></mrow><annotation encoding="application/x-tex">n\sqrt n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.05028em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span>.</p>
 <h4 id="code">Code</h4>
 <pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 template&lt;typename T&gt;
-inline void read(T &amp;x)
+inline void read(register T &amp;x)
 {
 	x=0;
-	int f=1;
+	register int f=1;
 	char ch=getchar();
 	while(ch&lt;'0'||ch&gt;'9')
 	{
 		if(ch=='-') f=-1;
 		ch=getchar();
-}
+	}
 	while(ch&gt;='0'&amp;&amp;ch&lt;='9') x=x*10+(ch^48),ch=getchar();
 	x*=f;
 	return;
 }	
 template&lt;typename T&gt;
-void write(T x)
+void write(register T x)
 {
 	if(x&lt;0) putchar('-'),x=-x;
 	if(x&gt;=10) write(x/10);
 	putchar(x%10+'0');
 	return;
 }
-const int MAXN=200010;
+const int MAXN=300010;
+const long long inf=3e10;
 int n;
-long long a[MAXN];
-int tot=1;
-int edge[MAXN],nxt[MAXN],hd[MAXN];
-inline void add_edge(int u,int v)
+struct circle{
+    long long p[2],d;//p为坐标,d为半径
+    int id;//编号
+}a[MAXN];
+int b[MAXN];
+struct node{
+    int l,r;//左右儿子
+    long long p[2],d;//p为坐标
+    long long minn[2],maxn[2];//外切矩形的横纵坐标
+}f[MAXN];
+bool d;
+inline bool ccmp(register int a,register int b)//nth_element的cmp函数
 {
-    edge[tot]=v,nxt[tot]=hd[u],hd[u]=tot++;
+	return d? f[a].p[0]&lt;f[b].p[0]:f[a].p[1]&lt;f[b].p[1];
 }
-int ch[MAXN][2],sz[MAXN],dis[MAXN];//笔者在此使用了左偏树来实现
-long long val[MAXN];
-int merge(int a,int b)//合并
+inline void pushup(register int p)
 {
-    if(!a||!b) return a+b;
-    if(val[a]&lt;val[b]) swap(a,b);
-    ch[a][1]=merge(ch[a][1],b);
-    if(dis[ch[a][0]]&lt;dis[ch[a][1]]) swap(ch[a][0],ch[a][1]);
-    dis[a]=dis[ch[a][1]]+1;
-    sz[a]=sz[ch[a][0]]+sz[ch[a][1]]+1;
-    return a;
+    for(register int i=0;i&lt;2;++i)
+    f[p].minn[i]=min(f[p].p[i]-f[p].d,min(f[f[p].l].minn[i],f[f[p].r].minn[i])),
+    f[p].maxn[i]=max(f[p].p[i]+f[p].d,max(f[f[p].l].maxn[i],f[f[p].r].maxn[i]));
 }
-inline long long pop(int &amp;p)//弹出
+int tmp[MAXN];
+int build(register int l,register int r)//二分建树
 {
-    int x=p;
-    p=merge(ch[p][0],ch[p][1]);
-    ch[x][0]=ch[x][1]=0,sz[x]=1;
-    return val[x];
+    if(l&gt;=r) return 0;
+    register int mid=(l+r)&gt;&gt;1;
+	nth_element(tmp+l,tmp+mid,tmp+r,ccmp);
+    register int x=tmp[mid];
+	d^=1;
+    f[x].l=build(l,mid),f[x].r=build(mid+1,r);
+	d^=1;
+    pushup(x);
+    return x;
 }
-queue&lt;int&gt; q;
-inline void Union(int &amp;x,int y)//按照贪心的原则合并两棵左偏树
+inline bool check(register node a,register circle b)//检查外界矩形是否有交点
 {
-    if(sz[x]&lt;sz[y]) swap(x,y);
-    while(!q.empty()) q.pop();
-    while(sz[y])
-    {
-        if(val[x]&lt;val[y]) q.push(y);
-        else q.push(x);
-        pop(x),pop(y);
-    }
-    while(!q.empty()) x=merge(x,q.front()),q.pop();
+    return a.minn[0]&lt;=b.p[0]+b.d&amp;&amp;b.p[0]-b.d&lt;=a.maxn[0]&amp;&amp;a.minn[1]&lt;=b.p[1]+b.d&amp;&amp;b.p[1]-b.d&lt;=a.maxn[1];
 }
-int dfs(int p)//dfs遍历整棵树并求解
+inline long long dist(register node a,register circle b)//两点欧氏距离的平方
 {
-    int tmp=0;
-    for(int i=hd[p];i;i=nxt[i]) Union(tmp,dfs(edge[i]));
-    tmp=merge(tmp,p);
-    return tmp;
+    return (a.p[0]-b.p[0])*(a.p[0]-b.p[0])+(a.p[1]-b.p[1])*(a.p[1]-b.p[1]);
 }
-long long ans=0;
+inline bool check_point(register node a,register circle b)//检查两圆是否有交集
+{
+    return dist(a,b)&lt;=(a.d+b.d)*(a.d+b.d);
+}
+int ans[MAXN];
+void query(register int p,register circle x,register int id)//递归查询
+{
+    if(!p) return;
+    if(!ans[p]&amp;&amp;check_point(f[p],x)) ans[p]=id;
+    if(check(f[f[p].l],x)) query(f[p].l,x,id);
+    if(check(f[f[p].r],x)) query(f[p].r,x,id);
+}
+int tot=0;
+inline int New(register long long x,register long long y,register long long d)//新建节点的初始化
+{
+    ++tot;
+    f[tot].p[0]=f[tot].maxn[0]=f[tot].minn[0]=x;
+    f[tot].p[1]=f[tot].maxn[1]=f[tot].minn[1]=y;
+	f[tot].d=d;
+    return tot;
+} 
+inline bool cmp(int u,int v)//圆的排序
+{
+    return a[u].d&gt;a[v].d;
+}
+int rt=0;
 int main()
 {
+    f[0].minn[0]=f[0].minn[1]=inf;//初始化边界
+    f[0].maxn[0]=f[0].maxn[1]=-inf;
     read(n);
-    for(int i=1;i&lt;=n;i++) read(a[i]),val[i]=a[i],sz[i]=1;
-    for(int i=2;i&lt;=n;i++)
-    {
-        int fa;
-        read(fa);
-        add_edge(fa,i);
-    }
-    int rt=dfs(1);
-    while(sz[rt]) ans+=pop(rt);
-    write(ans),putchar('\n');
+    for(register int i=1;i&lt;=n;++i) read(a[i].p[0]),read(a[i].p[1]),read(a[i].d),a[i].id=i,tmp[i-1]=New(a[i].p[0],a[i].p[1],a[i].d),b[i]=i;
+    stable_sort(b+1,b+n+1,cmp);//由于有编号这一第二关键字排序,因此需要稳定排序
+	d=1;
+    rt=build(0,n);
+    for(register int i=1;i&lt;=n;++i)
+    if(!ans[b[i]]) query(rt,a[b[i]],a[b[i]].id);
+    for(register int i=1;i&lt;=n;++i) write(ans[i]),putchar(' ');
+    putchar('\n');
 	return 0;
 }
+
 </code></pre>
 <h4 id="后记">后记</h4>
-<p>本人的第一道<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">AC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>的黑题,值得好好庆祝一下(虽然是看了题解才想出来的QAQ)</p>
+<p>自从春节十二响被可恶的你谷管理员一刀削入紫题后,这算是我严格意义上过的第一道黑题(以后也会变紫？)以及第一道<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>P</mi><mi>I</mi><mi>O</mi></mrow><annotation encoding="application/x-tex">APIO</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span></span></span></span>的题，值得庆祝一下QAQ</p>
+<p>敲代码时脑子抽筋先是删点时没有判断是否已被删去,调试时间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>2</mn><mi>h</mi></mrow><annotation encoding="application/x-tex">+2h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">2</span><span class="mord mathdefault">h</span></span></span></span>……然后又没有看见负坐标,把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>i</mi><mi>n</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">minn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">n</span></span></span></span>搞成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>,卡常时间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>2</mn><mi>h</mi></mrow><annotation encoding="application/x-tex">+2h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">2</span><span class="mord mathdefault">h</span></span></span></span>……两天以后，又是一条好汉QAQ</p>
 
               </div>
               <div class="post-footer">
@@ -620,7 +644,7 @@ int main()
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://xiaoh105.github.io/post/chun-jie-shi-er-xiang/" title="洛谷 P5290 【十二省联考2019】春节十二响 题解">洛谷 P5290 【十二省联考2019】春节十二响 题解</a>
+      <a href="https://xiaoh105.github.io/post/xuan-yuan-quan/" title="洛谷 P4631 【APIO2018】Circle selection 选圆圈 题解">洛谷 P4631 【APIO2018】Circle selection 选圆圈 题解</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -629,9 +653,7 @@ int main()
   </ul>
   <div class="tags">
     
-      <a href="https://xiaoh105.github.io/tag/Heap/"># 堆</a>
-    
-      <a href="https://xiaoh105.github.io/tag/Graph-Theory/"># 图论</a>
+      <a href="https://xiaoh105.github.io/tag/K-D-Tree/"># K-D Tree</a>
     
       <a href="https://xiaoh105.github.io/tag/Data-Structure/"># 数据结构</a>
     
@@ -639,15 +661,11 @@ int main()
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="洛谷 P4139 上帝与集合的正确用法 题解" href="https://xiaoh105.github.io/post/shang-di-yu-ji-he-de-zheng-que-yong-fa/">洛谷 P4139 上帝与集合的正确用法 题解</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="洛谷 P4139 上帝与集合的正确用法 题解" href="https://xiaoh105.github.io/post/shang-di-yu-ji-he-de-zheng-que-yong-fa/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="洛谷 P3745 【六省联考2017】期末考试 题解" href="https://xiaoh105.github.io/post/qi-mo-kao-shi/">洛谷 P3745 【六省联考2017】期末考试 题解</a>
-        <a class="nav-mobile-next" title="洛谷 P3745 【六省联考2017】期末考试 题解" href="https://xiaoh105.github.io/post/qi-mo-kao-shi/">下一篇</a>
+        <a class="nav-pc-next" title="ACWing 388 四叶草魔杖 题解" href="https://xiaoh105.github.io/post/si-ye-cao-mo-zhang/">ACWing 388 四叶草魔杖 题解</a>
+        <a class="nav-mobile-next" title="ACWing 388 四叶草魔杖 题解" href="https://xiaoh105.github.io/post/si-ye-cao-mo-zhang/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
