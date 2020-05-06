@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="Practise like you never won, Perform like you never lost!">
 <meta name="theme-color" content="#339af0">
-<title>洛谷 P5290 【十二省联考2019】春节十二响 题解 | xiaoh&#39;s Blog</title>
+<title>洛谷 P1552 【APIO2012】派遣 题解 | xiaoh&#39;s Blog</title>
 <link rel="shortcut icon" href="https://xiaoh105.github.io/favicon.ico?v=1588766549203">
 <link rel="stylesheet" href="https://xiaoh105.github.io/styles/main.css">
 
@@ -25,7 +25,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="洛谷 P5290 【十二省联考2019】春节十二响 题解" />
+    <meta name="description" content="洛谷 P1552 【APIO2012】派遣 题解" />
     <meta name="keywords" content="贪心,堆,图论,数据结构" />
   </head>
   <body>
@@ -196,13 +196,12 @@
 <ul>
 <li>
 <ul>
-<li><a href="#%E6%B4%9B%E8%B0%B7-p5290-%E5%8D%81%E4%BA%8C%E7%9C%81%E8%81%94%E8%80%832019%E6%98%A5%E8%8A%82%E5%8D%81%E4%BA%8C%E5%93%8D">洛谷 P5290 【十二省联考2019】春节十二响</a>
+<li><a href="#%E6%B4%9B%E8%B0%B7-p1552-apio2012%E6%B4%BE%E9%81%A3">洛谷 P1552 【APIO2012】派遣</a>
 <ul>
-<li><a href="#2020-2-26-xiaoh">2020-2-26 xiaoh</a></li>
+<li><a href="#xiaoh-2020-5-6">xiaoh 2020-5-6</a></li>
 <li><a href="#%E9%A2%98%E6%84%8F">题意</a></li>
 <li><a href="#%E9%A2%98%E8%A7%A3">题解</a></li>
 <li><a href="#code">Code</a></li>
-<li><a href="#%E5%90%8E%E8%AE%B0">后记</a></li>
 </ul>
 </li>
 </ul>
@@ -459,8 +458,8 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaoh105.github.io/post/chun-jie-shi-er-xiang/">
-      洛谷 P5290 【十二省联考2019】春节十二响 题解
+    <a class="post-title-link" href="https://xiaoh105.github.io/post/pai-qian/">
+      洛谷 P1552 【APIO2012】派遣 题解
     </a>
   </h1>
   <div class="post-meta">
@@ -468,7 +467,7 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-02-26</span>
+      <span>2020-05-06</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -505,24 +504,24 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>6分钟</span>
+      <span>4分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1110<span class="pc-show">字数</span></span>
+      <span>817<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <h3 id="洛谷-p5290-十二省联考2019春节十二响"><a href="https://www.luogu.com.cn/problem/P5290">洛谷 P5290 【十二省联考2019】春节十二响</a> 题解</h3>
-<h4 id="2020-2-26-xiaoh">2020-2-26 xiaoh</h4>
+                <h3 id="洛谷-p1552-apio2012派遣"><a href="https://www.luogu.com.cn/problem/P1552">洛谷 P1552 【APIO2012】派遣</a> 题解</h3>
+<h4 id="xiaoh-2020-5-6">xiaoh 2020-5-6</h4>
 <h4 id="题意">题意</h4>
-<p>给定一棵以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>为根,有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个节点的树(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">1\leq n\leq 2\times 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>),第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>个点有一个权值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">s_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><msub><mi>s</mi><mi>i</mi></msub><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">1\leq s_i\leq 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>).对于不是祖先-后代关系的点,我们可以把它们放在一个集合中.一个集合的大小为其中权值最大的点的点权.你可以将所有的点划分成任意多个集合,但每个集合中所有点必须两两满足上述条件.求所有集合总大小的最小值</p>
+<p>有一棵含有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个节点的<strong>有根</strong>树(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">1\leq n\leq 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>)以及一个阈值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>m</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">1\leq m\leq 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>),每个节点都有两个点权<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>l</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">c_i,l_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><msub><mi>c</mi><mi>i</mi></msub><mo>≤</mo><mi>m</mi><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><msub><mi>l</mi><mi>i</mi></msub><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">1\leq c_i\leq m,1\leq l_i\leq 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>).你需要选定一些节点,要求选定的节点的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∑</mo><msub><mi>c</mi><mi>i</mi></msub><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">\sum c_i\leq m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>,同时你需要选择一个”管理者“节点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span>,管理者<strong>不一定</strong>需要在选定的节点中,但是一定要满足它<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span>任何被选中的节点都是<strong>祖先-后代</strong>关系.一个满足条件的方案的权值为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>l</mi><mi>w</mi></msub><mo>×</mo></mrow><annotation encoding="application/x-tex">l_w\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">×</span></span></span></span>节点数量.求权值的最大值.</p>
 <h4 id="题解">题解</h4>
-<p>不难发现,当两个集合并为一个集合的时候,总代价会变小,且相同情况下集合的大小越小总大小越小.所以对于每一个确定了最大值的集合,我们要尽可能的去带走它的前驱,前驱的前驱,……(前提是不违背题意中的限制)所以本题大致确定可以使用贪心的方法.<br>
-先考虑整棵树是一条链的时候,那么我们可以把整个左儿子和右儿子分别建成一个大根堆,每次取堆顶元素构成集合,当某一个堆取完时,剩下的元素和根自己构成一个集合.不难证明这个是最优的.我们考虑怎样将其拓展到树上.考虑对于每一个节点都建一个堆,表示以这个节点为根的子树按照上述的最优策略所构成的子所有集合的集合大小.那么假设一个节点有两个儿子,那么我们可以对这两个儿子进行与链相同的操作,不难证明这是最优的.而对于多叉树,很明显每次合并两个,多合并几次就合并完了嘛.但是这样,我们的复杂度依旧是停留在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 级别的,原因就在于合并的复杂度为两个堆的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>i</mi><mi>z</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">size</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mord mathdefault">e</span></span></span></span>中较大的那个.那怎么样能进行优化呢?我们想到了启发式合并.每次合并都将小的堆往大的堆合并,这样复杂度就降为了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>.当然很多人认为这道题的复杂度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msup><mi>log</mi><mo>⁡</mo><mn>2</mn></msup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log^2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.148448em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 的,实际上呢,我们可以将合并理解为删除小的子树,因此至多进行合并<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>次.所以总的复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>.</p>
+<p>假设管理者的位置时固定的,那么此时我们可以采用贪心的策略,贪心的选取子树中点权最小的点直至超出阈值即可.</p>
+<p>那么如果管理者的位置会变化又该怎样处理呢？同样是维护贪心策略,这让我们想到了十二省联考中的“春节十二响”这道题,我们可以类似的用堆去进行维护.对于每一个节点,我们用一个堆存下满足以其为管理者时贪心选择的所有节点,每次像树形<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">DP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>一样递归子树后合并,合并时若堆中放入当前元素仍然不超过阈值就直接将其插入,否则若当前元素小于堆中最大的一个元素就直接将其替换掉即可.然后再套一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>s</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">dsu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span></span></span></span>的板子缩一下复杂度就行了,时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msup><mi>log</mi><mo>⁡</mo><mn>2</mn></msup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log^2 n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.148448em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>.(时限有一点紧,如果用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>t</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">stl</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>的话建议吸口氧气,不然有一个点容易超时.)</p>
 <h4 id="code">Code</h4>
 <pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
@@ -549,73 +548,57 @@ void write(T x)
 	putchar(x%10+'0');
 	return;
 }
-const int MAXN=200010;
-int n;
-long long a[MAXN];
+const int MAXN=100010;
+int n,m;
+int fa[MAXN];
+int son[MAXN],nxt[MAXN],hd[MAXN];
 int tot=1;
-int edge[MAXN],nxt[MAXN],hd[MAXN];
-inline void add_edge(int u,int v)
+inline void add_edge(register int u,register int v)//加儿子
 {
-    edge[tot]=v,nxt[tot]=hd[u],hd[u]=tot++;
+    son[tot]=v,nxt[tot]=hd[u],hd[u]=tot++;
 }
-int ch[MAXN][2],sz[MAXN],dis[MAXN];//笔者在此使用了左偏树来实现
-long long val[MAXN];
-int merge(int a,int b)//合并
-{
-    if(!a||!b) return a+b;
-    if(val[a]&lt;val[b]) swap(a,b);
-    ch[a][1]=merge(ch[a][1],b);
-    if(dis[ch[a][0]]&lt;dis[ch[a][1]]) swap(ch[a][0],ch[a][1]);
-    dis[a]=dis[ch[a][1]]+1;
-    sz[a]=sz[ch[a][0]]+sz[ch[a][1]]+1;
-    return a;
-}
-inline long long pop(int &amp;p)//弹出
-{
-    int x=p;
-    p=merge(ch[p][0],ch[p][1]);
-    ch[x][0]=ch[x][1]=0,sz[x]=1;
-    return val[x];
-}
-queue&lt;int&gt; q;
-inline void Union(int &amp;x,int y)//按照贪心的原则合并两棵左偏树
-{
-    if(sz[x]&lt;sz[y]) swap(x,y);
-    while(!q.empty()) q.pop();
-    while(sz[y])
-    {
-        if(val[x]&lt;val[y]) q.push(y);
-        else q.push(x);
-        pop(x),pop(y);
-    }
-    while(!q.empty()) x=merge(x,q.front()),q.pop();
-}
-int dfs(int p)//dfs遍历整棵树并求解
-{
-    int tmp=0;
-    for(int i=hd[p];i;i=nxt[i]) Union(tmp,dfs(edge[i]));
-    tmp=merge(tmp,p);
-    return tmp;
-}
+int a[MAXN];
+int b[MAXN];
+priority_queue&lt;int&gt; q[MAXN];
+int rt[MAXN];
+int sum[MAXN];
 long long ans=0;
+inline int merge(register int x,register int y)//合并
+{
+    if(q[rt[x]].size()&lt;q[rt[y]].size()) swap(rt[x],rt[y]),swap(sum[x],sum[y]);//启发式合并
+    while(!q[rt[y]].empty())
+    {
+        int k=q[rt[y]].top();q[rt[y]].pop();
+        if(sum[x]+k&lt;=m) q[rt[x]].push(k),sum[x]+=k;
+        else if(k&lt;q[rt[x]].top()) sum[x]-=q[rt[x]].top(),q[rt[x]].pop(),q[rt[x]].push(k),sum[x]+=k;
+    }
+    return rt[x];
+}
+void dfs(register int p)//递归求解
+{
+    for(register int i=hd[p];i;i=nxt[i])
+    {
+        dfs(son[i]);
+        rt[p]=merge(p,son[i]);
+    }
+    ans=max(ans,(long long)q[rt[p]].size()*b[p]);
+}
 int main()
 {
-    read(n);
-    for(int i=1;i&lt;=n;i++) read(a[i]),val[i]=a[i],sz[i]=1;
-    for(int i=2;i&lt;=n;i++)
+    read(n),read(m);
+    for(int i=1;i&lt;=n;++i)
     {
-        int fa;
-        read(fa);
-        add_edge(fa,i);
+        read(fa[i]),read(a[i]),read(b[i]);
+        if(fa[i]) add_edge(fa[i],i);
+        if(a[i]&lt;=m) q[i].push(a[i]),sum[i]+=a[i];
+        rt[i]=i;
     }
-    int rt=dfs(1);
-    while(sz[rt]) ans+=pop(rt);
+    dfs(1);
     write(ans),putchar('\n');
 	return 0;
 }
+
 </code></pre>
-<h4 id="后记">后记</h4>
-<p>本人的第一道<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">AC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span>的黑题,值得好好庆祝一下(虽然是看了题解才想出来的QAQ)</p>
 
               </div>
               <div class="post-footer">
@@ -626,7 +609,7 @@ int main()
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://xiaoh105.github.io/post/chun-jie-shi-er-xiang/" title="洛谷 P5290 【十二省联考2019】春节十二响 题解">洛谷 P5290 【十二省联考2019】春节十二响 题解</a>
+      <a href="https://xiaoh105.github.io/post/pai-qian/" title="洛谷 P1552 【APIO2012】派遣 题解">洛谷 P1552 【APIO2012】派遣 题解</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -647,15 +630,11 @@ int main()
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="洛谷 P4139 上帝与集合的正确用法 题解" href="https://xiaoh105.github.io/post/shang-di-yu-ji-he-de-zheng-que-yong-fa/">洛谷 P4139 上帝与集合的正确用法 题解</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="洛谷 P4139 上帝与集合的正确用法 题解" href="https://xiaoh105.github.io/post/shang-di-yu-ji-he-de-zheng-que-yong-fa/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="洛谷 P3745 【六省联考2017】期末考试 题解" href="https://xiaoh105.github.io/post/qi-mo-kao-shi/">洛谷 P3745 【六省联考2017】期末考试 题解</a>
-        <a class="nav-mobile-next" title="洛谷 P3745 【六省联考2017】期末考试 题解" href="https://xiaoh105.github.io/post/qi-mo-kao-shi/">下一篇</a>
+        <a class="nav-pc-next" title="洛谷 P4631 【APIO2018】Circle selection 选圆圈 题解" href="https://xiaoh105.github.io/post/xuan-yuan-quan/">洛谷 P4631 【APIO2018】Circle selection 选圆圈 题解</a>
+        <a class="nav-mobile-next" title="洛谷 P4631 【APIO2018】Circle selection 选圆圈 题解" href="https://xiaoh105.github.io/post/xuan-yuan-quan/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
