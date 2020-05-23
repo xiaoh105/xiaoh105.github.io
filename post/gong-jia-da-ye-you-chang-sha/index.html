@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="Practise like you never won, Perform like you never lost!">
 <meta name="theme-color" content="#339af0">
-<title>洛谷 P1494/ACWing 251 小Z的袜子 题解 | xiaoh&#39;s Blog</title>
+<title>UOJ 207 共价大爷游长沙 题解 | xiaoh&#39;s Blog</title>
 <link rel="shortcut icon" href="https://xiaoh105.github.io/favicon.ico?v=1590238443692">
 <link rel="stylesheet" href="https://xiaoh105.github.io/styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="洛谷 P1494/ACWing 251 小Z的袜子 题解" />
-    <meta name="keywords" content="莫队,分块,数据结构" />
+    <meta name="description" content="UOJ 207 共价大爷游长沙 题解" />
+    <meta name="keywords" content="动态树,数据结构" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -196,16 +196,12 @@
 <ul>
 <li>
 <ul>
-<li><a href="#%E6%B4%9B%E8%B0%B7-p1494">洛谷 P1494</a>
+<li><a href="#uoj-207-%E5%85%B1%E4%BB%B7%E5%A4%A7%E7%88%B7%E6%B8%B8%E9%95%BF%E6%B2%99">UOJ 207 共价大爷游长沙</a>
 <ul>
+<li><a href="#xiaoh-2020-5-23">xiaoh 2020-5-23</a></li>
 <li><a href="#%E9%A2%98%E6%84%8F">题意</a>
 <ul>
-<li><a href="#%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AA%E6%9C%89n%E4%B8%AA%E6%95%B01n5e4%E7%9A%84%E5%BA%8F%E5%88%97c1cin-%E6%9C%89m%E4%B8%AA%E8%AF%A2%E9%97%AE1m5e4%E6%AF%8F%E6%AC%A1%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AA%E5%8C%BA%E9%97%B4lr%E6%B1%82%E7%BB%99%E5%8C%BA%E9%97%B4%E4%B8%AD%E4%BB%BB%E5%8F%96%E4%B8%A4%E4%B8%AA%E6%89%80%E5%9C%A8%E4%BD%8D%E7%BD%AE%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%8F%96%E5%88%B0%E5%AF%B9%E5%BA%94ci%E7%9A%84%E5%80%BC%E7%9B%B8%E7%AD%89%E7%9A%84%E6%A6%82%E7%8E%87%E7%94%A8%E6%9C%80%E7%AE%80%E6%95%B4%E6%95%B0%E6%AF%94%E8%BE%93%E5%87%BA-%E6%B3%A8%E4%B8%8D%E5%BC%BA%E5%88%B6%E5%9C%A8%E7%BA%BF">给定一个有n个数(1&lt;=n&lt;=5e4)的序列C(1&lt;=ci&lt;=n)。有m个询问（1&lt;=m&lt;=5e4），每次给定一个区间[l,r]，求给区间中任取两个所在位置不同的数取到对应ci的值相等的概率，用最简整数比输出。<strong>注：不强制在线</strong></a></li>
-</ul>
-</li>
-<li><a href="#%E9%A2%98%E8%A7%A3">题解</a>
-<ul>
-<li><a href="#%E6%9C%AC%E9%A2%98%E6%98%AF%E8%8E%AB%E9%98%9F%E7%9A%84%E6%A8%A1%E6%9D%BF%E9%A2%98-%E9%82%A3%E4%B9%88%E8%8E%AB%E9%98%9F%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2%E8%8E%AB%E9%98%9F%E6%98%AF%E6%88%91%E4%BB%AC%E5%9B%BD%E5%AE%B6%E9%98%9F%E9%98%9F%E7%88%B7%E7%9A%84%E8%8E%AB%E6%B6%9B%E6%8F%90%E5%87%BA%E7%9A%84%E5%9F%BA%E4%BA%8E%E5%88%86%E5%9D%97%E7%9A%84%E6%AF%92%E7%98%A4%E7%AE%97%E6%B3%95-%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E4%B8%BA%E5%AF%B9%E8%AF%A2%E9%97%AE%E8%BF%9B%E8%A1%8C%E5%88%86%E5%9D%97-%E5%85%88%E5%B0%86%E6%89%80%E6%9C%89%E8%AF%A2%E9%97%AE%E6%8C%89%E7%85%A7l%E7%AB%AF%E7%82%B9%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%BA%8F%E5%86%8D%E5%9C%A8%E6%AF%8F%E4%B8%AA%E5%9D%97%E4%B8%AD%E6%8C%89%E7%85%A7r%E7%AB%AF%E7%82%B9%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E6%8E%92%E5%BA%8F-%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%AA%E5%9D%97%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%95%B0%E6%88%91%E4%BB%AC%E7%94%A8%E6%9A%B4%E5%8A%9B%E6%B1%82%E5%87%BA%E5%AE%83%E7%9A%84%E5%80%BC%E5%85%B6%E4%BD%99%E7%9A%84%E6%A0%B9%E6%8D%AE%E5%8E%9F%E6%9C%89%E7%9A%84%E7%9A%84%E8%8C%83%E5%9B%B4%E4%B8%BA%E5%9F%BA%E7%A1%80%E8%BF%9B%E8%A1%8C%E6%89%A9%E5%B1%95%E5%8D%B3%E5%8F%AF-%E4%BB%A5%E4%B8%8D%E5%B8%A6%E4%BF%AE%E7%9A%84%E8%8E%AB%E9%98%9F%E4%B8%BA%E4%BE%8B%E6%88%91%E4%BB%AC%E4%BB%A5n%E4%B8%BA%E5%9D%97%E7%9A%84%E5%A4%A7%E5%B0%8F%E9%82%A3%E4%B9%88%E5%AE%83%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%98%AFonn%E7%9A%84-%E6%9C%AC%E9%A2%98%E5%B0%B1%E6%98%AF%E8%A3%B8%E7%9A%84%E8%8E%AB%E9%98%9F%E6%9D%BF%E5%AD%90-%E7%9B%B4%E6%8E%A5%E5%BC%80%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E5%86%85%E6%AF%8F%E4%B8%80%E4%B8%AAci%E7%9A%84%E4%B8%AA%E6%95%B0%E7%84%B6%E5%90%8E%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E4%B8%80%E4%B8%8B%E5%B0%B1%E5%AE%8C%E4%BA%8B%E5%95%A6">本题是莫队的模板题。那么莫队是什么呢？莫队是我们国家队队爷的莫涛提出的基于分块的毒瘤算法。具体实现方法为：对询问进行分块。先将所有询问按照l端点从小到大排序，再在每个块中按照r端点从小到大排序。对于每个块的第一个数，我们用暴力求出它的值，其余的根据原有的的范围为基础进行扩展即可。以不带修的莫队为例，我们以√n为块的大小，那么它的复杂度是O(n√n）的。本题就是裸的莫队板子。直接开一个数组维护区间内每一个ci的个数，然后排列组合一下就完事啦！</a></li>
+<li><a href="#%E9%A2%98%E8%A7%A3">题解</a></li>
 </ul>
 </li>
 <li><a href="#code">Code</a></li>
@@ -465,8 +461,8 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaoh105.github.io/post/xiao-z-de-wa-zi/">
-      洛谷 P1494/ACWing 251 小Z的袜子 题解
+    <a class="post-title-link" href="https://xiaoh105.github.io/post/gong-jia-da-ye-you-chang-sha/">
+      UOJ 207 共价大爷游长沙 题解
     </a>
   </h1>
   <div class="post-meta">
@@ -474,7 +470,7 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-01-02</span>
+      <span>2020-05-23</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -483,14 +479,8 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://xiaoh105.github.io/tag/Captain-Mo/">
-              <span>莫队</span>
-            </a>、
-          
-        
-          
-            <a href="https://xiaoh105.github.io/tag/Block/">
-              <span>分块</span>
+            <a href="https://xiaoh105.github.io/tag/Link-Cut-Tree/">
+              <span>动态树</span>
             </a>、
           
         
@@ -505,161 +495,204 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>6分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>838<span class="pc-show">字数</span></span>
+      <span>1102<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <h3 id="洛谷-p1494"><a href="https://www.luogu.com.cn/problem/P1494">洛谷 P1494</a>/<a href="https://www.acwing.com/problem/content/253/">ACWing 251</a> 小Z的袜子 题解</h3>
+                <h3 id="uoj-207-共价大爷游长沙"><a href="http://uoj.ac/problem/207">UOJ 207 共价大爷游长沙</a> 题解</h3>
+<h4 id="xiaoh-2020-5-23">xiaoh 2020-5-23</h4>
 <h4 id="题意">题意</h4>
-<h5 id="给定一个有n个数1n5e4的序列c1cin-有m个询问1m5e4每次给定一个区间lr求给区间中任取两个所在位置不同的数取到对应ci的值相等的概率用最简整数比输出-注不强制在线">给定一个有n个数(1&lt;=n&lt;=5e4)的序列C(1&lt;=ci&lt;=n)。有m个询问（1&lt;=m&lt;=5e4），每次给定一个区间[l,r]，求给区间中任取两个所在位置不同的数取到对应ci的值相等的概率，用最简整数比输出。<strong>注：不强制在线</strong></h5>
-<h4 id="题解">题解</h4>
-<h5 id="本题是莫队的模板题-那么莫队是什么呢莫队是我们国家队队爷的莫涛提出的基于分块的毒瘤算法-具体实现方法为对询问进行分块-先将所有询问按照l端点从小到大排序再在每个块中按照r端点从小到大排序-对于每个块的第一个数我们用暴力求出它的值其余的根据原有的的范围为基础进行扩展即可-以不带修的莫队为例我们以n为块的大小那么它的复杂度是onn的-本题就是裸的莫队板子-直接开一个数组维护区间内每一个ci的个数然后排列组合一下就完事啦">本题是莫队的模板题。那么莫队是什么呢？莫队是我们国家队队爷的莫涛提出的基于分块的毒瘤算法。具体实现方法为：对询问进行分块。先将所有询问按照l端点从小到大排序，再在每个块中按照r端点从小到大排序。对于每个块的第一个数，我们用暴力求出它的值，其余的根据原有的的范围为基础进行扩展即可。以不带修的莫队为例，我们以√n为块的大小，那么它的复杂度是O(n√n）的。本题就是裸的莫队板子。直接开一个数组维护区间内每一个ci的个数，然后排列组合一下就完事啦！</h5>
+<p>给定一棵有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个点的树(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>100000</mn></mrow><annotation encoding="application/x-tex">1\leq n\leq 100000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span>),树的形态会动态变化.现有一个动态变化的点对集<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>,每次询问一条边<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>u</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>v</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(u_i,v_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>,要求输出这个点是否在点对集中所有点对间的路径上.</p>
+<h5 id="题解">题解</h5>
+<p>树的形态会变化,显然考虑使用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mi>C</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">LCT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>.那么点对集怎么维护呢?想到可以使用随机化的思想来处理.每次增加点对时,给这条路径附上一个随机权值并将路径上所有边异或上这个权值.那么当询问时,若询问的边的边权等于所有路径的异或和,那么这个点有<strong>大概率</strong>是所有路径都经过的.那么为了尽可能的防止哈希碰撞,我们只要将边权开大到<code>long long</code>就可以了.</p>
+<p>接下来考虑树的边权改变时该如何处理.我们发现加上某一条边后,原图出现了一个环,而被删边的路径上的点都会经过环上的除该边外的其他所有边,我们只要将删除那条边,并把它的的边权异或给环上其余的边就行了.时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>.(当然这是一个长达<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mi>s</mi></mrow><annotation encoding="application/x-tex">1s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathdefault">s</span></span></span></span>的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\log n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span></span></span></span>)</p>
 <h4 id="code">Code</h4>
 <pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
-inline int read()
+template&lt;typename T&gt;
+inline void read(T &amp;x)
 {
-	int ret=0,w=1;
+	x=0;
+	int f=1;
 	char ch=getchar();
 	while(ch&lt;'0'||ch&gt;'9')
 	{
-		if(ch=='-') w=-1;
+		if(ch=='-') f=-1;
 		ch=getchar();
-	}
-	while(ch&gt;='0'&amp;&amp;ch&lt;='9') ret=ret*10+ch-'0',ch=getchar();
-	return w*ret;
 }
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9') x=x*10+(ch^48),ch=getchar();
+	x*=f;
+	return;
+}	
+template&lt;typename T&gt;
+void write(T x)
+{
+	if(x&lt;0) putchar('-'),x=-x;
+	if(x&gt;=10) write(x/10);
+	putchar(x%10+'0');
+	return;
+}
+const int MAXN=100010,MAXM=300010;
+int tot=0;
 int n,m;
-int a[50010];
+int val[MAXN*2+MAXM],sum[MAXN*2+MAXM],ch[MAXN*2+MAXM][2],f[MAXN*2+MAXM];
+int tag[MAXN*2+MAXM],tag2[MAXN*2+MAXM];
+inline void pushup(register int x)
+{
+    sum[x]=sum[ch[x][0]]^sum[ch[x][1]];
+    if(x&gt;n) sum[x]^=val[x];
+}
+inline int get(register int x)
+{
+    return x==ch[f[x]][1];
+}
+inline int isroot(register int x)
+{
+    return x!=ch[f[x]][0]&amp;&amp;x!=ch[f[x]][1];
+}
+inline void rotate(register int x)
+{
+    register int y=f[x],z=f[y],chk=get(x);
+    if(!isroot(y)) ch[z][y==ch[z][1]]=x;
+    ch[y][chk]=ch[x][chk^1],f[ch[x][chk^1]]=y;
+    ch[x][chk^1]=y,f[y]=x;
+    f[x]=z;
+    pushup(y),pushup(x);
+}
+inline void pushdown(register int x)
+{
+    if(tag[x])
+    {
+        swap(ch[ch[x][0]][0],ch[ch[x][0]][1]);
+        swap(ch[ch[x][1]][0],ch[ch[x][1]][1]);
+        tag[ch[x][0]]^=1,tag[ch[x][1]]^=1;
+        tag[x]=0;
+    }
+    val[ch[x][0]]^=tag2[x],val[ch[x][1]]^=tag2[x];
+    sum[ch[x][0]]^=tag2[x],sum[ch[x][1]]^=tag2[x];
+    tag2[ch[x][0]]^=tag2[x],tag2[ch[x][1]]^=tag2[x];
+    tag2[x]=0,val[0]=sum[0]=0;
+}
+void update(register int x)
+{
+    if(!isroot(x)) update(f[x]);
+    pushdown(x);
+}
+inline void Splay(register int x)
+{
+    update(x);
+    for(register int fa=f[x];fa=f[x],!isroot(x);rotate(x))
+    if(!isroot(fa)) rotate(get(x)==get(fa)? fa:x);
+}
+inline int Access(register int x)
+{
+    register int ret=0;
+    for(;x;ret=x,x=f[x])
+    Splay(x),ch[x][1]=ret,pushup(x);
+    return ret;
+}
+inline void makeroot(register int x)
+{
+    x=Access(x);
+    swap(ch[x][0],ch[x][1]);
+    tag[x]^=1;
+}
+inline void Link(register int x,register int y)
+{
+    makeroot(x),Splay(x),f[x]=y;
+}
+inline void split(register int x,register int y)
+{
+    makeroot(x),Access(y),Splay(y);
+}
+inline void Cut(register int x,register int y)
+{
+    split(x,y);
+    register int chk=get(x);
+    f[x]=ch[y][chk]=0;
+}
+map&lt;pair&lt;int,int&gt;,int&gt; mp;
+long long cur=0;
+inline long long Random()
+{
+    return rand()*RAND_MAX+rand();
+}
+int cnt=0;
 struct node{
-	int l,r;
-	int id;
-}f[50010];
-bool cmp1(node p,node q)
-{
-	if(p.l!=q.l) return p.l&lt;q.l;
-	else return p.r&lt;q.r;
-}
-bool cmp2(node p,node q)
-{
-	return p.r&lt;q.r;
-}
-struct node2{
-	long long p,q;
-}ans[50010];
-int t;
-int tot;
-int lp,rp;
-long long cnt=0;
-long long tmp[50010];
-void cal1(int l,int r)
-{
-	cnt=0;
-	memset(tmp,0,sizeof(tmp));
-	for(int i=l;i&lt;=r;i++)
-	{
-		int x=a[i];
-		cnt-=tmp[x]*(tmp[x]-1)/2;
-		tmp[x]++;
-		cnt+=tmp[x]*(tmp[x]-1)/2;
-	}
-	lp=l,rp=r;
-}
-void cal2(int l,int r)
-{
-	if(lp&gt;l)
-	{
-		for(int i=l;i&lt;lp;i++)
-		{
-			int x=a[i];
-			cnt-=tmp[x]*(tmp[x]-1)/2;
-			tmp[x]++;
-			cnt+=tmp[x]*(tmp[x]-1)/2;
-		}
-		lp=l;
-	}
-	if(lp&lt;l)
-	{
-		for(int i=lp;i&lt;l;i++)
-		{
-			int x=a[i];
-			cnt-=tmp[x]*(tmp[x]-1)/2;
-			tmp[x]--;
-			cnt+=tmp[x]*(tmp[x]-1)/2;
-		}
-		lp=l;
-	}
-	if(rp&lt;r)
-	{
-		for(int i=rp+1;i&lt;=r;i++)
-		{
-			int x=a[i];
-			cnt-=tmp[x]*(tmp[x]-1)/2;
-			tmp[x]++;
-			cnt+=tmp[x]*(tmp[x]-1)/2;
-			rp++;
-		}
-		rp=r;
-	}
-}
-long long gcd(long long a,long long b)
-{
-	return (b==0)? a:gcd(b,a%b);
-}
+	int x,y;
+	long long val;
+}a[MAXM];
 int main()
 {
-	n=read(),m=read();
-	for(int i=1;i&lt;=n;i++) a[i]=read();
-	for(int i=1;i&lt;=m;i++) f[i].l=read(),f[i].r=read(),f[i].id=i;
-	sort(f+1,f+m+1,cmp1);
-	t=sqrt(n);
-	tot=n/t;
-	if(t*tot&lt;n) tot++;
-	for(int i=1;i&lt;=tot;i++)
-	{
-		int l=(i-1)*t+1,r=min(i*t,n);
-		sort(f+l,f+r+1,cmp2);
-		start:
-		if(f[l].l==f[l].r)
-		{
-			ans[f[l].id].p=0;
-			ans[f[l].id].q=1;
-			l++;
-			goto start;
-		}
-		else
-		{
-			cal1(f[l].l,f[l].r);
-			long long num=(long long)(f[l].r-f[l].l+1);
-			ans[f[l].id].p=cnt,ans[f[l].id].q=(num-1)*num/2;
-		}
-		for(int j=l+1;j&lt;=r;j++)
-		{
-			if(f[j].l==f[j].r)
-			{
-				ans[f[j].id].p=0;
-				ans[f[j].id].q=1;
-			}
-			else
-			{
-				cal2(f[j].l,f[j].r);
-				long long num=(long long)(f[j].r-f[j].l+1);
-				ans[f[j].id].p=cnt,ans[f[j].id].q=(num-1)*num/2;
-			}
-		}
-	}
-	for(int i=1;i&lt;=m;i++)
-	{
-		long long x=gcd(ans[i].p,ans[i].q);
-		printf(&quot;%lld/%lld\n&quot;,ans[i].p/x,ans[i].q/x); 
-	}
+	srand(time(0));
+    read(n);
+    read(n),read(m);
+    for(register int i=1;i&lt;n;++i)
+    {
+        ++tot;
+        int u,v;
+        read(u),read(v);
+        if(u&gt;v) swap(u,v);
+        Link(u,n+tot),Link(n+tot,v);
+        mp[make_pair(u,v)]=tot;
+    }
+    for(register int i=1;i&lt;=m;++i)
+    {
+        int op;
+        read(op);
+        if(op==1)
+        {
+            int u,v,x,y;
+            read(u),read(v),read(x),read(y);
+            if(u&gt;v) swap(u,v);
+            if(x&gt;y) swap(x,y);
+            int pos=mp[make_pair(u,v)];
+			split(u,v);
+			long long tmp=sum[v];
+            Cut(u,n+pos),Cut(n+pos,v);
+            ++tot;
+            Link(x,n+tot),Link(n+tot,y);
+			split(u,v);
+			sum[v]^=tmp,tag2[v]^=tmp;
+            mp[make_pair(x,y)]=tot;
+        }
+        else if(op==2)
+        {
+            int x,y;
+            read(x),read(y);
+            if(x&gt;y) swap(x,y);
+            long long tmp=Random();
+            a[++cnt]={x,y,tmp};
+            split(x,y);
+            tag2[y]^=tmp,sum[y]^=tmp;
+            cur^=tmp;
+        }
+        else if(op==3)
+        {
+            int x,y;
+            read(x);
+            long long tmp=a[x].val;
+			y=a[x].y,x=a[x].x;
+            split(x,y);
+			cur^=tmp;
+            tag2[y]^=tmp,sum[y]^=tmp;
+        }
+        else
+        {
+            int x,y;
+            read(x),read(y);
+            split(x,y);
+            if(sum[y]==cur) printf(&quot;YES\n&quot;);
+            else printf(&quot;NO\n&quot;);
+        }
+    }
 	return 0;
 }
 </code></pre>
@@ -673,7 +706,7 @@ int main()
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://xiaoh105.github.io/post/xiao-z-de-wa-zi/" title="洛谷 P1494/ACWing 251 小Z的袜子 题解">洛谷 P1494/ACWing 251 小Z的袜子 题解</a>
+      <a href="https://xiaoh105.github.io/post/gong-jia-da-ye-you-chang-sha/" title="UOJ 207 共价大爷游长沙 题解">UOJ 207 共价大爷游长沙 题解</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -682,9 +715,7 @@ int main()
   </ul>
   <div class="tags">
     
-      <a href="https://xiaoh105.github.io/tag/Captain-Mo/"># 莫队</a>
-    
-      <a href="https://xiaoh105.github.io/tag/Block/"># 分块</a>
+      <a href="https://xiaoh105.github.io/tag/Link-Cut-Tree/"># 动态树</a>
     
       <a href="https://xiaoh105.github.io/tag/Data-Structure/"># 数据结构</a>
     
@@ -692,15 +723,11 @@ int main()
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="洛谷 P2495/BZOJ 2286 消耗战题解" href="https://xiaoh105.github.io/post/xiao-hao-zhan/">洛谷 P2495/BZOJ 2286 消耗战题解</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="洛谷 P2495/BZOJ 2286 消耗战题解" href="https://xiaoh105.github.io/post/xiao-hao-zhan/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="ABC149 Summary" href="https://xiaoh105.github.io/post/abc149-summary/">ABC149 Summary</a>
-        <a class="nav-mobile-next" title="ABC149 Summary" href="https://xiaoh105.github.io/post/abc149-summary/">下一篇</a>
+        <a class="nav-pc-next" title="洛谷 CF662C Binary Table 题解" href="https://xiaoh105.github.io/post/Binary-table/">洛谷 CF662C Binary Table 题解</a>
+        <a class="nav-mobile-next" title="洛谷 CF662C Binary Table 题解" href="https://xiaoh105.github.io/post/Binary-table/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
