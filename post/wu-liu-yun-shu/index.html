@@ -6,7 +6,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="Practise like you never won, Perform like you never lost!">
 <meta name="theme-color" content="#339af0">
-<title>洛谷 P3758 【TJOI2017】可乐 题解 | xiaoh&#39;s Blog</title>
+<title>洛谷 P1772 【ZJOI2006】物流运输 题解 | xiaoh&#39;s Blog</title>
 <link rel="shortcut icon" href="https://xiaoh105.github.io/favicon.ico?v=1595513469530">
 <link rel="stylesheet" href="https://xiaoh105.github.io/styles/main.css">
 
@@ -25,8 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
-    <meta name="description" content="洛谷 P3758 【TJOI2017】可乐 题解" />
-    <meta name="keywords" content="矩阵,快速幂,线性DP,图论" />
+    <meta name="description" content="洛谷 P1772 【ZJOI2006】物流运输 题解" />
+    <meta name="keywords" content="线性DP,图论,最短路,动态规划" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -196,10 +196,15 @@
 <ul>
 <li>
 <ul>
-<li><a href="#%E6%B4%9B%E8%B0%B7-p3758-tjoi2017%E5%8F%AF%E4%B9%90">洛谷 P3758 【TJOI2017】可乐</a>
+<li>
 <ul>
-<li><a href="#xiaoh-2020-4-6">xiaoh 2020-4-6</a></li>
-<li><a href="#%E9%A2%98%E6%84%8F">题意</a></li>
+<li><a href="#%E6%B4%9B%E8%B0%B7-p1772-zjoi2006%E7%89%A9%E6%B5%81%E8%BF%90%E8%BE%93">洛谷 P1772 【ZJOI2006】物流运输</a></li>
+<li><a href="#xiaoh-2020-7-23">xiaoh 2020-7-23</a></li>
+<li><a href="#%E9%A2%98%E6%84%8F">题意</a>
+<ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4">数据范围</a></li>
+</ul>
+</li>
 <li><a href="#%E9%A2%98%E8%A7%A3">题解</a></li>
 <li><a href="#code">Code</a></li>
 </ul>
@@ -458,8 +463,8 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaoh105.github.io/post/ke-le/">
-      洛谷 P3758 【TJOI2017】可乐 题解
+    <a class="post-title-link" href="https://xiaoh105.github.io/post/wu-liu-yun-shu/">
+      洛谷 P1772 【ZJOI2006】物流运输 题解
     </a>
   </h1>
   <div class="post-meta">
@@ -467,25 +472,13 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-04-06</span>
+      <span>2020-07-23</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
       <span class="meta-item">
         <i class="fa fa-folder-o"></i>
         <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://xiaoh105.github.io/tag/Matrix/">
-              <span>矩阵</span>
-            </a>、
-          
-        
-          
-            <a href="https://xiaoh105.github.io/tag/Fast-Pow/">
-              <span>快速幂</span>
-            </a>、
-          
         
           
             <a href="https://xiaoh105.github.io/tag/Linear-DP/">
@@ -496,6 +489,18 @@ window.addEventListener('load', function() {
           
             <a href="https://xiaoh105.github.io/tag/Graph-Theory/">
               <span>图论</span>
+            </a>、
+          
+        
+          
+            <a href="https://xiaoh105.github.io/tag/Shortest_Path/">
+              <span>最短路</span>
+            </a>、
+          
+        
+          
+            <a href="https://xiaoh105.github.io/tag/Dynamic-Programming/">
+              <span>动态规划</span>
             </a>
           
         
@@ -509,23 +514,24 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>765<span class="pc-show">字数</span></span>
+      <span>671<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <h3 id="洛谷-p3758-tjoi2017可乐"><a href="https://www.luogu.com.cn/problem/P3758">洛谷 P3758 【TJOI2017】可乐</a> 题解</h3>
-<h4 id="xiaoh-2020-4-6">xiaoh 2020-4-6</h4>
+                <h4 id="洛谷-p1772-zjoi2006物流运输"><a href="https://www.luogu.com.cn/problem/P1772">洛谷 P1772 【ZJOI2006】物流运输</a> 题解</h4>
+<h4 id="xiaoh-2020-7-23">xiaoh 2020-7-23</h4>
 <h4 id="题意">题意</h4>
-<p>给定一张有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个点,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>条边的简单无向图(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>30</mn><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>m</mi><mo>≤</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">1\leq n\leq 30,1\leq m\leq 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">3</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span>),有一个机器人初始在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>号点,每一秒可以选择停留在原地,延一条边走一步或自爆,求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>秒后总的行为的方案数.(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">1\leq t\leq 10^6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>)</p>
+<p>有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>天，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>个点构成一张无向图，有一些点在一些时候不可用，我们需要将物资从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>号点运输到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>号点，更换一次线路的代价为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>，求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>天的最小代价。</p>
+<h5 id="数据范围">数据范围</h5>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>100</mn><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>m</mi><mo>≤</mo><mn>20</mn><mo separator="true">,</mo><mi mathvariant="normal">边</mi><mi mathvariant="normal">权</mi><mi mathvariant="normal">没</mi><mi mathvariant="normal">有</mi><mi mathvariant="normal">给</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">大</mi><mi mathvariant="normal">致</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>7</mn></msup></mrow><annotation encoding="application/x-tex">1\leq n\leq 100,1\leq m\leq 20,边权没有给，大致\leq 10^7
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord cjk_fallback">边</span><span class="mord cjk_fallback">权</span><span class="mord cjk_fallback">没</span><span class="mord cjk_fallback">有</span><span class="mord cjk_fallback">给</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">大</span><span class="mord cjk_fallback">致</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span></span></span></span></span></p>
 <h4 id="题解">题解</h4>
-<p>考虑进行<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>.记<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>为目前在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>点,走了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>步的总方案数,则可得如下转移方程:</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><munder><mo>∑</mo><mrow><mi>k</mi><mi mathvariant="normal">可</mi><mi mathvariant="normal">以</mi><mi mathvariant="normal">直</mi><mi mathvariant="normal">达</mi><mi>i</mi></mrow></munder><msub><mi>f</mi><mrow><mi>k</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}=\sum_{k可以直达i}f_{k,j-1}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.3521180000000004em;vertical-align:-1.3021129999999999em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0500050000000005em;"><span style="top:-1.847887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mord cjk_fallback mtight">可</span><span class="mord cjk_fallback mtight">以</span><span class="mord cjk_fallback mtight">直</span><span class="mord cjk_fallback mtight">达</span><span class="mord mathdefault mtight">i</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3021129999999999em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></span></p>
-<p>那么自爆怎么办呢？我们可以把自爆理解成为一个点,这个点只进不出,加一个点连单向边即可.同样的,停留在原地可以理解为自环.</p>
-<p>发现可以用滚动数组来优化空间,目前的时间复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mi>t</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(mt)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span>,<s>可能加了一口新鲜的氧气就过了</s>显然由于常数的原因无法通过.</p>
-<p>但是我们发现,本题是常系数递推,重点是,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>还贼小！于是我们想到了矩阵快速幂优化递推.我们将上述的边(包括自爆和停留的边)建成一个邻接矩阵,即为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span></span></span></span>.则将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>也视为一个矩阵时,两个每相乘一次即为每多走一步当前的情况,于是乎用熟悉的矩阵快速幂优化即可.时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mi>log</mi><mo>⁡</mo><mi>t</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^3\log t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span>.<s>这回总能过去了吧QAQ</s></p>
+<p>首先考虑进行<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span></span></span></span>。记<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>为前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>天完成运输的最小代价。那么得到转移方程：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub><mo>=</mo><mo>[</mo><mn>1</mn><mo>≤</mo><mi>j</mi><mo>&lt;</mo><mi>i</mi><mo>]</mo><mtext>  </mtext><msub><mi>f</mi><mi>j</mi></msub><mo>+</mo><mi>d</mi><mi>i</mi><mi>s</mi><mo>(</mo><mi>j</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>i</mi><mo>)</mo><mo>×</mo><mo>(</mo><mi>i</mi><mo>−</mo><mi>j</mi><mo>)</mo><mo>+</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">f_i=[1\leq j&lt;i]\;f_j+dis(j+1,i)\times (i-j)+k
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span></span></p>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi><mo>(</mo><mi>j</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>i</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">dis(j+1,i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mclose">)</span></span></span></span>表示从第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">j+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>天到第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>天采用同一个相同的线路能够达到的最小代价。由于采用的相同线路，因而任何一天被封禁的道路都不了用，然后直接用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mi>l</mi><mi>o</mi><mi>y</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">Floyd</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault">d</span></span></span></span>即可。时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><msup><mi>m</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2m^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
 <h4 id="code">Code</h4>
 <pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
@@ -552,49 +558,60 @@ void write(T x)
 	putchar(x%10+'0');
 	return;
 }
-const int MAXN=35;
-const int mod=2017;
-int n,m,t;
-struct Mat{//矩阵类
-public:
-    int a[MAXN][MAXN];
-    friend Mat operator *(const Mat &amp;x,const Mat &amp;y)
-    {
-        Mat ret;
-        for(int i=1;i&lt;=n+1;i++)
-        for(int j=1;j&lt;=n+1;j++) ret.a[i][j]=0;
-        for(int i=1;i&lt;=n+1;i++)
-        for(int j=1;j&lt;=n+1;j++)
-        for(int k=1;k&lt;=n+1;k++) ret.a[i][j]+=x.a[i][k]*y.a[k][j],ret.a[i][j]%=mod;
-        return ret;
-    }
-}a;//a为初始的邻接矩阵
-Mat pow(int k)//矩阵快速幂
+const int MAXN=110,MAXM=22;
+const int inf=999999;
+int n,m,k,e,d;
+int mp[MAXM][MAXM];
+bool book[MAXM][MAXN];
+int f[MAXN];
+inline int dis(int l,int r)
 {
-    if(k==1) return a;
-    Mat tmp=pow(k&gt;&gt;1);
-    tmp=tmp*tmp;
-    if(k&amp;1) tmp=tmp*a;
-    return tmp;
+    int dis[MAXM][MAXM];
+    bool flag[MAXM];
+    memset(flag,1,sizeof(flag));
+    for(int i=1;i&lt;=m;++i)
+    for(int j=l;j&lt;=r;++j)
+    if(!book[i][j])
+    {
+        flag[i]=0;
+        break;
+    }
+    for(int i=1;i&lt;=m;++i)
+    for(int j=1;j&lt;=m;++j) dis[i][j]=mp[i][j];
+    for(int k=1;k&lt;=m;++k)
+    if(flag[k])
+    for(int i=1;i&lt;=m;++i)
+    if(flag[i])
+    for(int j=1;j&lt;=m;++j)
+    if(flag[j]) dis[i][j]=min(dis[i][j],dis[i][k]+dis[k][j]);
+    return dis[1][m];
 }
-int ans=0;
 int main()
 {
-    read(n),read(m);
-    for(int i=1;i&lt;=m;i++)
+    read(n),read(m),read(k),read(e);
+    for(int i=1;i&lt;=m;++i)
+    for(int j=1;j&lt;=m;++j) mp[i][j]=(i==j)? 0:inf;
+    for(int i=1;i&lt;=e;++i)
     {
-        int u,v;
-        read(u),read(v);
-        a.a[u][v]=a.a[v][u]=1;//按照条件连边
+        int x,y,c;
+        read(x),read(y),read(c);
+        mp[x][y]=mp[y][x]=min(mp[x][y],c);
     }
-    read(t);
-    for(int i=1;i&lt;=n;i++) a.a[n+1][i]=1;//建自爆的边
-    for(int i=1;i&lt;=n+1;i++) a.a[i][i]=1;//建停留的边
-    Mat cur=pow(t);
-    for(int i=1;i&lt;=n+1;i++) ans+=cur.a[i][1],ans%=2017;//统计答案
-    write(ans),putchar('\n');
+    read(d);
+    memset(book,1,sizeof(book));
+    for(int i=1;i&lt;=d;++i)
+    {
+        int p,a,b;
+        read(p),read(a),read(b);
+        for(int j=a;j&lt;=b;++j) book[p][j]=0;
+    }
+    for(int i=1;i&lt;=n;++i) f[i]=dis(1,i)*i;
+    for(int i=1;i&lt;=n;++i)
+    for(int j=1;j&lt;i;++j) f[i]=min(f[i],f[j]+dis(j+1,i)*(i-j)+k);
+    write(f[n]),putchar('\n');
 	return 0;
 }
+
 </code></pre>
 
               </div>
@@ -606,7 +623,7 @@ int main()
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://xiaoh105.github.io/post/ke-le/" title="洛谷 P3758 【TJOI2017】可乐 题解">洛谷 P3758 【TJOI2017】可乐 题解</a>
+      <a href="https://xiaoh105.github.io/post/wu-liu-yun-shu/" title="洛谷 P1772 【ZJOI2006】物流运输 题解">洛谷 P1772 【ZJOI2006】物流运输 题解</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -615,27 +632,23 @@ int main()
   </ul>
   <div class="tags">
     
-      <a href="https://xiaoh105.github.io/tag/Matrix/"># 矩阵</a>
-    
-      <a href="https://xiaoh105.github.io/tag/Fast-Pow/"># 快速幂</a>
-    
       <a href="https://xiaoh105.github.io/tag/Linear-DP/"># 线性DP</a>
     
       <a href="https://xiaoh105.github.io/tag/Graph-Theory/"># 图论</a>
+    
+      <a href="https://xiaoh105.github.io/tag/Shortest_Path/"># 最短路</a>
+    
+      <a href="https://xiaoh105.github.io/tag/Dynamic-Programming/"># 动态规划</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="专题:最大权闭合子图" href="https://xiaoh105.github.io/post/zui-da-quan-bi-he-zi-tu/">专题:最大权闭合子图</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="专题:最大权闭合子图" href="https://xiaoh105.github.io/post/zui-da-quan-bi-he-zi-tu/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="洛谷 P3008 【USACO11JAN】Roads and Planes G 题解" href="https://xiaoh105.github.io/post/Roads-and-Planes/">洛谷 P3008 【USACO11JAN】Roads and Planes G 题解</a>
-        <a class="nav-mobile-next" title="洛谷 P3008 【USACO11JAN】Roads and Planes G 题解" href="https://xiaoh105.github.io/post/Roads-and-Planes/">下一篇</a>
+        <a class="nav-pc-next" title="洛谷 P4310 绝世好题 题解" href="https://xiaoh105.github.io/post/jue-shi-hao-ti/">洛谷 P4310 绝世好题 题解</a>
+        <a class="nav-mobile-next" title="洛谷 P4310 绝世好题 题解" href="https://xiaoh105.github.io/post/jue-shi-hao-ti/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
